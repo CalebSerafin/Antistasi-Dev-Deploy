@@ -183,7 +183,7 @@ namespace Arma_3_Dev_Deploy
 
 Version=" + Config.MTVersion + @";
 A3Profile=FrostsBite;							Default Arma Profile is not supported.
-MissionType=A3Antistasi;					Only Type avalable, will expand on in the future...
+MissionType=A3Antistasi;					Only Type available, will expand on in the future...
 Template=A3-AA-BLUFORTemplate.Altis;	Replace as you wish.
 Template=A3-AATemplate.Altis;
 Template=A3-ArmiaKrajowaTemplate.chernarus_summer;
