@@ -179,17 +179,17 @@ namespace Arma_3_Dev_Deploy
 				{
 					Config.TSelected,
 					@"; The following controls which mission templates are copied:
-; To run this A3DD silently, run the exe with param /Q
+; To run A3DD silently, run the exe with param /Q
 
 Version=" + Config.MTVersion + @";
-A3Profile=FrostsBite;							Default Arma Profile is not supported.
-MissionType=A3Antistasi;					Only Type available, will expand on in the future...
+A3Profile=FrostsBite;					Default Arma Profile is not supported.
+MissionType=A3Antistasi;				Only A3Antistasi is available, will expand on in the future...
 Template=A3-AA-BLUFORTemplate.Altis;	Replace as you wish.
 Template=A3-AATemplate.Altis;
 Template=A3-ArmiaKrajowaTemplate.chernarus_summer;
 Template=A3-WotPTemplate.Tanoa;
 
-ManagedMode=false;							Change to true to disable all user interaction (If called from another application)
+ManagedMode=false;						Change to true to disable all user interaction (If called from another application)
 "
 				},
 				{
@@ -211,7 +211,7 @@ ak.jpg\
 			File.WriteAllText(Config.Dir + Name, NewFile[Name]);
 		}
 
-		static void Main(string[] args) //one day...
+		static void Main(string[] args)
 		{
 			bool ArgFlag(string Flag)
 			{
@@ -275,7 +275,7 @@ ak.jpg\
 			{
 				throw FileReadError;
 			};
-			//===========================================
+			
 			List<MapTemplate> MapTemplates = new List<MapTemplate>();
 			string MapTemplateVersion = "0";
 			string arma3ProfileName = "";
@@ -317,7 +317,6 @@ ak.jpg\
 			if (MissionType != "A3Antistasi") goto MissionTypeNotSupported;
 			if (arma3ProfileName == "") goto A3ProfileNameInvalid;
 
-			//xcopy ".\A3-Antistasi" "C:\\Users\\User\\Documents\\Arma 3 - Other Profiles\\FrostsBite\\mpmissions\\A3-Antistasi.Altis" /i /e
 			string Source = Environment.ExpandEnvironmentVariables(@".\A3-Antistasi");
 			string mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + arma3ProfileName + @"\mpmissions\");
 			string Destination, TemplateFolder;
