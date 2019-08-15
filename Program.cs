@@ -16,6 +16,20 @@ namespace Arma_3_Dev_Deploy
 {
 	class Program
 	{
+		class ConfigClass
+		{
+			public string Dir { get; } = ".\\A3DD\\"; // A3DD\
+			public string TSelected { get; } = "template.selected.cfg"; // template.selected.cfg
+			public string TIgnoreFiles { get; } = "template.ignoreFiles.cfg"; // template.ignoreFiles.cfg
+			private static readonly int mTVersionI = 1;
+			public int GetMTVersionI()
+			{
+				return mTVersionI;
+			}
+			public string MTVersion { get; } = mTVersionI.ToString(); // template.ignoreFiles.cfg
+		}
+
+		private static readonly ConfigClass Config = new ConfigClass();
 		class WindowPower
 		{
 			[DllImport("kernel32.dll")]
@@ -31,20 +45,8 @@ namespace Arma_3_Dev_Deploy
 			//ShowWindow(WindowPowerHandle, SW_HIDE);
 			//ShowWindow(WindowPowerHandle, SW_SHOW);
 		}
-
-		class Config
-		{
-			public string Dir { get; } = ".\\A3DD\\"; // A3DD\
-			public string TSelected { get; } = "template.selected.cfg"; // template.selected.cfg
-			public string TIgnoreFiles { get; } = "template.ignoreFiles.cfg"; // template.ignoreFiles.cfg
-			public static int MTVersionI { get; } = 1; // template.ignoreFiles.cfg
-
-			public string MTVersion { get; } = MTVersionI.ToString(); // template.ignoreFiles.cfg
-		}
-
 		static bool TemplateSelectedUpdate() //returns true for restart;
 		{
-			Config Config = new Config();
 			string[] MapTemplatesRaw = File.ReadAllLines(Config.Dir + Config.TSelected);
 			string TemplateCode, TemplateParam;
 			string MapTemplateVersionString = "";
@@ -67,7 +69,7 @@ namespace Arma_3_Dev_Deploy
 
 			if (!Int32.TryParse(MapTemplateVersionString, out int MapTemplateVersion)) goto VersionParamMissing;
 
-			if (MapTemplateVersion > Config.MTVersionI) goto VersionGreater;
+			if (MapTemplateVersion > Config.GetMTVersionI()) goto VersionGreater;
 
 			goto VersionParamMissing;
 
@@ -90,7 +92,6 @@ namespace Arma_3_Dev_Deploy
 			Console.WriteLine("\n");
 			return false;
 		}
-
 		static void XCopy(string Source, string Destination, string Flags, string Args)
 		{
 			bool ArgFlag(string Flag)
@@ -151,7 +152,6 @@ namespace Arma_3_Dev_Deploy
 				process.Close();
 			}
 		}
-
 		class MapTemplate
 		{
 			public string Name { get; set; }
@@ -170,10 +170,8 @@ namespace Arma_3_Dev_Deploy
 				Map = mapX;
 			}
 		};
-
 		static void CreateConfigFile(string Name)
 		{
-			Config Config = new Config();
 			Dictionary<string, string> NewFile = new Dictionary<string, string>
 			{
 				{
@@ -210,7 +208,6 @@ ak.jpg\
 
 			File.WriteAllText(Config.Dir + Name, NewFile[Name]);
 		}
-
 		static void Main(string[] args)
 		{
 			bool ArgFlag(string Flag)
@@ -224,7 +221,6 @@ ak.jpg\
 			}
 
 			if (ArgFlag("/Q")) { WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE); };
-			Config Config = new Config();
 			bool Quiet = ArgFlag("/Q");
 		Restart:
 
