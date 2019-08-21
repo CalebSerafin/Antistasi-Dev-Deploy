@@ -100,6 +100,7 @@ namespace Arma_3_Dev_Deploy
 			}
 			bool Quiet;
 			Quiet = ArgFlag("/Q");
+			Flags += ArgFlag("/R") ? "" : " /D";
 			Process process = new Process();
 
 			try
@@ -177,7 +178,10 @@ namespace Arma_3_Dev_Deploy
 				{
 					Config.TSelected,
 					@"; The following controls which mission templates are copied:
-; To run A3DD silently, run the exe with param /Q
+; To run A3DD Quietly, run the exe with param: /Q
+; By default only new modified files are recopied into the mpmissions dictionary.
+; To force all files to be Replaced, add the param: /R
+; To output ""Job Done"" to Notify when all files have been copied, add the param: /N
 
 Version=" + Config.MTVersion + @";
 A3Profile=FrostsBite;					Default Arma Profile is not supported.
@@ -222,6 +226,8 @@ ak.jpg\
 
 			if (ArgFlag("/Q")) { WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE); };
 			bool Quiet = ArgFlag("/Q");
+			bool Replace = ArgFlag("/R");
+			bool Notify = ArgFlag("/N");
 		Restart:
 
 			bool FactoryDefaultConfig = false;
@@ -316,7 +322,9 @@ ak.jpg\
 			string Source = Environment.ExpandEnvironmentVariables(@".\A3-Antistasi");
 			string mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + arma3ProfileName + @"\mpmissions\");
 			string Destination, TemplateFolder;
-			string XCopyArgs = Quiet ? "/Q" : "";
+			string XCopyArgs = " ";
+			XCopyArgs += Quiet ? "/Q" : "";
+			XCopyArgs += Replace ? "/R" : "";
 
 			foreach (MapTemplate Item in MapTemplates)
 			{
@@ -325,11 +333,12 @@ ak.jpg\
 
 				//The following log option is broken, thanks XCOPY ♥.
 				//XCopy(Source, mpMissions + Item.Map, "/c /s /d /i /y /exclude:" + Config.Dir + Config.TIgnoreFiles + " > " + Config.Dir + "Antistasi.xcopy.log");
-				XCopy(Source, Destination, "/c /s /d /i /y /exclude:" + Config.Dir + Config.TIgnoreFiles, XCopyArgs);
-				XCopy(TemplateFolder, Destination, "/c /s /d /i /y", XCopyArgs);//"/Q");
+				XCopy(Source, Destination, "/C /S /I /Y /Exclude:" + Config.Dir + Config.TIgnoreFiles, XCopyArgs);
+				XCopy(TemplateFolder, Destination, "/C /S /I /Y", XCopyArgs);
 
 			};
 
+			if (Notify) Console.Write("Job Done");
 			if (ManagedMode || Quiet) return;
 			Console.Write("\nPress any key to exit...");
 			Console.ReadKey(); Console.WriteLine("\n");
