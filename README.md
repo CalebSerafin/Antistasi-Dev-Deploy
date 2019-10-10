@@ -1,5 +1,5 @@
 # Arma-3-Dev-Deploy
-*Version 2.0 is being written so it works in more dynamic setups.*
+*Version 2.0 is being currently being so it works in more dynamic setups.*
 Created to allow testing inDev Versions of Antistasi Easier by coping all specified templates into the User's mpmissions.
 Simply place above the respority root folder (the same folder the git ignore is in). 
 
