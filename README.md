@@ -5,6 +5,7 @@ Just place in the same folder as A3-Antistasi, and with one click, all the templ
 ## Technical Specifications 
 * Antistasi Dev Deploy gets your **currently** selected Arma 3 Profile.\
 * A valid map template has a "." in its directory name. The map templates are in A3-Antistasi/Templates".
+* Works when placed inside the Tools folder found inside `official-antistasi-community/A3-Antistasi/`.
 <br/>
 <br/>
 <br/>
