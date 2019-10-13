@@ -53,7 +53,7 @@ namespace Antistasi_Dev_Deploy
 			string Dir_AntistasiRoot = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\A3-Antistasi");
 			string Dir_AntistasiTemplates = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\A3-Antistasi\Templates");
 
-			if (GetFolder(Environment.CurrentDirectory) == "Tools")
+			if (!Directory.Exists("A3-Antistasi"))
 			{
 				Dir_AntistasiRoot = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\..\A3-Antistasi");
 				Dir_AntistasiTemplates = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\..\A3-Antistasi\Templates");
