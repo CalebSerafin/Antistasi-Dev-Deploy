@@ -10,6 +10,7 @@ using static Antistasi_Dev_Deploy.CompileTimeValues;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
 using static Antistasi_Dev_Deploy.XCopyLib;
 using static Antistasi_Dev_Deploy.ConfigFiles;
+using static Antistasi_Dev_Deploy.GetFolderLib;
 
 namespace Antistasi_Dev_Deploy
 {
@@ -49,23 +50,25 @@ namespace Antistasi_Dev_Deploy
 
 			string Reg_Value_Arma_PlayerName_Value = (string) Registry.GetValue(CompileTimeValue.Reg_Key_Arma, CompileTimeValue.Reg_Value_Arma_PlayerName_Name, string.Empty);
 			string Dir_mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + Reg_Value_Arma_PlayerName_Value + @"\mpmissions\");
-			string Dir_AntistasiRoot = Environment.ExpandEnvironmentVariables(@"A3-Antistasi");
-			string Dir_AntistasiTemplates = Environment.ExpandEnvironmentVariables(@"A3-Antistasi\Templates");
+			string Dir_AntistasiRoot = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\A3-Antistasi");
+			string Dir_AntistasiTemplates = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\A3-Antistasi\Templates");
 
-
+			if (GetFolder(Environment.CurrentDirectory) == "Tools")
+			{
+				Dir_AntistasiRoot = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\..\A3-Antistasi");
+				Dir_AntistasiTemplates = Environment.ExpandEnvironmentVariables(Environment.CurrentDirectory + @"\..\A3-Antistasi\Templates");
+			}
 			if (Reg_Value_Arma_PlayerName_Value == string.Empty)
 			{
 				Dir_mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3\mpmissions\");
 			}
-
 			List<MapTemplate> AntistasiMapTemplates = new List<MapTemplate>();
 			if (Directory.Exists(Dir_AntistasiTemplates))
 			{
-				var Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
-				foreach (var item in Templates_Directories)
+				string[] Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
+				foreach (string item in Templates_Directories)
 				{
-					string[] Directories = item.ToString().Split('\\');
-					string LastFolder = Directories[Directories.Count() - 1];
+					string LastFolder = GetFolder(item);
 					string[] TemplateData = LastFolder.Split('.');
 					if (TemplateData.Length == 2)
 					{
@@ -86,6 +89,8 @@ namespace Antistasi_Dev_Deploy
 			{
 				Console.WriteLine(item.Name + " on map " + item.Map);
 			}
+			Console.WriteLine(GetFolder(Environment.CurrentDirectory));
+			Console.WriteLine(Dir_AntistasiTemplates);
 			Console.WriteLine(Reg_Value_Arma_PlayerName_Value);
 			Console.WriteLine(Dir_mpMissions);
 			Console.WriteLine(IgnoreFiles_RoadsDB);
