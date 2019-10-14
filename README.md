@@ -2,16 +2,18 @@
 Dynamically deploys any map template (Re-take Polan.Enoch) into mpmissions for straight testing, or separating it for packing into a PBO. 
 ## How To
 Just place in the same folder as A3-Antistasi, and with one click, all the templates are deployed to *your* mpmissions. No forms, no configs, no bullshit.
+## Antistasi Dev Deploy Configurator
+Run anywhere to open up a  GUI which allows you to overide all `Antistasi Dev Deploy.exe` to output to the specified directory. Features Full-Fledged Folder Selector and not bog standard Directory Selector. To remove all traces of this program, press `Erase Registry Value` to erase the overrides.
 ## Technical Specifications 
-* Antistasi Dev Deploy gets your **currently** selected Arma 3 Profile.\
-* A valid map template has a "." in its directory name. The map templates are in A3-Antistasi/Templates".
-* Works when placed inside the Tools folder found inside `official-antistasi-community/A3-Antistasi/`. (Works for any 1-level sub folder of root repository)
+* Antistasi Dev Deploy gets your **currently** selected Arma 3 Profile.
+* A valid map template has a "." in its directory name. The map templates are in `A3-Antistasi/Templates`.
+* Also Works when placed inside the Tools folder found inside `official-antistasi-community/A3-Antistasi/`.
 <br/>
 <br/>
 <br/>
 
 # Arma-3-Dev-Deploy
-*Version 2.0 is being currently being so it works in more dynamic setups.*
+*Version 2.0 is being currently being so it works with more dynamic setups.*
 Created to allow testing inDev Versions of Antistasi Easier by coping all specified templates into the User's mpmissions.
 Simply place above the respority root folder (the same folder the git ignore is in). 
 ## How To
