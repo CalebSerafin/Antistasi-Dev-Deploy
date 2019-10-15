@@ -1,18 +1,31 @@
+**Please find binaries inside the `Releases` tab. Double clicking a .cs won't run it.**
+**_____________________________________________________________________________________**
+<br/>
 # Antistasi Dev Deploy
 Dynamically deploys any map template (Re-take Polan.Enoch) into mpmissions for straight testing, or separating it for packing into a PBO. 
 ## How To
 Just place in the same folder as A3-Antistasi, and with one click, all the templates are deployed to *your* mpmissions. No forms, no configs, no bullshit.
-## Antistasi Dev Deploy Configurator
-Run anywhere to open up a  GUI which allows you to overide all `Antistasi Dev Deploy.exe` to output to the specified directory. Features Full-Fledged Folder Selector and not bog standard Directory Selector. To remove all traces of this program, press `Erase Registry Value` to erase the overrides.
+
 ## Technical Specifications 
+* Should be physically placed in `GitRepository/` or `GitRepository/Tools`.
+* Shortcuts,Batches etc. won't change its current directory.
+* A valid map template has a "." in its directory name. The map templates should be in `GitRepository/Map-Templates`.
 * Antistasi Dev Deploy gets your **currently** selected Arma 3 Profile.
-* A valid map template has a "." in its directory name. The map templates are in `A3-Antistasi/Templates`.
-* Also Works when placed inside the Tools folder found inside `official-antistasi-community/A3-Antistasi/`.
+* If your Arma 3 Profile Name cannot be fetched (ie. A3 Not installed), It will export to `PackagedMissions` in the current directory.
+
+## Antistasi Dev Deploy Configurator \[Add-on\]
+Run anywhere to open up a  GUI which allows you to overide global settings for `Antistasi Dev Deploy.exe`. 
+* Output to a specified directory. Features Full-Fledged Folder Selector and not bog standard Directory Selector. 
+* Open the output folder in Windows Explorer.
+* To remove all traces of this program, press `Erase Registry Value` to erase the overrides.
+<br/>
+<br/>
+<br/>
 <br/>
 <br/>
 <br/>
 
-# Arma-3-Dev-Deploy
+# Arma-3-Dev-Deploy \[Use Antistasi Dev Deploy instead\]
 *Version 2.0 is being currently being so it works with more dynamic setups.*
 Created to allow testing inDev Versions of Antistasi Easier by coping all specified templates into the User's mpmissions.
 Simply place above the respority root folder (the same folder the git ignore is in). 
