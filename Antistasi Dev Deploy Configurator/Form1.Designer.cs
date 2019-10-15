@@ -35,6 +35,8 @@
 			this.btn_Apply = new System.Windows.Forms.Button();
 			this.btn_EraseRegistry = new System.Windows.Forms.Button();
 			this.chk_ForceOpenOutput = new System.Windows.Forms.CheckBox();
+			this.lbl_JustConfig1 = new System.Windows.Forms.Label();
+			this.lbl_JustConfig2 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// chk_OverrideOutput
@@ -79,10 +81,26 @@
 			this.chk_ForceOpenOutput.Name = "chk_ForceOpenOutput";
 			this.chk_ForceOpenOutput.UseVisualStyleBackColor = true;
 			// 
+			// lbl_JustConfig1
+			// 
+			resources.ApplyResources(this.lbl_JustConfig1, "lbl_JustConfig1");
+			this.lbl_JustConfig1.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_JustConfig1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.lbl_JustConfig1.Name = "lbl_JustConfig1";
+			// 
+			// lbl_JustConfig2
+			// 
+			resources.ApplyResources(this.lbl_JustConfig2, "lbl_JustConfig2");
+			this.lbl_JustConfig2.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_JustConfig2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.lbl_JustConfig2.Name = "lbl_JustConfig2";
+			// 
 			// Menu
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.lbl_JustConfig2);
+			this.Controls.Add(this.lbl_JustConfig1);
 			this.Controls.Add(this.chk_ForceOpenOutput);
 			this.Controls.Add(this.btn_EraseRegistry);
 			this.Controls.Add(this.btn_Apply);
@@ -103,6 +121,8 @@
 		private System.Windows.Forms.Button btn_Apply;
 		private System.Windows.Forms.Button btn_EraseRegistry;
 		private System.Windows.Forms.CheckBox chk_ForceOpenOutput;
+		private System.Windows.Forms.Label lbl_JustConfig1;
+		private System.Windows.Forms.Label lbl_JustConfig2;
 	}
 }
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Antistasi_Dev_Deploy_Configurator.Properties {
+namespace Antistasi_Dev_Deploy.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Antistasi_Dev_Deploy_Configurator.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Antistasi_Dev_Deploy_Configurator.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Antistasi_Dev_Deploy.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
