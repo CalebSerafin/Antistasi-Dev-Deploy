@@ -115,7 +115,7 @@ namespace Antistasi_Dev_Deploy
 			if (Reg_Value_ADD_OverrideOutputFolder_Value == null) Reg_Value_ADD_OverrideOutputFolder_Value = "C:\\";
 			if (!Reg_Value_ADD_OverrideOutputFolder_Value.EndsWith("\\")) Reg_Value_ADD_OverrideOutputFolder_Value += "\\";
 
-			if (!Directory.Exists("A3-Antistasi"))
+			if (!Directory.Exists(CurrentDirectory + @"\A3-Antistasi"))
 			{
 				Dir_AntistasiRoot = CurrentDirectory + @"\..\A3-Antistasi";
 				Dir_AntistasiTemplates = CurrentDirectory + @"\..\Map-Templates";

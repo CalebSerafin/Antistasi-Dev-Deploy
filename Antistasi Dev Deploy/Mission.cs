@@ -14,7 +14,7 @@ namespace Antistasi_Dev_Deploy
 		{
 			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi\";
-			if (!Directory.Exists("A3-Antistasi"))
+			if (!Directory.Exists(CurrentDirectory + @"\A3-Antistasi"))
 			{
 				Dir_AntistasiRoot = CurrentDirectory + @"\..\A3-Antistasi\";
 			}
