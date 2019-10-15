@@ -40,6 +40,18 @@ namespace Antistasi_Dev_Deploy_Configurator
 					default: throw e;
 				}
 			}
+			try
+			{
+				chk_ForceOpenOutput.Checked = BoolBin((int)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput_Name, 0));
+			}
+			catch (Exception e)
+			{
+				switch (e.GetType().Name)
+				{
+					case "NullReferenceException": chk_ForceOpenOutput.Checked = false; break;
+					default: throw e;
+				}
+			}
 			txt_OverrideOutput.Text = (string) Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, "C:\\");
 			if (txt_OverrideOutput.Text == string.Empty) txt_OverrideOutput.Text = "C:\\";
 
@@ -71,6 +83,7 @@ namespace Antistasi_Dev_Deploy_Configurator
 		{
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutput_Name, BoolBin(chk_OverrideOutput.Checked), RegistryValueKind.DWord);
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, txt_OverrideOutput.Text, RegistryValueKind.String);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput_Name, BoolBin(chk_ForceOpenOutput.Checked), RegistryValueKind.DWord);
 			MessageBox.Show("Configuration Applied!");
 		}
 

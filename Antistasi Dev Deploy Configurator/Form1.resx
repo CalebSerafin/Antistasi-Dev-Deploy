@@ -144,13 +144,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chk_OverrideOutput.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txt_OverrideOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>151, 12</value>
+    <value>169, 12</value>
   </data>
   <data name="txt_OverrideOutput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 20</value>
+    <value>189, 20</value>
   </data>
   <data name="txt_OverrideOutput.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_OverrideOutput.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btn_OverrideOutput_SelectPath.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -195,7 +195,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_OverrideOutput_SelectPath.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btn_Apply.Location" type="System.Drawing.Point, System.Drawing">
     <value>313, 84</value>
@@ -204,7 +204,7 @@
     <value>75, 23</value>
   </data>
   <data name="btn_Apply.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>998</value>
   </data>
   <data name="btn_Apply.Text" xml:space="preserve">
     <value>Apply</value>
@@ -219,7 +219,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Apply.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btn_EraseRegistry.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 84</value>
@@ -228,7 +228,7 @@
     <value>122, 23</value>
   </data>
   <data name="btn_EraseRegistry.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>999</value>
   </data>
   <data name="btn_EraseRegistry.Text" xml:space="preserve">
     <value>Erase Registry Values</value>
@@ -243,6 +243,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_EraseRegistry.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chk_ForceOpenOutput.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chk_ForceOpenOutput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 35</value>
+  </data>
+  <data name="chk_ForceOpenOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 17</value>
+  </data>
+  <data name="chk_ForceOpenOutput.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="chk_ForceOpenOutput.Text" xml:space="preserve">
+    <value>Force Open Output Folder</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceOpenOutput.Name" xml:space="preserve">
+    <value>chk_ForceOpenOutput</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceOpenOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceOpenOutput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceOpenOutput.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -253,6 +280,10 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>400, 119</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Antistasi Dev Deploy Configurator</value>

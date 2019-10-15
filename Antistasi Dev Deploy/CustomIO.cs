@@ -1,5 +1,5 @@
 ﻿using System;
-using static Antistasi_Dev_Deploy.CompileTimeValues;
+using static Antistasi_Dev_Deploy.ProgramValues;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
 
 namespace Antistasi_Dev_Deploy

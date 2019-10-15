@@ -34,6 +34,7 @@
 			this.btn_OverrideOutput_SelectPath = new System.Windows.Forms.Button();
 			this.btn_Apply = new System.Windows.Forms.Button();
 			this.btn_EraseRegistry = new System.Windows.Forms.Button();
+			this.chk_ForceOpenOutput = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// chk_OverrideOutput
@@ -72,10 +73,17 @@
 			this.btn_EraseRegistry.UseVisualStyleBackColor = true;
 			this.btn_EraseRegistry.Click += new System.EventHandler(this.Btn_EraseRegistry_Click);
 			// 
+			// chk_ForceOpenOutput
+			// 
+			resources.ApplyResources(this.chk_ForceOpenOutput, "chk_ForceOpenOutput");
+			this.chk_ForceOpenOutput.Name = "chk_ForceOpenOutput";
+			this.chk_ForceOpenOutput.UseVisualStyleBackColor = true;
+			// 
 			// Menu
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.chk_ForceOpenOutput);
 			this.Controls.Add(this.btn_EraseRegistry);
 			this.Controls.Add(this.btn_Apply);
 			this.Controls.Add(this.btn_OverrideOutput_SelectPath);
@@ -94,6 +102,7 @@
 		private System.Windows.Forms.Button btn_OverrideOutput_SelectPath;
 		private System.Windows.Forms.Button btn_Apply;
 		private System.Windows.Forms.Button btn_EraseRegistry;
+		private System.Windows.Forms.CheckBox chk_ForceOpenOutput;
 	}
 }
 
