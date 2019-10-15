@@ -7,7 +7,7 @@ Dynamically deploys any map template (Re-take Polan.Enoch) into mpmissions for s
 Just place in the same folder as A3-Antistasi, and with one click, all the templates are deployed to *your* mpmissions. No forms, no configs, no bullshit.
 
 ## Technical Specifications 
-* Should be physically placed in `GitRepository/` or `GitRepository/Tools`.
+* Should be physically placed in `YourGitRepository/` or `YourGitRepository/Tools`.
 * Shortcuts,Batches etc. won't change its current directory.
 * A valid map template has a "." in its directory name. The map templates should be in `GitRepository/Map-Templates`.
 * Antistasi Dev Deploy gets your **currently** selected Arma 3 Profile.
