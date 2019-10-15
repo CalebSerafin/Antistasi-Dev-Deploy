@@ -1,8 +1,8 @@
 **Please find binaries inside the `Releases` tab. Double clicking a .cs won't run it.**
-**_____________________________________________________________________________________**
+**_____________________________________________________________________________________ **
 <br/>
 # Antistasi Dev Deploy
-Dynamically deploys any map template (Re-take Polan.Enoch) into mpmissions for straight testing, or separating it for packing into a PBO. 
+Dynamically deploys any map template (Re-take Polan.Enoch) into mpmissions for straight testing, or separating it for packing into a PBO. Example Output: "Antistasi-2-2.Kunduz"
 ## How To
 Just place in the same folder as A3-Antistasi, and with one click, all the templates are deployed to *your* mpmissions. No forms, no configs, no bullshit.
 
