@@ -10,6 +10,8 @@ namespace Antistasi_Dev_Deploy_Configurator
 	{
 		public class CompileTimeValue
 		{
+			public const int MTVersionI = 3;
+			public const string MTVersionS = "3"; // template.ignoreFiles.cfg
 		}
 		public class Reg
 		{

@@ -97,7 +97,6 @@ namespace Antistasi_Dev_Deploy
 			{
 				Dir_mpMissions = CurrentDirectory + @"\PackagedMissions\";
 			}
-			if (Reg_Value_ADD_ForceOpenOutput_Value) CompileTimeValue.Debug_OpenOutput = true;
 			if (Reg_Value_ADD_OverrideOutput_Value) Dir_mpMissions = Reg_Value_ADD_OverrideOutputFolder_Value;
 			List<MapTemplate> AntistasiMapTemplates = new List<MapTemplate>();
 			if (Directory.Exists(Dir_AntistasiTemplates))
@@ -146,7 +145,10 @@ namespace Antistasi_Dev_Deploy
 			ReadKey();
 			Process.Start(Dir_mpMissions + "\\");
 #else
-			Process.Start(Dir_mpMissions + "\\"); 
+			if (Reg_Value_ADD_ForceOpenOutput_Value)
+			{
+				Process.Start(Dir_mpMissions + "\\");
+			}
 #endif
 		}
 	}

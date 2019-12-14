@@ -121,9 +121,18 @@
   <data name="chk_OverrideOutput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <metadata name="helpProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="chk_OverrideOutput.HelpString" xml:space="preserve">
+    <value>Use the custom directory specified.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chk_OverrideOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
+  </data>
+  <data name="chk_OverrideOutput.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="chk_OverrideOutput.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 17</value>
@@ -146,8 +155,14 @@
   <data name="&gt;&gt;chk_OverrideOutput.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="txt_OverrideOutput.HelpString" xml:space="preserve">
+    <value>Insert Fixed or Local Address with forward slashed.</value>
+  </data>
   <data name="txt_OverrideOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 12</value>
+  </data>
+  <data name="txt_OverrideOutput.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="txt_OverrideOutput.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 20</value>
@@ -173,8 +188,14 @@
   <data name="btn_OverrideOutput_SelectPath.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="btn_OverrideOutput_SelectPath.HelpString" xml:space="preserve">
+    <value>Use an intuitive folder explorer.</value>
+  </data>
   <data name="btn_OverrideOutput_SelectPath.Location" type="System.Drawing.Point, System.Drawing">
     <value>364, 11</value>
+  </data>
+  <data name="btn_OverrideOutput_SelectPath.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btn_OverrideOutput_SelectPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 20</value>
@@ -197,8 +218,14 @@
   <data name="&gt;&gt;btn_OverrideOutput_SelectPath.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="btn_Apply.HelpString" xml:space="preserve">
+    <value>Save Values to the registary.</value>
+  </data>
   <data name="btn_Apply.Location" type="System.Drawing.Point, System.Drawing">
     <value>335, 84</value>
+  </data>
+  <data name="btn_Apply.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btn_Apply.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -221,8 +248,14 @@
   <data name="&gt;&gt;btn_Apply.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="btn_EraseRegistry.HelpString" xml:space="preserve">
+    <value>Remove all Values added by A3DD.</value>
+  </data>
   <data name="btn_EraseRegistry.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 84</value>
+  </data>
+  <data name="btn_EraseRegistry.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="btn_EraseRegistry.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 23</value>
@@ -248,8 +281,14 @@
   <data name="chk_ForceOpenOutput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="chk_ForceOpenOutput.HelpString" xml:space="preserve">
+    <value>Open the folder when the operation is complete.</value>
+  </data>
   <data name="chk_ForceOpenOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 35</value>
+  </data>
+  <data name="chk_ForceOpenOutput.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="chk_ForceOpenOutput.Size" type="System.Drawing.Size, System.Drawing">
     <value>149, 17</value>
@@ -344,6 +383,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>422, 119</value>
+  </data>
+  <data name="$this.HelpString" xml:space="preserve">
+    <value>[Version Goes Here]</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -547,8 +589,17 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="$this.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Antistasi Dev Deploy Configurator</value>
+  </data>
+  <data name="&gt;&gt;helpProvider1.Name" xml:space="preserve">
+    <value>helpProvider1</value>
+  </data>
+  <data name="&gt;&gt;helpProvider1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.HelpProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Menu</value>
