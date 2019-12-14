@@ -105,7 +105,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Antistasi Main Logo 400x400.ico" />
     <None Include="Properties\Antistasi Main Logo Icon x48.ico" />
     <None Include="Properties\Colour Size Test.ico" />
     <None Include="Properties\Antistasi Main Logo Icon Set x2048.ico" />

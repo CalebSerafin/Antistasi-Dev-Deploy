@@ -79,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Registary.cs" />
     <Compile Include="WindowPowerLib.cs" />
     <Compile Include="XCopyLib.cs" />
   </ItemGroup>
@@ -98,17 +99,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Antistasi Main Logo 50x50.ico" />
-    <Content Include="Antistasi Main Logo Icon Set x2048.ico" />
     <None Include="Properties\Antistasi Main Logo Icon x48.ico" />
-    <None Include="Resources\Antistasi Main Logo Icon Set x48.ico" />
-    <None Include="Resources\Antistasi Main Logo Icon Set x2048.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

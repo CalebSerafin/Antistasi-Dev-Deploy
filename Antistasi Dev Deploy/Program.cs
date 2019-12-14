@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Win32;
+using static Antistasi_Dev_Deploy.Registary;
 using static Antistasi_Dev_Deploy.ProgramValues;
-using static Antistasi_Dev_Deploy.ProgramValues.Reg;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
 using static Antistasi_Dev_Deploy.XCopyLib;
 using static Antistasi_Dev_Deploy.GetFolderLib;
@@ -61,49 +58,25 @@ namespace Antistasi_Dev_Deploy
 			{
 				WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
 			}
+			foreach (string arg in args)
+			{
+				switch (arg.Substring(0, 2).ToLower())
+				{
+					case "/v":
+						Console.WriteLine("Version: " + CompileTimeValue.MTVersionS);
+						ReadKey();
+						return;
+					case "/h":
+						Console.WriteLine("/v	Version		Prints current version.");
+						Console.WriteLine("/h	Help		Prints switch list.");
+						ReadKey();
+						return;
+				}
+			}
 
-
-			bool Reg_Value_ADD_ForceOpenOutput_Value;
-			bool Reg_Value_ADD_OverrideOutput_Value;
-			string Reg_Value_Arma_PlayerName_Value;
-			//////////Fetch Values from Registry
-			try
-			{
-				Reg_Value_Arma_PlayerName_Value = (string)Registry.GetValue(Reg.Key_Arma, Reg.Value_Arma_PlayerName_Name, string.Empty);
-			}
-			catch (Exception e)
-			{
-				switch (e.GetType().Name)
-				{
-					case "NullReferenceException": Reg_Value_Arma_PlayerName_Value = string.Empty; break;
-					default: throw e;
-				}
-			}
-			try
-			{
-				Reg_Value_ADD_OverrideOutput_Value = BoolBin((int)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutput_Name, 0));
-			}
-			catch (Exception e)
-			{
-				switch (e.GetType().Name)
-				{
-					case "NullReferenceException": Reg_Value_ADD_OverrideOutput_Value = false; break;
-					default: throw e;
-				}
-			}
-			try
-			{
-				Reg_Value_ADD_ForceOpenOutput_Value = BoolBin((int)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput_Name, 0));
-			}
-			catch (Exception e)
-			{
-				switch (e.GetType().Name)
-				{
-					case "NullReferenceException": Reg_Value_ADD_ForceOpenOutput_Value = false; break;
-					default: throw e;
-				}
-			}
-			//////////Fetch Values from Registry
+			string Reg_Value_Arma_PlayerName_Value = FetchArma(Reg.Value_Arma_PlayerName_Name, string.Empty);
+			bool Reg_Value_ADD_OverrideOutput_Value = BoolBin(FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, 0));
+			bool Reg_Value_ADD_ForceOpenOutput_Value = BoolBin(FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, 0));
 
 			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi";
@@ -167,15 +140,14 @@ namespace Antistasi_Dev_Deploy
 				WriteLine("Copying " + Item.Dir + " Template assets...");
 				XCopy(TemplateFolder, Destination, "/C /S /I /Y", XCopyArgs);
 			}
-			if (CompileTimeValue.Debug_Log)
-			{
-				WriteLine("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
-				ReadKey(); ;
-			}
-			if (CompileTimeValue.Debug_Log || CompileTimeValue.Debug_OpenOutput)
-			{
-				Process.Start(Dir_mpMissions + "\\"); 
-			}
+#if DEBUG
+			
+			WriteLine("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
+			ReadKey();
+			Process.Start(Dir_mpMissions + "\\");
+#else
+			Process.Start(Dir_mpMissions + "\\"); 
+#endif
 		}
 	}
 }

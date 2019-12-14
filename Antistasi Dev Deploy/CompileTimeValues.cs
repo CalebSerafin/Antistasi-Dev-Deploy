@@ -14,8 +14,8 @@
 			public const bool Debug_HideWindow = true;
 #endif
 			public const string Dir = ".\\A3DD\\"; // A3DD\
-			public const int MTVersionI = 2;
-			public const string MTVersionS = "2"; // template.ignoreFiles.cfg
+			public const int MTVersionI = 3;
+			public const string MTVersionS = "3"; // template.ignoreFiles.cfg
 
 			public const string TSelected = "Template.Selected.cfg"; // template.selected.cfg
 			public const string TIgnoreFiles = "Template.IgnoreFiles.cfg"; // template.ignoreFiles.cfg
