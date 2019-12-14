@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using static Antistasi_Dev_Deploy_Configurator.CompileTimeValues;
+using static Antistasi_Dev_Deploy_Configurator.Registary;
 
 namespace Antistasi_Dev_Deploy_Configurator
 {
@@ -28,36 +29,13 @@ namespace Antistasi_Dev_Deploy_Configurator
 		public Menu()
 		{
 			InitializeComponent();
-			try
-			{
-				chk_OverrideOutput.Checked = BoolBin((int)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutput_Name, 0));
-			}
-			catch (Exception e)
-			{
-				switch (e.GetType().Name)
-				{
-					case "NullReferenceException": chk_OverrideOutput.Checked = false; break;
-					default: throw e;
-				}
-			}
-			try
-			{
-				chk_ForceOpenOutput.Checked = BoolBin((int)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput_Name, 0));
-			}
-			catch (Exception e)
-			{
-				switch (e.GetType().Name)
-				{
-					case "NullReferenceException": chk_ForceOpenOutput.Checked = false; break;
-					default: throw e;
-				}
-			}
-			txt_OverrideOutput.Text = (string) Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, "C:\\");
-			if (txt_OverrideOutput.Text == string.Empty) txt_OverrideOutput.Text = "C:\\";
+
+			chk_OverrideOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, (int)0));
+			chk_ForceOpenOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, (int)0));
+			txt_OverrideOutput.Text = FetchA3DD(Reg.Value_ADD_OverrideOutputFolder_Name, "C:\\");
 
 			txt_OverrideOutput.ReadOnly = !chk_OverrideOutput.Checked;
 			btn_OverrideOutput_SelectPath.Enabled = chk_OverrideOutput.Checked;
-
 
 			this.helpProvider1.SetShowHelp(this, true);
 			this.helpProvider1.SetHelpString(this, "Antistasi Dev Deploy Configurator Version: " + CompileTimeValue.MTVersionS);
@@ -97,42 +75,7 @@ namespace Antistasi_Dev_Deploy_Configurator
 					  "Erase Configurations", MessageBoxButtons.YesNo);
 			if (ResetConfirmation == DialogResult.Yes) 
 			{
-				try
-				{
-					Registry.CurrentUser.DeleteSubKeyTree(Reg.RemoveCU(Reg.Key_A3DD_ADD));
-				}
-				catch (Exception exception)
-				{
-					switch (exception.GetType().Name)
-					{
-						case "ArgumentException": chk_OverrideOutput.Checked = false; break;
-						default: throw exception;
-					}
-				}
-				try
-				{
-					Registry.CurrentUser.DeleteSubKey(Reg.RemoveCU(Reg.Key_A3DD)); ;
-				}
-				catch (Exception exception)
-				{
-					switch (exception.GetType().Name)
-					{
-						case "ArgumentException": chk_OverrideOutput.Checked = false; break;
-						default: throw exception;
-					}
-				}
-				try
-				{
-					Registry.CurrentUser.DeleteSubKey(Reg.RemoveCU(Reg.Key_CalebSerafin));
-				}
-				catch (Exception exception)
-				{
-					switch (exception.GetType().Name)
-					{
-						case "ArgumentException": chk_OverrideOutput.Checked = false; break;
-						default: throw exception;
-					}
-				}
+				EraseAll();
 				MessageBox.Show("Configurations Erased!");
 			}
 		}

@@ -75,8 +75,10 @@ namespace Antistasi_Dev_Deploy
 			}
 
 			string Reg_Value_Arma_PlayerName_Value = FetchArma(Reg.Value_Arma_PlayerName_Name, string.Empty);
-			bool Reg_Value_ADD_OverrideOutput_Value = BoolBin(FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, 0));
-			bool Reg_Value_ADD_ForceOpenOutput_Value = BoolBin(FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, 0));
+			Console.WriteLine("yes");
+			bool Reg_Value_ADD_OverrideOutput_Value = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, 0));
+			Console.WriteLine("no");
+			bool Reg_Value_ADD_ForceOpenOutput_Value = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, 0));
 
 			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi";
