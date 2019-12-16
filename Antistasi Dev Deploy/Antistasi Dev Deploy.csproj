@@ -71,6 +71,7 @@
     <Compile Include="CompileTimeValues.cs" />
     <Compile Include="CustomIO.cs" />
     <Compile Include="GetFolderLib.cs" />
+    <Compile Include="MapTemplate.cs" />
     <Compile Include="Mission.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

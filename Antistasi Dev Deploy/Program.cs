@@ -9,6 +9,7 @@ using static Antistasi_Dev_Deploy.WindowPowerLib;
 using static Antistasi_Dev_Deploy.XCopyLib;
 using static Antistasi_Dev_Deploy.GetFolderLib;
 using static Antistasi_Dev_Deploy.CustomIO;
+using static Antistasi_Dev_Deploy.MapHandling;
 
 namespace Antistasi_Dev_Deploy
 {
@@ -24,34 +25,6 @@ namespace Antistasi_Dev_Deploy
 			if (!Input.HasValue) return 0;
 			return (bool)Input ? 1 : 0;
 		}
-		class MapTemplate
-		{
-			public string Name { get; set; }
-			public string Map { get; set; }
-			public string Dir { get; set; }
-
-			public MapTemplate(string nameX_mapX)
-			{
-				string[] data = nameX_mapX.Split('.');
-				Name = data[0];
-				Map = data[1];
-				Dir = Name + "." + Map;
-			}
-			public MapTemplate(string nameX, string mapX)
-			{
-				Name = nameX;
-				Map = mapX;
-				Dir = Name + "." + Map;
-			}
-			public MapTemplate(string[] nameX_mapX)
-			{
-				Name = nameX_mapX[0];
-				Map = nameX_mapX[1];
-				Dir = Name + "." + Map;
-			}
-		};
-
-
 		static void Main(string[] args)
 		{
 			if (CompileTimeValue.Debug_HideWindow)
