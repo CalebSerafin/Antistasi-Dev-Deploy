@@ -15,15 +15,11 @@ namespace Antistasi_Dev_Deploy
 {
 	class Program
 	{
+		//Needs to be Nullable as Registry calls may return null if key does not exist.
 		static bool BoolBin(int? Input)
 		{
 			if (!Input.HasValue) return false;
 			return Input > 0;
-		}
-		static int BoolBin(bool? Input)
-		{
-			if (!Input.HasValue) return 0;
-			return (bool)Input ? 1 : 0;
 		}
 		static void Main(string[] args)
 		{
