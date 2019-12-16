@@ -1,4 +1,6 @@
-﻿namespace Antistasi_Dev_Deploy
+﻿//This is a mess, I'm sorry.
+
+namespace Antistasi_Dev_Deploy
 {
 	public class ProgramValues
 	{
@@ -13,14 +15,8 @@
 			public static bool Debug_OpenOutput { get; set; } = false;
 			public const bool Debug_HideWindow = true;
 #endif
-			public const string Dir = ".\\A3DD\\"; // A3DD\
 			public const int MTVersionI = 3;
 			public const string MTVersionS = "3"; // template.ignoreFiles.cfg
-
-			public const string TSelected = "Template.Selected.cfg"; // template.selected.cfg
-			public const string TIgnoreFiles = "Template.IgnoreFiles.cfg"; // template.ignoreFiles.cfg
-
-			public const string VSCodeSettings = ".vscode\\settings.json"; // settings.json
 		}
 		public class RuntimeTimeValue
 		{
