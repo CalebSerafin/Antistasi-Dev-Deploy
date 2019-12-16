@@ -12,6 +12,7 @@ namespace Antistasi_Dev_Deploy
 	{
 		public static dynamic Fetch(string Key, string Name, dynamic Defualt)
 		{
+			//When a registry tree doesn't exist, registary.GetValue instead throws an error rather than returning null.
 			try
 			{
 				dynamic RetrievedValue = Registry.GetValue(Key, Name, Defualt);
@@ -23,6 +24,7 @@ namespace Antistasi_Dev_Deploy
 				{
 					case "NullReferenceException": return Defualt;
 					default: throw e;
+					//If there is an error other than the registary tree not existing it should be thrown.
 				}
 			}
 		}
