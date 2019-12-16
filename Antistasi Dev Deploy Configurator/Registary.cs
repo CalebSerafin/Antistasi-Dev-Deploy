@@ -15,7 +15,7 @@ namespace Antistasi_Dev_Deploy_Configurator
 			try
 			{
 				dynamic RetrievedValue = Registry.GetValue(Key, Name, Defualt);
-				return Object.ReferenceEquals(null, RetrievedValue) ? Defualt : RetrievedValue;
+				return RetrievedValue is null ? Defualt : RetrievedValue;
 			}
 			catch (Exception e)
 			{
