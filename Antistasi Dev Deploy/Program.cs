@@ -9,17 +9,16 @@
  * __DescritionCopiedOffGitHub
  * 
  */
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using Microsoft.Win32;
-using static Antistasi_Dev_Deploy.Registary;
-using static Antistasi_Dev_Deploy.ProgramValues;
-using static Antistasi_Dev_Deploy.WindowPowerLib;
-using static Antistasi_Dev_Deploy.XCopyLib;
 using static Antistasi_Dev_Deploy.GetFolderLib;
 using static Antistasi_Dev_Deploy.MapHandling;
+using static Antistasi_Dev_Deploy.ProgramValues;
+using static Antistasi_Dev_Deploy.Registary;
+using static Antistasi_Dev_Deploy.XCopyLib;
 
 namespace Antistasi_Dev_Deploy
 {
@@ -30,9 +29,9 @@ namespace Antistasi_Dev_Deploy
 		static void Main(string[] args)
 		{
 			{
-	#if !DEBUG
+#if !DEBUG
 				WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
-	#endif
+#endif
 				foreach (string arg in args)
 				{
 					switch (arg.Substring(0, 2).ToLower())
@@ -91,7 +90,7 @@ namespace Antistasi_Dev_Deploy
 						AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
 					}
 				}
-	#if DEBUG
+#if DEBUG
 				foreach (MapTemplate item in AntistasiMapTemplates)
 				{
 					Console.WriteLine(item.Name + " on map " + item.Map);
@@ -104,14 +103,14 @@ namespace Antistasi_Dev_Deploy
 				Console.WriteLine(Reg_Value_Arma_PlayerName_Value);
 				Console.WriteLine(Dir_mpMissions);
 				Console.WriteLine(RuntimeTimeValue.MissionVersion);
-	#endif
+#endif
 				Directory.CreateDirectory(Dir_mpMissions);
 				foreach (MapTemplate Item in AntistasiMapTemplates)
 				{
 					string Destination = Dir_mpMissions + Item.Name + RuntimeTimeValue.MissionVersion + "." + Item.Map;
 					string TemplateFolder = Dir_AntistasiTemplates + @"\" + Item.Dir;
 					string XCopyArgs = "/Q";
-					
+
 					//The following log option is broken, thanks XCOPY ♥.
 					//XCopy(Source, mpMissions + Item.Map, "/c /s /d /i /y /exclude:" + Config.Dir + Config.TIgnoreFiles + " > " + Config.Dir + "Antistasi.xcopy.log");
 					Console.WriteLine("Copying " + Item.Dir + " base assets...");
@@ -125,12 +124,12 @@ namespace Antistasi_Dev_Deploy
 				Console.WriteLine("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
 				Console.ReadKey();
 				Process.Start(Dir_mpMissions + "\\");
-	#else
+#else
 				if (Reg_Value_ADD_ForceOpenOutput_Value)
 				{
 					Process.Start(Dir_mpMissions + "\\");
 				}
-	#endif
+#endif
 			}
 			Console.ReadKey();
 		}

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
+using System;
 using static Antistasi_Dev_Deploy.ProgramValues;
 
 namespace Antistasi_Dev_Deploy
@@ -24,7 +20,7 @@ namespace Antistasi_Dev_Deploy
 				{
 					case "NullReferenceException": return Defualt;
 					default: throw;
-					//If there is an error other than the registary tree not existing it should be thrown.
+						//If there is an error other than the registary tree not existing it should be thrown.
 				}
 			}
 		}

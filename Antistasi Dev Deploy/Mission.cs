@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Xml;
 
 namespace Antistasi_Dev_Deploy
@@ -33,7 +28,7 @@ namespace Antistasi_Dev_Deploy
 				{
 					if (xNode.Attributes[0].Value == "STR_antistasi_credits_generic_version_text")
 					{
-						MissionVersion = "-" + xNode.InnerText.Replace('.','-');
+						MissionVersion = "-" + xNode.InnerText.Replace('.', '-');
 					}
 				}
 

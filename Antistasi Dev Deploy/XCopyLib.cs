@@ -25,7 +25,6 @@ namespace Antistasi_Dev_Deploy
 				process.StartInfo.CreateNoWindow = false;
 				process.StartInfo.FileName = "XCopy";
 				process.StartInfo.Arguments = "\"" + Source + "\" \"" + Destination + "\" " + Flags;
-				//Console.WriteLine("Arguments: {" + process.StartInfo.Arguments + "}"); //For debugging purposes
 				bool processStarted = process.Start();
 				if (processStarted)
 				{
@@ -33,7 +32,6 @@ namespace Antistasi_Dev_Deploy
 					string errorReader = process.StandardError.ReadToEnd();
 					process.WaitForExit();
 
-					//Display the result
 					string displayText = "Output" + Environment.NewLine + "==============" + Environment.NewLine;
 					displayText += outputReader;
 					if (errorReader != "")

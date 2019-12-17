@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using System;
+using System.Windows.Forms;
 using static Antistasi_Dev_Deploy_Configurator.CompileTimeValues;
 using static Antistasi_Dev_Deploy_Configurator.Registary;
 
@@ -73,7 +66,7 @@ namespace Antistasi_Dev_Deploy_Configurator
 		{
 			DialogResult ResetConfirmation = MessageBox.Show("Are you sure you want to erase the configurations?",
 					  "Erase Configurations", MessageBoxButtons.YesNo);
-			if (ResetConfirmation == DialogResult.Yes) 
+			if (ResetConfirmation == DialogResult.Yes)
 			{
 				EraseAll();
 				MessageBox.Show("Configurations Erased!");
