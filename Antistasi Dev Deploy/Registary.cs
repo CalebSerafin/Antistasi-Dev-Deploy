@@ -23,7 +23,7 @@ namespace Antistasi_Dev_Deploy
 				switch (e.GetType().Name)
 				{
 					case "NullReferenceException": return Defualt;
-					default: throw e;
+					default: throw;
 					//If there is an error other than the registary tree not existing it should be thrown.
 				}
 			}
