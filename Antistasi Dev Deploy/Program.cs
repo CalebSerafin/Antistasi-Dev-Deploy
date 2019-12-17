@@ -5,7 +5,7 @@
  * Version:			4
  * Date Created:	__ToBeFoundOnGitHub
  * Date Modified:	17-12-2019
- * 
+ * Memory Usage:	20 MB
  * __DescritionCopiedOffGitHub
  * 
  */
@@ -19,6 +19,7 @@ using static Antistasi_Dev_Deploy.MapHandling;
 using static Antistasi_Dev_Deploy.ProgramValues;
 using static Antistasi_Dev_Deploy.Registary;
 using static Antistasi_Dev_Deploy.XCopyLib;
+using static Antistasi_Dev_Deploy.WindowPowerLib;
 
 namespace Antistasi_Dev_Deploy
 {
@@ -95,8 +96,6 @@ namespace Antistasi_Dev_Deploy
 				{
 					Console.WriteLine(item.Name + " on map " + item.Map);
 				}
-				Console.WriteLine("tyfg");
-				_ = Console.ReadKey();
 				Console.WriteLine(CurrentDirectory);
 				Console.WriteLine(GetFolder(CurrentDirectory));
 				Console.WriteLine(Dir_AntistasiTemplates);
@@ -120,7 +119,6 @@ namespace Antistasi_Dev_Deploy
 					XCopy(TemplateFolder, Destination, "/C /S /I /Y", XCopyArgs);
 				}
 #if DEBUG
-
 				Console.WriteLine("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
 				Console.ReadKey();
 				Process.Start(Dir_mpMissions + "\\");
@@ -131,7 +129,6 @@ namespace Antistasi_Dev_Deploy
 				}
 #endif
 			}
-			Console.ReadKey();
 		}
 	}
 }

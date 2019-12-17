@@ -7,15 +7,11 @@ namespace Antistasi_Dev_Deploy
 	{
 		public static void XCopy(string Source, string Destination, string Flags, string Args)
 		{
-			bool ArgFlag(string Flag)
-			{
-				return Args.ToLower().Contains(Flag.ToLower());
-			}
+			bool ArgFlag(string Flag) => Args.ToLower().Contains(Flag.ToLower());
 			bool Quiet;
 			Quiet = ArgFlag("/Q");
 			Flags += ArgFlag("/R") ? "" : " /D";
 			Process process = new Process();
-
 			try
 			{
 				process.StartInfo.RedirectStandardError = true;

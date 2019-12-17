@@ -27,6 +27,13 @@
 				Map = nameX_mapX[1];
 				Dir = Name + "." + Map;
 			}
+
+			public void Dispose()
+			{
+				Name = null;
+				Map = null;
+				Dir = null;
+			}
 		}
 	}
 }

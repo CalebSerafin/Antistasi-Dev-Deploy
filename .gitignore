@@ -339,5 +339,9 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
+# Sample A3-Antistasi mission Files
+A3-Antistasi/
+Map-Templates/
+
 # Packaged Progs for GitHub Releases.
 A3DD-Antistasi-AIO-*/
