@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using static Antistasi_Dev_Deploy.CustomIO;
 
 namespace Antistasi_Dev_Deploy
 {
@@ -43,16 +42,16 @@ namespace Antistasi_Dev_Deploy
 						displayText += errorReader;
 						if (errorReader == "Invalid number of parameters\r\n") { displayText += process.StartInfo.Arguments; };
 					};
-					if (!Quiet) WriteLine(displayText);
+					if (!Quiet) Console.WriteLine(displayText);
 				}
 				else
 				{
-					if (!Quiet) WriteLine("ERROR: Process has not started");
+					if (!Quiet) Console.WriteLine("ERROR: Process has not started");
 				}
 			}
 			catch (Exception XCopyError)
 			{
-				if (!Quiet) WriteLine(XCopyError.Message);
+				if (!Quiet) Console.WriteLine(XCopyError.Message);
 			}
 			finally
 			{

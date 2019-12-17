@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompileTimeValues.cs" />
-    <Compile Include="CustomIO.cs" />
     <Compile Include="GetFolderLib.cs" />
     <Compile Include="MapTemplate.cs" />
     <Compile Include="Mission.cs" />
