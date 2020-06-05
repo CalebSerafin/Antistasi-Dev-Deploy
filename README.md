@@ -1,6 +1,5 @@
 **Please find binaries inside the `Releases` tab. Double clicking a .cs won't run it.**
-**_____________________________________________________________________________________**
-<br/>
+***
 # Antistasi Dev Deploy
 Dynamically deploys any map template (Antistasi-Concretium Civitas.coci-concretiumcivitas) into mpmissions for straight testing, or separating it for packing into a PBO. Example Output: `"Antistasi-Concretium Civitas-2-2-2.coci-concretiumcivitas"`
 ## How To
