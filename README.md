@@ -6,6 +6,7 @@ Dynamically deploys any map template (Antistasi-Concretium Civitas.coci-concreti
 Just place in the same folder as A3-Antistasi, and with one click, all the templates are deployed to *your* mpmissions. No forms, no configs, no bullshit.
 
 ## Technical Specifications 
+* Run ADD with `/h` argument to see help list.
 * Should be physically placed in `YourGitRepository/` or `YourGitRepository/Tools`.
 * Shortcuts,Batches etc. won't change its current directory.
 * A valid map template has a "." in its directory name. The map templates should be in `GitRepository/Map-Templates`.
