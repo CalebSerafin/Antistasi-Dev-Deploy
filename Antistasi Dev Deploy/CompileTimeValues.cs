@@ -13,7 +13,7 @@ namespace Antistasi_Dev_Deploy {
 			public const bool Debug_HideWindow = true;
 #endif
 			public const string MTVersion = "4"; // template.ignoreFiles.cfg
-			public const string AppVersion = "3.1.9.0";
+			public const string AppVersion = "4.0.0.0";
 		}
 		public class RuntimeTimeValue {
 			public static string MissionVersion { get; } = Mission.GetVersion();
