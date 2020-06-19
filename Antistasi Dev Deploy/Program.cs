@@ -2,11 +2,11 @@
  *  ======= Antistasi Dev Deploy =======
  * 
  * Author:			Caleb S. Serafin
- * Version:			4
- * Date Created:	__ToBeFoundOnGitHub
+ * Version:			3.1
+ * Date Created:	13-10-2019
  * Date Modified:	17-12-2019
  * Memory Usage:	20 MB
- * __DescritionCopiedOffGitHub
+ * Dynamically deploys any map template into mpmissions for testing,
  * 
  */
 using Microsoft.Win32;
