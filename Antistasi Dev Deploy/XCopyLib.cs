@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Antistasi_Dev_Deploy
-{
-	class XCopyLib
-	{
-		public static void XCopy(string Source, string Destination, string Flags, string Args)
-		{
+namespace Antistasi_Dev_Deploy {
+	class XCopyLib {
+		public static void XCopy(string Source, string Destination, string Flags, string Args) {
 			bool ArgFlag(string Flag) => Args.ToLower().Contains(Flag.ToLower());
 			bool Quiet;
 			Quiet = ArgFlag("/Q");
 			Flags += ArgFlag("/R") ? "" : " /D";
 			Process process = new Process();
-			try
-			{
+			try {
 				process.StartInfo.RedirectStandardError = true;
 				process.StartInfo.RedirectStandardInput = true;
 				process.StartInfo.RedirectStandardOutput = true;
@@ -22,39 +18,29 @@ namespace Antistasi_Dev_Deploy
 				process.StartInfo.FileName = "XCopy";
 				process.StartInfo.Arguments = "\"" + Source + "\" \"" + Destination + "\" " + Flags;
 				bool processStarted = process.Start();
-				if (processStarted)
-				{
+				if (processStarted) {
 					string outputReader = process.StandardOutput.ReadToEnd();
 					string errorReader = process.StandardError.ReadToEnd();
 					process.WaitForExit();
 
 					string displayText = "Output" + Environment.NewLine + "==============" + Environment.NewLine;
 					displayText += outputReader;
-					if (errorReader != "")
-					{
+					if (errorReader != "") {
 						displayText += Environment.NewLine + "Error" + Environment.NewLine + "==============" + Environment.NewLine;
 						displayText += errorReader;
 						if (errorReader == "Invalid number of parameters\r\n") { displayText += process.StartInfo.Arguments; };
 					};
 					if (!Quiet) Console.WriteLine(displayText);
-				}
-				else
-				{
+				} else {
 					if (!Quiet) Console.WriteLine("ERROR: Process has not started");
 				}
-			}
-			catch (Exception XCopyError)
-			{
+			} catch (Exception XCopyError) {
 				if (!Quiet) Console.WriteLine(XCopyError.Message);
-			}
-			finally
-			{
-				if (process.StandardOutput != null)
-				{
+			} finally {
+				if (process.StandardOutput != null) {
 					process.StandardOutput.Close();
 				}
-				if (process.StandardError != null)
-				{
+				if (process.StandardError != null) {
 					process.StandardError.Close();
 				}
 				process.Close();

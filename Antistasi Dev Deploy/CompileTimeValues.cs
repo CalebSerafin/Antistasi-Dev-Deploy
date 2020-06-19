@@ -1,11 +1,8 @@
 ﻿//This is a mess, I'm sorry.
 
-namespace Antistasi_Dev_Deploy
-{
-	public class ProgramValues
-	{
-		public class CompileTimeValue
-		{
+namespace Antistasi_Dev_Deploy {
+	public class ProgramValues {
+		public class CompileTimeValue {
 #if DEBUG
 			public const bool Debug_Log = true;
 			public static bool Debug_OpenOutput { get; set; } = true;
@@ -18,12 +15,10 @@ namespace Antistasi_Dev_Deploy
 			public const int MTVersionI = 4;
 			public const string MTVersionS = "4"; // template.ignoreFiles.cfg
 		}
-		public class RuntimeTimeValue
-		{
+		public class RuntimeTimeValue {
 			public static string MissionVersion { get; } = Mission.GetVersion();
 		}
-		public class Reg
-		{
+		public class Reg {
 			public const string Key_Arma = @"HKEY_CURRENT_USER\Software\Bohemia Interactive\Arma 3";
 			public const string Value_Arma_PlayerName_Name = @"Player Name";
 

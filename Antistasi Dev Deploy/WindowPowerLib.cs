@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Antistasi_Dev_Deploy
-{
-	class WindowPowerLib
-	{
-		public class WindowPower
-		{
+namespace Antistasi_Dev_Deploy {
+	class WindowPowerLib {
+		public class WindowPower {
 			[DllImport("kernel32.dll")]
 			public static extern IntPtr GetConsoleWindow();
 
