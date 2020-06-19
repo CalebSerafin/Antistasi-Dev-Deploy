@@ -32,6 +32,7 @@
 			public const string Value_ADD_ForceOpenOutput_Name = @"Force Open Output";
 			public const string Value_ADD_PBOList = @"PBO Map-Templates";
 			public const string Value_ADD_PBOForce = @"PBO Force Output Packing";
+			public const string Value_ADD_LastPath = @"ADD Last Path";
 #if ADDC
 			public static string RemoveCurrentUser(string Input) {
 				return Input.Remove(0, 18);

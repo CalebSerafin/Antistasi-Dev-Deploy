@@ -153,7 +153,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chk_OverrideOutput.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="txt_OverrideOutput.HelpString" xml:space="preserve">
     <value>Insert Fixed or Local Address with forward slashed.</value>
@@ -183,7 +183,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_OverrideOutput.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="btn_OverrideOutput_SelectPath.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -216,7 +216,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_OverrideOutput_SelectPath.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btn_Apply.HelpString" xml:space="preserve">
     <value>Save Values to the registary.</value>
@@ -246,7 +246,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Apply.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btn_EraseRegistry.HelpString" xml:space="preserve">
     <value>Remove all Values added by A3DD.</value>
@@ -276,7 +276,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_EraseRegistry.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="chk_ForceOpenOutput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -309,7 +309,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chk_ForceOpenOutput.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="lbl_JustConfig1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -339,7 +339,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_JustConfig1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lbl_JustConfig2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -373,7 +373,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_JustConfig2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lbl_PBOList.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -400,13 +400,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_PBOList.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txt_PBOList.HelpString" xml:space="preserve">
     <value>Input CSV of Map-Template Names that you want PBOed.</value>
   </data>
   <data name="txt_PBOList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 59</value>
+    <value>169, 52</value>
   </data>
   <data name="txt_PBOList.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -430,7 +430,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_PBOList.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btn_PBOList_SelectPath.HelpString" xml:space="preserve">
     <value>Use an intuitive folder explorer.</value>
@@ -439,7 +439,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_PBOList_SelectPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 59</value>
+    <value>364, 51</value>
   </data>
   <data name="btn_PBOList_SelectPath.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -463,7 +463,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_PBOList_SelectPath.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btn_PBOList_Help.HelpString" xml:space="preserve">
     <value>Use an intuitive folder explorer.</value>
@@ -472,7 +472,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_PBOList_Help.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 59</value>
+    <value>394, 52</value>
   </data>
   <data name="btn_PBOList_Help.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -496,6 +496,42 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_PBOList_Help.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chk_PBOList_Override.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chk_PBOList_Override.HelpString" xml:space="preserve">
+    <value>Open the folder when the operation is complete.</value>
+  </data>
+  <data name="chk_PBOList_Override.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chk_PBOList_Override.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 75</value>
+  </data>
+  <data name="chk_PBOList_Override.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chk_PBOList_Override.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 17</value>
+  </data>
+  <data name="chk_PBOList_Override.TabIndex" type="System.Int32, mscorlib">
+    <value>1006</value>
+  </data>
+  <data name="chk_PBOList_Override.Text" xml:space="preserve">
+    <value>Force PBO List.</value>
+  </data>
+  <data name="&gt;&gt;chk_PBOList_Override.Name" xml:space="preserve">
+    <value>chk_PBOList_Override</value>
+  </data>
+  <data name="&gt;&gt;chk_PBOList_Override.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chk_PBOList_Override.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chk_PBOList_Override.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

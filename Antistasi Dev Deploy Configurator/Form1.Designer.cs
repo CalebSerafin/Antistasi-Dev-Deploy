@@ -42,6 +42,7 @@
 			this.txt_PBOList = new System.Windows.Forms.TextBox();
 			this.btn_PBOList_SelectPath = new System.Windows.Forms.Button();
 			this.btn_PBOList_Help = new System.Windows.Forms.Button();
+			this.chk_PBOList_Override = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// chk_OverrideOutput
@@ -141,11 +142,21 @@
 			this.btn_PBOList_Help.Name = "btn_PBOList_Help";
 			this.helpProvider1.SetShowHelp(this.btn_PBOList_Help, ((bool)(resources.GetObject("btn_PBOList_Help.ShowHelp"))));
 			this.btn_PBOList_Help.UseVisualStyleBackColor = true;
+			this.btn_PBOList_Help.Click += new System.EventHandler(this.btn_PBOList_Help_Click);
+			// 
+			// chk_PBOList_Override
+			// 
+			resources.ApplyResources(this.chk_PBOList_Override, "chk_PBOList_Override");
+			this.helpProvider1.SetHelpString(this.chk_PBOList_Override, resources.GetString("chk_PBOList_Override.HelpString"));
+			this.chk_PBOList_Override.Name = "chk_PBOList_Override";
+			this.helpProvider1.SetShowHelp(this.chk_PBOList_Override, ((bool)(resources.GetObject("chk_PBOList_Override.ShowHelp"))));
+			this.chk_PBOList_Override.UseVisualStyleBackColor = true;
 			// 
 			// Menu
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.chk_PBOList_Override);
 			this.Controls.Add(this.btn_PBOList_Help);
 			this.Controls.Add(this.btn_PBOList_SelectPath);
 			this.Controls.Add(this.txt_PBOList);
@@ -184,6 +195,7 @@
 		private System.Windows.Forms.TextBox txt_PBOList;
 		private System.Windows.Forms.Button btn_PBOList_SelectPath;
 		private System.Windows.Forms.Button btn_PBOList_Help;
+		private System.Windows.Forms.CheckBox chk_PBOList_Override;
 	}
 }
 
