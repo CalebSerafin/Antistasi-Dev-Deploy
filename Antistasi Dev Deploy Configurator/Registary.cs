@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using static Antistasi_Dev_Deploy_Configurator.CompileTimeValues;
+using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 
 namespace Antistasi_Dev_Deploy_Configurator
 {
@@ -35,7 +35,7 @@ namespace Antistasi_Dev_Deploy_Configurator
 		{
 			try
 			{
-				Registry.CurrentUser.DeleteSubKeyTree(Reg.RemoveCU(Reg.Key_A3DD_ADD));
+				Registry.CurrentUser.DeleteSubKeyTree(Reg.RemoveCurrentUser(Reg.Key_A3DD_ADD));
 			}
 			catch (Exception exception)
 			{
@@ -47,7 +47,7 @@ namespace Antistasi_Dev_Deploy_Configurator
 			}
 			try
 			{
-				Registry.CurrentUser.DeleteSubKey(Reg.RemoveCU(Reg.Key_A3DD)); ;
+				Registry.CurrentUser.DeleteSubKey(Reg.RemoveCurrentUser(Reg.Key_A3DD)); ;
 			}
 			catch (Exception exception)
 			{
@@ -59,7 +59,7 @@ namespace Antistasi_Dev_Deploy_Configurator
 			}
 			try
 			{
-				Registry.CurrentUser.DeleteSubKey(Reg.RemoveCU(Reg.Key_CalebSerafin));
+				Registry.CurrentUser.DeleteSubKey(Reg.RemoveCurrentUser(Reg.Key_CalebSerafin));
 			}
 			catch (Exception exception)
 			{

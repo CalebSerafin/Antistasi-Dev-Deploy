@@ -17,6 +17,7 @@ using System.IO;
 using static Antistasi_Dev_Deploy.GetFolderLib;
 using static Antistasi_Dev_Deploy.MapHandling;
 using static Antistasi_Dev_Deploy.ProgramValues;
+using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy.Registary;
 using static Antistasi_Dev_Deploy.XCopyLib;
 using static Antistasi_Dev_Deploy.WindowPowerLib;

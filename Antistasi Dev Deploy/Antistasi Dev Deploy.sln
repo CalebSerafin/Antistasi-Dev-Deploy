@@ -7,7 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antistasi Dev Deploy", "Ant
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antistasi Dev Deploy Configurator", "..\Antistasi Dev Deploy Configurator\Antistasi Dev Deploy Configurator.csproj", "{718DF2C1-74BE-469D-9C46-D3E3CD1AC342}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Antistasi Dev Deploy Shared", "..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.shproj", "{F5E57B9D-1491-4339-9CB3-F09648824639}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{718df2c1-74be-469d-9c46-d3e3cd1ac342}*SharedItemsImports = 4
+		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{9936a835-0899-4319-9a74-a575a66d8d82}*SharedItemsImports = 4
+		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{f5e57b9d-1491-4339-9cb3-f09648824639}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86

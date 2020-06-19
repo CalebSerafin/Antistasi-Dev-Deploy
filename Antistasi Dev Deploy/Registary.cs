@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using static Antistasi_Dev_Deploy.ProgramValues;
+using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 
 namespace Antistasi_Dev_Deploy {
 	class Registary {
