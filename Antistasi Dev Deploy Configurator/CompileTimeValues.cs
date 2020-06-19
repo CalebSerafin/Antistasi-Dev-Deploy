@@ -4,8 +4,7 @@
 	{
 		public class CompileTimeValue
 		{
-			public const int MTVersionI = 3;
-			public const string MTVersionS = "3"; // template.ignoreFiles.cfg
+			public const string AppVersion = "3.1.9.0"; // template.ignoreFiles.cfg
 		}
 		public class Reg
 		{
