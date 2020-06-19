@@ -32,6 +32,8 @@ namespace Antistasi_Dev_Deploy {
 					Console.WriteLine("ERROR: Malformed stringtable.xml! Please check the last commit made to stringtable.xml.");
 					Console.WriteLine("Packing missions with default version 2-X.");
 					Console.WriteLine("Details:\n" + e.Message);
+					Console.WriteLine("Press any key to continue packing...");
+					Console.ReadKey();
 				};
 			}
 			return MissionVersion;
