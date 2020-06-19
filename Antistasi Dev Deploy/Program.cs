@@ -67,6 +67,17 @@ namespace Antistasi_Dev_Deploy {
 							break;
 					}
 				}
+				if (BoolBin((int)FetchA3DD(Reg.Value_ADD_PBOForce, 0))) {
+					string PBOListString = FetchA3DD(Reg.Value_ADD_PBOList, string.Empty);
+					if (PBOListString == "*") {
+						PBOAllFiles = true;
+						PBOInvoked = false;
+					} else if (!string.IsNullOrEmpty(PBOListString)) {
+						PBOAllFiles = false;
+						PBOInvoked = true;
+						PBOArgs = "r";
+					};
+				}
 				if (PBOInvoked) {
 					try {
 						string PBOListString;
