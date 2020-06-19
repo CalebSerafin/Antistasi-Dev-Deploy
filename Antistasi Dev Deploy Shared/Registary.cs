@@ -23,5 +23,13 @@ namespace Antistasi_Dev_Deploy_Shared {
 		public static dynamic FetchArma(string Name, dynamic Defualt) {
 			return Fetch(Reg.Key_Arma, Name, Defualt);
 		}
+		public static string FileBankPath() {
+			string Path = Fetch(Reg.Key_FileBank, Reg.Value_FileBank_Path, "");
+			if (!string.IsNullOrEmpty(Path)) {
+				return Path + @"\" + Reg.Value_FileBank_EXE;
+			};
+			return "";
+		}
+		public static bool HasFileBank = string.IsNullOrEmpty(FileBankPath());
 	}
 }
