@@ -2,7 +2,7 @@
 using System;
 using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 
-namespace Antistasi_Dev_Deploy {
+namespace Antistasi_Dev_Deploy_Shared {
 	class Registary {
 		public static dynamic Fetch(string Key, string Name, dynamic Defualt) {
 			//When a registry tree doesn't exist, registary.GetValue instead throws an error rather than returning null.

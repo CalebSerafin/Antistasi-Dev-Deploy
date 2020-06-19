@@ -3,6 +3,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Windows.Forms;
 using static Antistasi_Dev_Deploy_Shared.ProgramValues;
+using static Antistasi_Dev_Deploy_Shared.Registary;
 using static Antistasi_Dev_Deploy_Configurator.Registary;
 
 namespace Antistasi_Dev_Deploy_Configurator {
