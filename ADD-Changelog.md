@@ -2,7 +2,7 @@
 * v3.1:<br/>
 Default version number used if stringtable.xml is corrupt.<br/>
 XML Error is expressed to user regardless of visibility settings.<br/>
-Fixed help augments not opening console window.
+Fixed help augments not opening console window.<br/>
 File size reduced due to smaller logo and output strings.<br/>
 File Assembly information is now accurate.<br/>
 * v3:<br/>
