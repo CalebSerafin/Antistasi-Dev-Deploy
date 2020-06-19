@@ -63,6 +63,16 @@ namespace Antistasi_Dev_Deploy.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon Antistasi_Main_Logo_Icon_x24 {
+            get {
+                object obj = ResourceManager.GetObject("Antistasi_Main_Logo_Icon_x24", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon Antistasi_Main_Logo_Icon_x48 {
             get {
                 object obj = ResourceManager.GetObject("Antistasi_Main_Logo_Icon_x48", resourceCulture);

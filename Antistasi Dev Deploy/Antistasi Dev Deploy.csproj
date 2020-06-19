@@ -52,7 +52,7 @@
     <StartupObject>Antistasi_Dev_Deploy.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Properties\Antistasi Main Logo Icon x48.ico</ApplicationIcon>
+    <ApplicationIcon>Properties\Antistasi Main Logo Icon x24.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -131,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Antistasi Main Logo Icon x24.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
