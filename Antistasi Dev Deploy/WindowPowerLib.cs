@@ -13,8 +13,14 @@ namespace Antistasi_Dev_Deploy {
 			public const int SW_HIDE = 0;
 			public const int SW_SHOW = 5;
 
-			//WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
-			//WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
+			// WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
+			// WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
+		}
+		public static void ShowMessage(params string[] Message) { // ShowMessage();
+			WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
+			Console.WriteLine(string.Join(Environment.NewLine,Message));
+			Console.ReadKey();
+			WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
 		}
 	}
 }

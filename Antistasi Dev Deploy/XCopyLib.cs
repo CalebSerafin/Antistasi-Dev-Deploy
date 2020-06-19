@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using static Antistasi_Dev_Deploy.WindowPowerLib;
 
 namespace Antistasi_Dev_Deploy {
 	class XCopyLib {
@@ -32,10 +33,10 @@ namespace Antistasi_Dev_Deploy {
 					};
 					if (!Quiet) Console.WriteLine(displayText);
 				} else {
-					if (!Quiet) Console.WriteLine("ERROR: Process has not started");
+					if (!Quiet) ShowMessage("ERROR: Process has not started");
 				}
 			} catch (Exception XCopyError) {
-				if (!Quiet) Console.WriteLine(XCopyError.Message);
+				if (!Quiet) ShowMessage(XCopyError.Message);
 			} finally {
 				if (process.StandardOutput != null) {
 					process.StandardOutput.Close();

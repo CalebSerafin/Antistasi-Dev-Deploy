@@ -21,11 +21,18 @@ using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
 using static Antistasi_Dev_Deploy.XCopyLib;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
+using System.Linq;
 
 namespace Antistasi_Dev_Deploy {
 	class Program {
 		//Needs to be Nullable as Registry calls may return null if key does not exist.
 		private static bool BoolBin(int? Input) => !Input.HasValue ? false : Input > 0;
+
+		private static bool PBOAllFiles = false;
+		private static List<string> PBOList = new List<string>();
+		private static bool PBOInvoked = false;
+		private static string PBOArgs = string.Empty;
+
 		static void Main(string[] args) {
 			{
 #if !DEBUG
@@ -34,19 +41,46 @@ namespace Antistasi_Dev_Deploy {
 				foreach (string arg in args) {
 					switch (arg.Substring(0, 2).ToLower()) {
 						case "/v":
-							WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
-							Console.WriteLine("Version: " + CompileTimeValue.AppVersion);
-							Console.ReadKey();
+							ShowMessage("Version: " + CompileTimeValue.AppVersion);
 							return;
 						case "/h":
-							WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
-							Console.WriteLine("/v	Version		Prints current version.");
-							Console.WriteLine("/h	Help		Prints switch list.");
-							Console.ReadKey();
+							ShowMessage(
+								Environment.NewLine,
+								"/v                 Prints current version.",
+								"/h                 Prints Help list.",
+								"/p                 PBO all Map-Templates. Requires A3Tools:FileBank.",
+								"/p=r               PBO List specified from ADD Configurator.",
+								"/p=\"Name,Name...\"  PBO only these Map-Templates."
+							);
 							return;
+						case "/p":
+							if (!HasFileBank) {
+								ShowMessage("Arma 3 Tools: FileBank not installed on system.", "FileBank's Path was not found in system registry.");
+								return;
+							};
+							if (arg.Length <= 3) {
+								PBOAllFiles = true;
+							} else {
+								PBOInvoked = true;
+								PBOArgs = arg.Substring(3);
+							};
+							break;
 					}
 				}
-
+				if (PBOInvoked) {
+					try {
+						string PBOListString;
+						if (PBOArgs.Substring(0, 1).ToLower() == "r") {
+							PBOListString = FetchA3DD(Reg.Value_ADD_PBOList, string.Empty);
+						} else {
+							PBOListString = PBOArgs.ToLower();
+						}
+						PBOList = PBOListString.Split(',').ToList();
+					} catch (Exception) {
+							ShowMessage("Error processing /p= arguments.");
+							throw;
+					};
+				}
 				string Reg_Value_Arma_PlayerName_Value = FetchArma(Reg.Value_Arma_PlayerName_Name, @"empty");
 				bool Reg_Value_ADD_OverrideOutput_Value = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, 0));
 				bool Reg_Value_ADD_ForceOpenOutput_Value = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, 0));
@@ -84,16 +118,20 @@ namespace Antistasi_Dev_Deploy {
 					}
 				}
 #if DEBUG
+				List<string> TemplateNamesDebug = new List<string>();
 				foreach (MapTemplate item in AntistasiMapTemplates)
 				{
-					Console.WriteLine(item.Name + " on map " + item.Map);
+					TemplateNamesDebug.Add(item.Name + " on map " + item.Map);
 				}
-				Console.WriteLine(CurrentDirectory);
-				Console.WriteLine(GetFolder(CurrentDirectory));
-				Console.WriteLine(Dir_AntistasiTemplates);
-				Console.WriteLine(Reg_Value_Arma_PlayerName_Value);
-				Console.WriteLine(Dir_mpMissions);
-				Console.WriteLine(RuntimeTimeValue.MissionVersion);
+				Console.WriteLine(string.Join(Environment.NewLine,TemplateNamesDebug.ToArray()));
+				Console.WriteLine(string.Join(Environment.NewLine,
+					CurrentDirectory,
+					GetFolder(CurrentDirectory),
+					Dir_AntistasiTemplates,
+					Reg_Value_Arma_PlayerName_Value,
+					Dir_mpMissions,
+					RuntimeTimeValue.MissionVersion
+				));
 #endif
 				Directory.CreateDirectory(Dir_mpMissions);
 				foreach (MapTemplate Item in AntistasiMapTemplates) {
@@ -108,10 +146,12 @@ namespace Antistasi_Dev_Deploy {
 #endif
 					XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y", XCopyArgs);
 					XCopy(TemplateFolder, Destination, "/C /S /I /Y", XCopyArgs);
+					if (PBOAllFiles || PBOList.Contains(Item.Dir.ToLower())) {
+						Process.Start(FileBankPath(), '\"' + Destination + '\"');
+					};
 				}
 #if DEBUG
-				Console.WriteLine("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
-				Console.ReadKey();
+				ShowMessage("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
 				Process.Start(Dir_mpMissions + "\\");
 #else
 				if (Reg_Value_ADD_ForceOpenOutput_Value) {

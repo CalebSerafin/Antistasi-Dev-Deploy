@@ -30,6 +30,7 @@
 			public const string Value_ADD_OverrideOutput_Name = @"Override Output";
 			public const string Value_ADD_OverrideOutputFolder_Name = @"Override Output Folder";
 			public const string Value_ADD_ForceOpenOutput_Name = @"Force Open Output";
+			public const string Value_ADD_PBOList = @"PBO Map-Templates";
 #if ADDC
 			public static string RemoveCurrentUser(string Input) {
 				return Input.Remove(0, 18);
