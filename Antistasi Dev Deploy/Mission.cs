@@ -29,10 +29,9 @@ namespace Antistasi_Dev_Deploy {
 					}
 				} catch (System.Xml.XmlException e) {
 					WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
-					Console.WriteLine("ERROR: Malformed stringtable.xml! Please check the last commit made to stringtable.xml.");
-					Console.WriteLine("Packing missions with default version 2-X.");
-					Console.WriteLine("Details:\n" + e.Message);
-					Console.WriteLine("Press any key to continue packing...");
+					Console.WriteLine("Malformed Stringtable.xml! Please check the last commit made to Stringtable.xml.");
+					Console.WriteLine(e.Message);
+					Console.WriteLine("Press any key to continue packing with version 2-X...");
 					Console.ReadKey();
 				};
 			}

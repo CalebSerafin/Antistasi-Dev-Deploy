@@ -33,7 +33,7 @@ namespace Antistasi_Dev_Deploy {
 				foreach (string arg in args) {
 					switch (arg.Substring(0, 2).ToLower()) {
 						case "/v":
-							Console.WriteLine("Version: " + CompileTimeValue.MTVersionS);
+							Console.WriteLine("Version: " + CompileTimeValue.AppVersion);
 							Console.ReadKey();
 							return;
 						case "/h":
@@ -97,13 +97,13 @@ namespace Antistasi_Dev_Deploy {
 					string Destination = Dir_mpMissions + Item.Name + RuntimeTimeValue.MissionVersion + "." + Item.Map;
 					string TemplateFolder = Dir_AntistasiTemplates + @"\" + Item.Dir;
 					string XCopyArgs = "/Q";
-
+#if DEBUG
 					//The following log option is broken, thanks XCOPY ♥.
 					//XCopy(Source, mpMissions + Item.Map, "/c /s /d /i /y /exclude:" + Config.Dir + Config.TIgnoreFiles + " > " + Config.Dir + "Antistasi.xcopy.log");
-					Console.WriteLine("Copying " + Item.Dir + " base assets...");
+					Console.WriteLine("Copying " + Item.Dir + " Base&Template assets...");
 					//XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y /Exclude:" + CompileTimeValue.TIgnoreFiles, XCopyArgs);
+#endif
 					XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y", XCopyArgs);
-					Console.WriteLine("Copying " + Item.Dir + " Template assets...");
 					XCopy(TemplateFolder, Destination, "/C /S /I /Y", XCopyArgs);
 				}
 #if DEBUG
