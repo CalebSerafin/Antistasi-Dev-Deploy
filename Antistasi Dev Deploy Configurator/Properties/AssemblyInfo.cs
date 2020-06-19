@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("GUI which allows you to edit settings for Antistasi Dev Deploy")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Caleb S. Serafin")]
-[assembly: AssemblyProduct("Antistasi Dev Deploy Configurator")]
+[assembly: AssemblyProduct("github.com/CalebSerafin/Arma-3-Dev-Deploy")]
 [assembly: AssemblyCopyright("Copyright (c) 2019 Caleb Sebastian Serafin MIT License")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
