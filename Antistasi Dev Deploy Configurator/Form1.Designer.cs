@@ -38,6 +38,10 @@
 			this.lbl_JustConfig1 = new System.Windows.Forms.Label();
 			this.lbl_JustConfig2 = new System.Windows.Forms.Label();
 			this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+			this.lbl_PBOList = new System.Windows.Forms.Label();
+			this.txt_PBOList = new System.Windows.Forms.TextBox();
+			this.btn_PBOList_SelectPath = new System.Windows.Forms.Button();
+			this.btn_PBOList_Help = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// chk_OverrideOutput
@@ -108,10 +112,44 @@
 			this.lbl_JustConfig2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.lbl_JustConfig2.Name = "lbl_JustConfig2";
 			// 
+			// lbl_PBOList
+			// 
+			resources.ApplyResources(this.lbl_PBOList, "lbl_PBOList");
+			this.lbl_PBOList.Name = "lbl_PBOList";
+			// 
+			// txt_PBOList
+			// 
+			this.txt_PBOList.BackColor = System.Drawing.SystemColors.Window;
+			this.helpProvider1.SetHelpString(this.txt_PBOList, resources.GetString("txt_PBOList.HelpString"));
+			resources.ApplyResources(this.txt_PBOList, "txt_PBOList");
+			this.txt_PBOList.Name = "txt_PBOList";
+			this.helpProvider1.SetShowHelp(this.txt_PBOList, ((bool)(resources.GetObject("txt_PBOList.ShowHelp"))));
+			// 
+			// btn_PBOList_SelectPath
+			// 
+			this.helpProvider1.SetHelpString(this.btn_PBOList_SelectPath, resources.GetString("btn_PBOList_SelectPath.HelpString"));
+			resources.ApplyResources(this.btn_PBOList_SelectPath, "btn_PBOList_SelectPath");
+			this.btn_PBOList_SelectPath.Name = "btn_PBOList_SelectPath";
+			this.helpProvider1.SetShowHelp(this.btn_PBOList_SelectPath, ((bool)(resources.GetObject("btn_PBOList_SelectPath.ShowHelp"))));
+			this.btn_PBOList_SelectPath.UseVisualStyleBackColor = true;
+			this.btn_PBOList_SelectPath.Click += new System.EventHandler(this.btn_PBOList_SelectPath_Click);
+			// 
+			// btn_PBOList_Help
+			// 
+			this.helpProvider1.SetHelpString(this.btn_PBOList_Help, resources.GetString("btn_PBOList_Help.HelpString"));
+			resources.ApplyResources(this.btn_PBOList_Help, "btn_PBOList_Help");
+			this.btn_PBOList_Help.Name = "btn_PBOList_Help";
+			this.helpProvider1.SetShowHelp(this.btn_PBOList_Help, ((bool)(resources.GetObject("btn_PBOList_Help.ShowHelp"))));
+			this.btn_PBOList_Help.UseVisualStyleBackColor = true;
+			// 
 			// Menu
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.btn_PBOList_Help);
+			this.Controls.Add(this.btn_PBOList_SelectPath);
+			this.Controls.Add(this.txt_PBOList);
+			this.Controls.Add(this.lbl_PBOList);
 			this.Controls.Add(this.lbl_JustConfig2);
 			this.Controls.Add(this.lbl_JustConfig1);
 			this.Controls.Add(this.chk_ForceOpenOutput);
@@ -142,6 +180,10 @@
 		private System.Windows.Forms.Label lbl_JustConfig1;
 		private System.Windows.Forms.Label lbl_JustConfig2;
 		private System.Windows.Forms.HelpProvider helpProvider1;
+		private System.Windows.Forms.Label lbl_PBOList;
+		private System.Windows.Forms.TextBox txt_PBOList;
+		private System.Windows.Forms.Button btn_PBOList_SelectPath;
+		private System.Windows.Forms.Button btn_PBOList_Help;
 	}
 }
 

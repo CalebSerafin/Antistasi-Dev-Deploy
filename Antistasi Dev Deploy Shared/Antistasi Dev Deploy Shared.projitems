@@ -9,6 +9,7 @@
     <Import_RootNamespace>Antistasi_Dev_Deploy_Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)GetFolderLib.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Registary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedValues.cs" />
   </ItemGroup>

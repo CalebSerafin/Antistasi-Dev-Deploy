@@ -4,7 +4,10 @@ using System;
 using System.Windows.Forms;
 using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
+using static Antistasi_Dev_Deploy_Shared.GetFolderLib;
 using static Antistasi_Dev_Deploy_Configurator.Registary;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Antistasi_Dev_Deploy_Configurator {
 	public partial class Menu : Form {
@@ -41,6 +44,22 @@ namespace Antistasi_Dev_Deploy_Configurator {
 			SelectOutputDialog.Dispose();
 		}
 
+		private void btn_PBOList_SelectPath_Click(object sender, EventArgs e) {
+			CommonOpenFileDialog SelectOutputDialog = new CommonOpenFileDialog {
+				InitialDirectory = txt_PBOList.Text,
+				IsFolderPicker = true,
+				Multiselect = true
+			};
+			if (SelectOutputDialog.ShowDialog() == CommonFileDialogResult.Ok) {
+				List<string> FileNames = SelectOutputDialog.FileNames.ToList();
+				for (int i = 0; i < FileNames.Count; i++) {
+					FileNames[i] = GetFolder(FileNames[i]);
+				};
+				txt_PBOList.Text = string.Join(",",FileNames);
+			}
+			SelectOutputDialog.Dispose();
+		}
+
 		private void Chk_OverrideOutput_CheckStateChanged(object sender, EventArgs e) {
 			txt_OverrideOutput.ReadOnly = !chk_OverrideOutput.Checked;
 			btn_OverrideOutput_SelectPath.Enabled = chk_OverrideOutput.Checked;
@@ -50,6 +69,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutput_Name, BoolBin(chk_OverrideOutput.Checked), RegistryValueKind.DWord);
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, txt_OverrideOutput.Text, RegistryValueKind.String);
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput_Name, BoolBin(chk_ForceOpenOutput.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_PBOList, txt_PBOList.Text, RegistryValueKind.String);
 			MessageBox.Show("Configuration Applied!");
 		}
 

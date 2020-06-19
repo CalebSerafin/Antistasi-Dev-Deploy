@@ -91,7 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RuntimeTimeValue.cs" />
-    <Compile Include="GetFolderLib.cs" />
     <Compile Include="MapTemplate.cs" />
     <Compile Include="Mission.cs" />
     <Compile Include="Program.cs" />

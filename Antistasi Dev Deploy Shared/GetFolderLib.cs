@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Antistasi_Dev_Deploy {
+namespace Antistasi_Dev_Deploy_Shared {
 	class GetFolderLib {
 		public static string GetFolder(string Path) {
 			Path = Path.TrimEnd(new char[] { '\\' });
