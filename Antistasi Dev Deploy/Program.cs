@@ -33,10 +33,12 @@ namespace Antistasi_Dev_Deploy {
 				foreach (string arg in args) {
 					switch (arg.Substring(0, 2).ToLower()) {
 						case "/v":
+							WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
 							Console.WriteLine("Version: " + CompileTimeValue.AppVersion);
 							Console.ReadKey();
 							return;
 						case "/h":
+							WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
 							Console.WriteLine("/v	Version		Prints current version.");
 							Console.WriteLine("/h	Help		Prints switch list.");
 							Console.ReadKey();
