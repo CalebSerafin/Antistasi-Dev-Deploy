@@ -102,26 +102,28 @@ namespace Antistasi_Dev_Deploy {
 			if (OverrideSourceFolder == null) OverrideSourceFolder = "C:\\";
 			if (!OverrideSourceFolder.EndsWith("\\")) OverrideSourceFolder += "\\";
 
+			string OverrideOutputFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, "C:\\");
+			if (OverrideOutputFolder == null) OverrideOutputFolder = "C:\\";
+			if (!OverrideOutputFolder.EndsWith("\\")) OverrideOutputFolder += "\\";
+
 			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
 			if (OverrideSource) {
 				CurrentDirectory = OverrideSourceFolder;
 			}
 			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi";
 			string Dir_AntistasiTemplates = CurrentDirectory + @"\Map-Templates";
-			string OverrideOutputFolder;
 			string Dir_mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
 
-			OverrideOutputFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, "C:\\");
-			if (OverrideOutputFolder == null) OverrideOutputFolder = "C:\\";
-			if (!OverrideOutputFolder.EndsWith("\\")) OverrideOutputFolder += "\\";
 			//The following handles whether the executable is placed inside a sub folder in the root git directory.
-			if (!Directory.Exists(CurrentDirectory + @"\A3-Antistasi")) {
+			if (!Directory.Exists(Dir_AntistasiRoot)) {
 				Dir_AntistasiRoot = CurrentDirectory + @"\..\A3-Antistasi";
 				Dir_AntistasiTemplates = CurrentDirectory + @"\..\Map-Templates";
+				if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\A3-Antistasi' not found."); return; };
+				if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\Map-Templates' not found."); return; };
 			}
 			/*if there is an issue fetching Arma 3 profile name or if developing on a computer that 
 			does not have Arma 3 Installed this allows it to still be able to package missions. 
-			The name matches the outfolder of a python tool in the Offical Repository that does this aswell.*/
+			The name matches the out folder of a python tool in the Official Repository that does this as well.*/
 			if (PlayerName == string.Empty || !Directory.Exists(Dir_mpMissions)) {
 				Dir_mpMissions = CurrentDirectory + @"\PackagedMissions\";
 			}
