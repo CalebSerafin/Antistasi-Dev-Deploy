@@ -83,7 +83,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 		}
 
 		private void btn_PBOList_Help_Click(object sender, EventArgs e) {
-			MessageBox.Show("Input Map-Template Names (comma separated) that you want PBOed. Input asterisks to PBO all Map-Templates. Alternatively you can use the file picker to select the Map-Templates (Will not change source path)");
+			MessageBox.Show("Input Map-Templates (comma separated) to filter output files. Alternatively you can use the file picker to select Map-Template folder(s) (Not connected to source path)");
 		}
 
 		private void chk_OverrideSource_CheckedChanged(object sender, EventArgs e) {
