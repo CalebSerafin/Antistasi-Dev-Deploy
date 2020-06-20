@@ -3,7 +3,7 @@
 # Antistasi Dev Deploy
 Dynamically deploys any map template (Antistasi-Concretium Civitas.coci-concretiumcivitas) into mpmissions for straight testing, or separating it for packing into a PBO. Example Output: `"Antistasi-Concretium Civitas-2-2-2.coci-concretiumcivitas"`
 ## How To
-Just place in the same folder as A3-Antistasi, and with one click, all the templates are deployed to *your* mpmissions. No forms, no configs, no bullshit.
+Just place in the same folder as A3-Antistasi, and with one click, all the templates are deployed to *your* mpmissions. Integrates with FileBank to pack PBOs.
 
 ## Technical Specifications 
 * Run `Antistasi Dev Deploy.exe` with `/h` argument to see help list.
