@@ -1,4 +1,9 @@
 **Changelog:**
+* v4b1:<br/>
+Arma 3 Tools: FileBank intergration.<br/>
+The Configurator can now run ADD from it's last execution.<br/>
+Specific Map-Templates can be selected for PBO packing.<br/>
+Source can now be overridden.<br/>
 * v3.1:<br/>
 Default version number used if stringtable.xml is corrupt.<br/>
 XML Error is expressed to user regardless of visibility settings.<br/>
