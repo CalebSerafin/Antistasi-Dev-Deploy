@@ -20,7 +20,7 @@ using static Antistasi_Dev_Deploy.MapHandling;
 using static Antistasi_Dev_Deploy.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
-using static Antistasi_Dev_Deploy.XCopyLib;
+using static Antistasi_Dev_Deploy.ExternalExe;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
 
 namespace Antistasi_Dev_Deploy {
@@ -157,14 +157,13 @@ namespace Antistasi_Dev_Deploy {
 			foreach (MapTemplate Item in AntistasiMapTemplates) {
 				string Destination = Dir_mpMissions + Item.Name + RuntimeTimeValue.MissionVersion + "." + Item.Map;
 				string TemplateFolder = Dir_AntistasiTemplates + @"\" + Item.Dir;
-				string XCopyArgs = "/Q";
 #if DEBUG
 				Console.WriteLine("Copying " + Item.Dir + " Base&Template assets...");
 #endif
-				XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y", XCopyArgs);
-				XCopy(TemplateFolder, Destination, "/C /S /I /Y", XCopyArgs);
+				XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y");
+				XCopy(TemplateFolder, Destination, "/C /S /I /Y");
 				if (PBOAllFiles || PBOList.Any(MapT => MapT.Equals(Item.Dir, StringComparison.OrdinalIgnoreCase))) {
-					Process.Start(FileBankPath(), '\"' + Destination + '\"');
+					FileBank( Destination );
 				};
 			}
 #if DEBUG

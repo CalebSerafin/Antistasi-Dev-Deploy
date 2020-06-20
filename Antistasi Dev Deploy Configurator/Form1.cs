@@ -6,6 +6,7 @@ using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
 using static Antistasi_Dev_Deploy_Shared.GetFolderLib;
 using static Antistasi_Dev_Deploy_Configurator.Registary;
+using static Antistasi_Dev_Deploy_Configurator.ExternalExe;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
@@ -118,7 +119,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 		private void btn_RunLastPath_Click(object sender, EventArgs e) {
 			SaveSettings();
 			if (File.Exists(LastPath)) {
-				System.Diagnostics.Process.Start(LastPath);
+				AntistasiDevDeploy(LastPath);
 			} else {
 				MessageBox.Show("You need to run Antistasi Dev Deploy at-least once for it to save its path.");
 			};

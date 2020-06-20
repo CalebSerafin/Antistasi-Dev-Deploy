@@ -13,5 +13,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)GetFolderLib.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Registary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedValues.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExternalExe.cs" />
   </ItemGroup>
 </Project>

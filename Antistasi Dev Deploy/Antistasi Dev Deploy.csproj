@@ -100,7 +100,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="WindowPowerLib.cs" />
-    <Compile Include="XCopyLib.cs" />
+    <Compile Include="ExternalExe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
