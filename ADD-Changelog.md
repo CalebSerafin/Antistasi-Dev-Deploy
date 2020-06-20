@@ -1,8 +1,9 @@
 **Changelog:**
 * v4b2:<br/>
 Valid Map-Templates end in a .map and have a mission.sqm.<br/>
+Periods in Map-Templates are preserved.<br/>
 * v4b1:<br/>
-Arma 3 Tools: FileBank intergration.<br/>
+Arma 3 Tools: FileBank integration.<br/>
 The Configurator can now run ADD from it's last execution.<br/>
 Specific Map-Templates can be selected for PBO packing.<br/>
 Source can now be overridden.<br/>

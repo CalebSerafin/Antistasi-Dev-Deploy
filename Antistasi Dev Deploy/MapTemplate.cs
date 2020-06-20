@@ -19,7 +19,7 @@ namespace Antistasi_Dev_Deploy {
 				Dir = Name + "." + Map;
 			}
 			public MapTemplate(string[] nameX_mapX) {
-				Name = string.Join("-",nameX_mapX.Take(nameX_mapX.Length-1));
+				Name = string.Join(".",nameX_mapX.Take(nameX_mapX.Length-1));
 				Map = nameX_mapX.Last();
 				Dir = Name + "." + Map;
 			}
