@@ -33,7 +33,7 @@ namespace Antistasi_Dev_Deploy {
 					};
 					if (!Quiet) Console.WriteLine(displayText);
 				} else {
-					if (!Quiet) ShowMessage("ERROR: Process has not started");
+					ShowMessage("ERROR: XCopy process failed to start.");
 				}
 			} catch (Exception XCopyError) {
 				if (!Quiet) ShowMessage(XCopyError.Message);
