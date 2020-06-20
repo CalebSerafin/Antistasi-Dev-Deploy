@@ -92,12 +92,21 @@ namespace Antistasi_Dev_Deploy {
 				};
 			}
 			string Reg_Value_Arma_PlayerName_Value = FetchArma(Reg.Value_Arma_PlayerName_Name, @"empty");
+			bool Reg_Value_ADD_OverrideSource_Value = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideSource_Name, 0));
 			bool Reg_Value_ADD_OverrideOutput_Value = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, 0));
 			bool Reg_Value_ADD_ForceOpenOutput_Value = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, 0));
 			//Value_ADD_LastPath;
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_LastPath, System.Reflection.Assembly.GetEntryAssembly().Location, RegistryValueKind.String);
 
+			string Reg_Value_ADD_OverrideSourceFolder_Value;
+			Reg_Value_ADD_OverrideSourceFolder_Value = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSourceFolder_Name, "C:\\");
+			if (Reg_Value_ADD_OverrideSourceFolder_Value == null) Reg_Value_ADD_OverrideSourceFolder_Value = "C:\\";
+			if (!Reg_Value_ADD_OverrideSourceFolder_Value.EndsWith("\\")) Reg_Value_ADD_OverrideSourceFolder_Value += "\\";
+
 			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+			if (Reg_Value_ADD_OverrideSource_Value) {
+				CurrentDirectory = Reg_Value_ADD_OverrideSourceFolder_Value;
+			}
 			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi";
 			string Dir_AntistasiTemplates = CurrentDirectory + @"\Map-Templates";
 			string Reg_Value_ADD_OverrideOutputFolder_Value;
@@ -165,9 +174,9 @@ namespace Antistasi_Dev_Deploy {
 			ShowMessage("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
 			Process.Start(Dir_mpMissions + "\\");
 #else
-				if (Reg_Value_ADD_ForceOpenOutput_Value) {
-					Process.Start(Dir_mpMissions + "\\");
-				}
+			if (Reg_Value_ADD_ForceOpenOutput_Value) {
+				Process.Start(Dir_mpMissions + "\\");
+			}
 #endif
 		}
 	}

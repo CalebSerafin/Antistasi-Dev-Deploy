@@ -129,7 +129,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chk_OverrideOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+    <value>12, 34</value>
   </data>
   <data name="chk_OverrideOutput.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -153,13 +153,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chk_OverrideOutput.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>16</value>
   </data>
   <data name="txt_OverrideOutput.HelpString" xml:space="preserve">
     <value>Insert Fixed or Local Address with forward slashed.</value>
   </data>
   <data name="txt_OverrideOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 12</value>
+    <value>169, 34</value>
   </data>
   <data name="txt_OverrideOutput.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -183,7 +183,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_OverrideOutput.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>15</value>
   </data>
   <data name="btn_OverrideOutput_SelectPath.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -192,7 +192,7 @@
     <value>Use an intuitive folder explorer.</value>
   </data>
   <data name="btn_OverrideOutput_SelectPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 11</value>
+    <value>364, 33</value>
   </data>
   <data name="btn_OverrideOutput_SelectPath.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -216,13 +216,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_OverrideOutput_SelectPath.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>14</value>
   </data>
   <data name="btn_Apply.HelpString" xml:space="preserve">
     <value>Save Values to the registary.</value>
   </data>
   <data name="btn_Apply.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 115</value>
+    <value>262, 137</value>
   </data>
   <data name="btn_Apply.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -246,13 +246,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_Apply.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>13</value>
   </data>
   <data name="btn_EraseRegistry.HelpString" xml:space="preserve">
     <value>Remove all Values added by A3DD.</value>
   </data>
   <data name="btn_EraseRegistry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 115</value>
+    <value>12, 137</value>
   </data>
   <data name="btn_EraseRegistry.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -276,7 +276,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_EraseRegistry.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
   <data name="chk_ForceOpenOutput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -285,7 +285,7 @@
     <value>Open the folder when the operation is complete.</value>
   </data>
   <data name="chk_ForceOpenOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 35</value>
+    <value>12, 57</value>
   </data>
   <data name="chk_ForceOpenOutput.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -309,7 +309,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chk_ForceOpenOutput.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="lbl_JustConfig1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -318,7 +318,7 @@
     <value>Roboto, 7pt</value>
   </data>
   <data name="lbl_JustConfig1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 102</value>
+    <value>134, 110</value>
   </data>
   <data name="lbl_JustConfig1.Size" type="System.Drawing.Size, System.Drawing">
     <value>276, 13</value>
@@ -339,7 +339,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_JustConfig1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="lbl_JustConfig2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -352,7 +352,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbl_JustConfig2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 115</value>
+    <value>140, 123</value>
   </data>
   <data name="lbl_JustConfig2.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 13</value>
@@ -373,13 +373,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_JustConfig2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="lbl_PBOList.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lbl_PBOList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 59</value>
+    <value>12, 81</value>
   </data>
   <data name="lbl_PBOList.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 13</value>
@@ -400,13 +400,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbl_PBOList.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="txt_PBOList.HelpString" xml:space="preserve">
     <value>Input CSV of Map-Template Names that you want PBOed.</value>
   </data>
   <data name="txt_PBOList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 52</value>
+    <value>169, 74</value>
   </data>
   <data name="txt_PBOList.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -430,7 +430,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_PBOList.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="btn_PBOList_SelectPath.HelpString" xml:space="preserve">
     <value>Use an intuitive folder explorer.</value>
@@ -439,7 +439,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_PBOList_SelectPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 51</value>
+    <value>364, 73</value>
   </data>
   <data name="btn_PBOList_SelectPath.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -463,7 +463,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_PBOList_SelectPath.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="btn_PBOList_Help.HelpString" xml:space="preserve">
     <value>Use an intuitive folder explorer.</value>
@@ -472,7 +472,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_PBOList_Help.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 52</value>
+    <value>394, 74</value>
   </data>
   <data name="btn_PBOList_Help.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -496,7 +496,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_PBOList_Help.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="chk_PBOList_Override.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -508,7 +508,7 @@
     <value>NoControl</value>
   </data>
   <data name="chk_PBOList_Override.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 75</value>
+    <value>12, 97</value>
   </data>
   <data name="chk_PBOList_Override.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -532,6 +532,141 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chk_PBOList_Override.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btn_RunLastPath.HelpString" xml:space="preserve">
+    <value>Save Values and runs ADD.</value>
+  </data>
+  <data name="btn_RunLastPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_RunLastPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, 137</value>
+  </data>
+  <data name="btn_RunLastPath.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btn_RunLastPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btn_RunLastPath.TabIndex" type="System.Int32, mscorlib">
+    <value>1007</value>
+  </data>
+  <data name="btn_RunLastPath.Text" xml:space="preserve">
+    <value>Run ADD</value>
+  </data>
+  <data name="&gt;&gt;btn_RunLastPath.Name" xml:space="preserve">
+    <value>btn_RunLastPath</value>
+  </data>
+  <data name="&gt;&gt;btn_RunLastPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_RunLastPath.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_RunLastPath.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="chk_OverrideSource.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chk_OverrideSource.HelpString" xml:space="preserve">
+    <value>Use the custom directory specified.</value>
+  </data>
+  <data name="chk_OverrideSource.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chk_OverrideSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 11</value>
+  </data>
+  <data name="chk_OverrideSource.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chk_OverrideSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 17</value>
+  </data>
+  <data name="chk_OverrideSource.TabIndex" type="System.Int32, mscorlib">
+    <value>1008</value>
+  </data>
+  <data name="chk_OverrideSource.Text" xml:space="preserve">
+    <value>Override Source Folder</value>
+  </data>
+  <data name="&gt;&gt;chk_OverrideSource.Name" xml:space="preserve">
+    <value>chk_OverrideSource</value>
+  </data>
+  <data name="&gt;&gt;chk_OverrideSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chk_OverrideSource.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chk_OverrideSource.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txt_OverrideSource.HelpString" xml:space="preserve">
+    <value>Insert Fixed or Local Address with forward slashed.</value>
+  </data>
+  <data name="txt_OverrideSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 11</value>
+  </data>
+  <data name="txt_OverrideSource.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txt_OverrideSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 20</value>
+  </data>
+  <data name="txt_OverrideSource.TabIndex" type="System.Int32, mscorlib">
+    <value>1009</value>
+  </data>
+  <data name="txt_OverrideSource.Text" xml:space="preserve">
+    <value>C:/</value>
+  </data>
+  <data name="&gt;&gt;txt_OverrideSource.Name" xml:space="preserve">
+    <value>txt_OverrideSource</value>
+  </data>
+  <data name="&gt;&gt;txt_OverrideSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt_OverrideSource.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txt_OverrideSource.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.HelpString" xml:space="preserve">
+    <value>Use an intuitive folder explorer.</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>364, 11</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 20</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.TabIndex" type="System.Int32, mscorlib">
+    <value>1010</value>
+  </data>
+  <data name="btn_OverrideSource_SelectPath.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;btn_OverrideSource_SelectPath.Name" xml:space="preserve">
+    <value>btn_OverrideSource_SelectPath</value>
+  </data>
+  <data name="&gt;&gt;btn_OverrideSource_SelectPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_OverrideSource_SelectPath.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_OverrideSource_SelectPath.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -541,7 +676,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>422, 150</value>
+    <value>422, 174</value>
   </data>
   <data name="$this.HelpString" xml:space="preserve">
     <value />

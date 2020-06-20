@@ -43,6 +43,10 @@
 			this.btn_PBOList_SelectPath = new System.Windows.Forms.Button();
 			this.btn_PBOList_Help = new System.Windows.Forms.Button();
 			this.chk_PBOList_Override = new System.Windows.Forms.CheckBox();
+			this.btn_RunLastPath = new System.Windows.Forms.Button();
+			this.chk_OverrideSource = new System.Windows.Forms.CheckBox();
+			this.txt_OverrideSource = new System.Windows.Forms.TextBox();
+			this.btn_OverrideSource_SelectPath = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// chk_OverrideOutput
@@ -152,10 +156,49 @@
 			this.helpProvider1.SetShowHelp(this.chk_PBOList_Override, ((bool)(resources.GetObject("chk_PBOList_Override.ShowHelp"))));
 			this.chk_PBOList_Override.UseVisualStyleBackColor = true;
 			// 
+			// btn_RunLastPath
+			// 
+			this.helpProvider1.SetHelpString(this.btn_RunLastPath, resources.GetString("btn_RunLastPath.HelpString"));
+			resources.ApplyResources(this.btn_RunLastPath, "btn_RunLastPath");
+			this.btn_RunLastPath.Name = "btn_RunLastPath";
+			this.helpProvider1.SetShowHelp(this.btn_RunLastPath, ((bool)(resources.GetObject("btn_RunLastPath.ShowHelp"))));
+			this.btn_RunLastPath.UseVisualStyleBackColor = true;
+			this.btn_RunLastPath.Click += new System.EventHandler(this.btn_RunLastPath_Click);
+			// 
+			// chk_OverrideSource
+			// 
+			resources.ApplyResources(this.chk_OverrideSource, "chk_OverrideSource");
+			this.helpProvider1.SetHelpString(this.chk_OverrideSource, resources.GetString("chk_OverrideSource.HelpString"));
+			this.chk_OverrideSource.Name = "chk_OverrideSource";
+			this.helpProvider1.SetShowHelp(this.chk_OverrideSource, ((bool)(resources.GetObject("chk_OverrideSource.ShowHelp"))));
+			this.chk_OverrideSource.UseVisualStyleBackColor = true;
+			this.chk_OverrideSource.CheckedChanged += new System.EventHandler(this.chk_OverrideSource_CheckedChanged);
+			// 
+			// txt_OverrideSource
+			// 
+			this.helpProvider1.SetHelpString(this.txt_OverrideSource, resources.GetString("txt_OverrideSource.HelpString"));
+			resources.ApplyResources(this.txt_OverrideSource, "txt_OverrideSource");
+			this.txt_OverrideSource.Name = "txt_OverrideSource";
+			this.txt_OverrideSource.ReadOnly = true;
+			this.helpProvider1.SetShowHelp(this.txt_OverrideSource, ((bool)(resources.GetObject("txt_OverrideSource.ShowHelp"))));
+			// 
+			// btn_OverrideSource_SelectPath
+			// 
+			resources.ApplyResources(this.btn_OverrideSource_SelectPath, "btn_OverrideSource_SelectPath");
+			this.helpProvider1.SetHelpString(this.btn_OverrideSource_SelectPath, resources.GetString("btn_OverrideSource_SelectPath.HelpString"));
+			this.btn_OverrideSource_SelectPath.Name = "btn_OverrideSource_SelectPath";
+			this.helpProvider1.SetShowHelp(this.btn_OverrideSource_SelectPath, ((bool)(resources.GetObject("btn_OverrideSource_SelectPath.ShowHelp"))));
+			this.btn_OverrideSource_SelectPath.UseVisualStyleBackColor = true;
+			this.btn_OverrideSource_SelectPath.Click += new System.EventHandler(this.btn_OverrideSource_SelectPath_Click);
+			// 
 			// Menu
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.btn_OverrideSource_SelectPath);
+			this.Controls.Add(this.txt_OverrideSource);
+			this.Controls.Add(this.chk_OverrideSource);
+			this.Controls.Add(this.btn_RunLastPath);
 			this.Controls.Add(this.chk_PBOList_Override);
 			this.Controls.Add(this.btn_PBOList_Help);
 			this.Controls.Add(this.btn_PBOList_SelectPath);
@@ -196,6 +239,10 @@
 		private System.Windows.Forms.Button btn_PBOList_SelectPath;
 		private System.Windows.Forms.Button btn_PBOList_Help;
 		private System.Windows.Forms.CheckBox chk_PBOList_Override;
+		private System.Windows.Forms.Button btn_RunLastPath;
+		private System.Windows.Forms.CheckBox chk_OverrideSource;
+		private System.Windows.Forms.TextBox txt_OverrideSource;
+		private System.Windows.Forms.Button btn_OverrideSource_SelectPath;
 	}
 }
 

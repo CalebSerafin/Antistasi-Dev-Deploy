@@ -29,6 +29,8 @@
 
 			public const string Value_ADD_OverrideOutput_Name = @"Override Output";
 			public const string Value_ADD_OverrideOutputFolder_Name = @"Override Output Folder";
+			public const string Value_ADD_OverrideSource_Name = @"Override Source";
+			public const string Value_ADD_OverrideSourceFolder_Name = @"Override Source Folder";
 			public const string Value_ADD_ForceOpenOutput_Name = @"Force Open Output";
 			public const string Value_ADD_PBOList = @"PBO Map-Templates";
 			public const string Value_ADD_PBOForce = @"PBO Force Output Packing";
