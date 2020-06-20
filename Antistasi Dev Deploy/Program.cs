@@ -45,11 +45,12 @@ namespace Antistasi_Dev_Deploy {
 					case "/h":
 						ShowMessage(
 							Environment.NewLine,
-							"/v                 Prints current version.",
+							"/v                 Prints assembly version.",
 							"/h                 Prints help list.",
 							"/p                 PBO files. Requires A3Tools:FileBank.",
 							"/f                 Filter templates from ADD-Configurator.",
-							"/f=\"Name,Name...\"  Pack these templates. Overrides Config."
+							"/f=\"Name,Name...\"  Pack these templates. Overrides Config.",
+							"See https://github.com/CalebSerafin/Arma-3-Dev-Deploy for details."
 						);
 						return;
 					case "/p":
