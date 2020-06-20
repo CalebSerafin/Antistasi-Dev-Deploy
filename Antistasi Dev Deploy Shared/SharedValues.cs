@@ -28,15 +28,16 @@ namespace Antistasi_Dev_Deploy_Shared {
 			public const string Key_CalebSerafin = @"HKEY_CURRENT_USER\Software\Caleb Serafin";
 			public const string Key_A3DD = Key_CalebSerafin + @"\Arma 3 Dev Deploy";
 			public const string Key_A3DD_ADD = Key_A3DD + @"\Antistasi Dev Deploy";
-
-			public const string Value_ADD_OverrideOutput_Name = @"Override Output";
-			public const string Value_ADD_OverrideOutputFolder_Name = @"Override Output Folder";
-			public const string Value_ADD_OverrideSource_Name = @"Override Source";
-			public const string Value_ADD_OverrideSourceFolder_Name = @"Override Source Folder";
-			public const string Value_ADD_ForceOpenOutput_Name = @"Force Open Output";
-			public const string Value_ADD_PBOList = @"PBO Map-Templates";
-			public const string Value_ADD_PBOForce = @"PBO Force Output Packing";
 			public const string Value_ADD_LastPath = @"ADD Last Path";
+
+			public const string Value_ADD_OverrideOutput = @"Override Output";
+			public const string Value_ADD_OverrideOutputFolder = @"Override Output Folder";
+			public const string Value_ADD_OverrideSource = @"Override Source";
+			public const string Value_ADD_OverrideSourceFolder = @"Override Source Folder";
+			public const string Value_ADD_ForceFilter = @"Force Map-Templates Filter";
+			public const string Value_ADD_FilterList = @"Map-Templates Filter List";
+			public const string Value_ADD_ForceOpenOutput = @"Force Open Output";
+			public const string Value_ADD_PBOForce = @"Force PBO Files";
 #if ADDC
 			public static string RemoveCurrentUser(string Input) {
 				return Input.Remove(0, 18);

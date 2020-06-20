@@ -28,10 +28,10 @@ namespace Antistasi_Dev_Deploy {
 		//Needs to be Nullable as Registry calls may return null if key does not exist.
 		private static bool BoolBin(int? Input) => !Input.HasValue ? false : Input > 0;
 
-		private static bool PBOAllFiles = false;
-		private static List<string> PBOList = new List<string>();
-		private static bool PBOInvoked = false;
-		private static string PBOArgs = string.Empty;
+		private static bool PBOFiles = false;
+		private static List<string> FilterList = new List<string>();
+		private static bool FilterInvoked = false;
+		private static string FilterArgs = string.Empty;
 
 		static void Main(string[] args) {
 #if !DEBUG
@@ -46,63 +46,61 @@ namespace Antistasi_Dev_Deploy {
 						ShowMessage(
 							Environment.NewLine,
 							"/v                 Prints current version.",
-							"/h                 Prints Help list.",
-							"/p                 PBO all Map-Templates. Requires A3Tools:FileBank.",
-							"/p=r               PBO List specified from ADD Configurator.",
-							"/p=\"Name,Name...\"  PBO only these Map-Templates."
+							"/h                 Prints help list.",
+							"/p                 PBO files. Requires A3Tools:FileBank.",
+							"/f                 Filter templates from ADD-Configurator.",
+							"/f=\"Name,Name...\"  Pack these templates. Overrides Config."
 						);
 						return;
 					case "/p":
-						if (!HasFileBank) {
-							ShowMessage("Arma 3 Tools: FileBank not installed on system.", "FileBank's Path was not found in system registry.");
-							return;
-						};
-						if (arg.Length <= 3) {
-							PBOAllFiles = true;
-						} else {
-							PBOInvoked = true;
-							PBOArgs = arg.Substring(3);
-						};
+						PBOFiles = true;
+						break;
+					case "/f":
+						FilterInvoked = true;
+						FilterArgs = arg;
 						break;
 				}
 			}
-			if (BoolBin((int)FetchA3DD(Reg.Value_ADD_PBOForce, 0))) {
-				string PBOListString = FetchA3DD(Reg.Value_ADD_PBOList, string.Empty);
-				if (PBOListString == "*") {
-					PBOAllFiles = true;
-					PBOInvoked = false;
-				} else if (!string.IsNullOrEmpty(PBOListString)) {
-					PBOAllFiles = false;
-					PBOInvoked = true;
-					PBOArgs = "r";
+			if (PBOFiles || BoolBin((int)FetchA3DD(Reg.Value_ADD_PBOForce, 0))) {
+				if (!HasFileBank) {
+					ShowMessage("Arma 3 Tools: FileBank not installed on system.", "FileBank's Path was not found in system registry.");
+					return;
 				};
+				PBOFiles = true;
 			}
-			if (PBOInvoked) {
+			if (BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceFilter, 0))) {
+				FilterInvoked = true;
+			}
+			if (FilterInvoked) {
 				try {
-					string PBOListString;
-					if (PBOArgs.Substring(0, 1).ToLower() == "r") {
-						PBOListString = FetchA3DD(Reg.Value_ADD_PBOList, string.Empty);
+					string FilterListString;
+					if (FilterArgs.Length > 3) {
+						FilterListString = FilterArgs.ToLower();
 					} else {
-						PBOListString = PBOArgs.ToLower();
+						FilterListString = FetchA3DD(Reg.Value_ADD_FilterList, string.Empty);
 					}
-					PBOList = PBOListString.Split(',').ToList();
+					FilterList = FilterListString.Split(',').ToList();
+					if (FilterList.Count() == 1 && string.IsNullOrEmpty(FilterList[0])) {
+						FilterInvoked = false;
+						ShowMessage("ADD-Config Filter is empty, please remove /f command.");
+						return;
+					}
 				} catch (Exception) {
-					ShowMessage("Error processing /p= arguments.");
+					ShowMessage("Error processing /f arguments.");
 					throw;
 				};
 			}
 			string PlayerName = FetchArma(Reg.Value_Arma_PlayerName_Name, @"empty");
-			bool OverrideSource = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideSource_Name, 0));
-			bool OverrideOutput = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, 0));
-			bool OpenOutput = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, 0));
-			//Value_ADD_LastPath;
+			bool OverrideSource = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideSource, 0));
+			bool OverrideOutput = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput, 0));
+			bool OpenOutput = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput, 0));
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_LastPath, System.Reflection.Assembly.GetEntryAssembly().Location, RegistryValueKind.String);
 
-			string OverrideSourceFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSourceFolder_Name, "C:\\");
+			string OverrideSourceFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSourceFolder, "C:\\");
 			if (OverrideSourceFolder == null) OverrideSourceFolder = "C:\\";
 			if (!OverrideSourceFolder.EndsWith("\\")) OverrideSourceFolder += "\\";
 
-			string OverrideOutputFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, "C:\\");
+			string OverrideOutputFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder, "C:\\");
 			if (OverrideOutputFolder == null) OverrideOutputFolder = "C:\\";
 			if (!OverrideOutputFolder.EndsWith("\\")) OverrideOutputFolder += "\\";
 
@@ -139,6 +137,11 @@ namespace Antistasi_Dev_Deploy {
 					AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
 				}
 			}
+
+			if (FilterInvoked) {
+				AntistasiMapTemplates = AntistasiMapTemplates.Where(Item =>
+					FilterList.Any(MapT => MapT.Equals(Item.Dir, StringComparison.OrdinalIgnoreCase))).ToList();
+			};
 #if DEBUG
 			List<string> TemplateNamesDebug = new List<string>();
 			foreach (MapTemplate item in AntistasiMapTemplates) {
@@ -149,7 +152,7 @@ namespace Antistasi_Dev_Deploy {
 				CurrentDirectory,
 				GetFolder(CurrentDirectory),
 				Dir_AntistasiTemplates,
-				Reg_Value_Arma_PlayerName_Value,
+				PlayerName,
 				Dir_mpMissions,
 				RuntimeTimeValue.MissionVersion
 			));
@@ -163,8 +166,8 @@ namespace Antistasi_Dev_Deploy {
 #endif
 				XCopy(Dir_AntistasiRoot, Destination);
 				XCopy(TemplateFolder, Destination);
-				if (PBOAllFiles || PBOList.Any(MapT => MapT.Equals(Item.Dir, StringComparison.OrdinalIgnoreCase))) {
-					FileBank( Destination );
+				if (PBOFiles) {
+					FileBank(Destination);
 				};
 			}
 #if DEBUG

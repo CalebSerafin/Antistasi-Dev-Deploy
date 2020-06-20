@@ -6,10 +6,10 @@ using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
 using static Antistasi_Dev_Deploy_Shared.GetFolderLib;
 using static Antistasi_Dev_Deploy_Configurator.Registary;
-using static Antistasi_Dev_Deploy_Configurator.ExternalExe;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System.Diagnostics;
 
 namespace Antistasi_Dev_Deploy_Configurator {
 	public partial class Menu : Form {
@@ -25,13 +25,17 @@ namespace Antistasi_Dev_Deploy_Configurator {
 		public Menu() {
 			InitializeComponent();
 
-			chk_OverrideSource.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideSource_Name, (int)0));
-			chk_OverrideOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput_Name, (int)0));
-			chk_ForceOpenOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput_Name, (int)0));
-			txt_OverrideSource.Text = FetchA3DD(Reg.Value_ADD_OverrideSourceFolder_Name, "C:\\");
-			txt_OverrideOutput.Text = FetchA3DD(Reg.Value_ADD_OverrideOutputFolder_Name, "C:\\");
-			txt_PBOList.Text = FetchA3DD(Reg.Value_ADD_PBOList, "*");
-			chk_PBOList_Override.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_PBOForce, (int)0));
+			chk_OverrideSource.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideSource, (int)0));
+			txt_OverrideSource.Text = FetchA3DD(Reg.Value_ADD_OverrideSourceFolder, "C:\\");
+
+			chk_OverrideOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput, (int)0));
+			txt_OverrideOutput.Text = FetchA3DD(Reg.Value_ADD_OverrideOutputFolder, "C:\\");
+
+			chk_ForceFilter.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceFilter, (int)0));
+			txt_FilterList.Text = FetchA3DD(Reg.Value_ADD_FilterList, "");
+
+			chk_ForceOpenOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput, (int)0));
+			chk_ForcePBO.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_PBOForce, (int)0));
 
 			txt_OverrideOutput.ReadOnly = !chk_OverrideOutput.Checked;
 			btn_OverrideOutput_SelectPath.Enabled = chk_OverrideOutput.Checked;
@@ -73,7 +77,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 				for (int i = 0; i < FileNames.Count; i++) {
 					FileNames[i] = GetFolder(FileNames[i]);
 				};
-				txt_PBOList.Text = string.Join(",",FileNames);
+				txt_FilterList.Text = string.Join(",",FileNames);
 			}
 			SelectPBOListDialog.Dispose();
 		}
@@ -93,13 +97,17 @@ namespace Antistasi_Dev_Deploy_Configurator {
 		}
 
 		private void SaveSettings() {
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSource_Name, BoolBin(chk_OverrideSource.Checked), RegistryValueKind.DWord);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutput_Name, BoolBin(chk_OverrideOutput.Checked), RegistryValueKind.DWord);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSourceFolder_Name, txt_OverrideSource.Text, RegistryValueKind.String);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder_Name, txt_OverrideOutput.Text, RegistryValueKind.String);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput_Name, BoolBin(chk_ForceOpenOutput.Checked), RegistryValueKind.DWord);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_PBOList, txt_PBOList.Text, RegistryValueKind.String);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_PBOForce, BoolBin(chk_PBOList_Override.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSource, BoolBin(chk_OverrideSource.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSourceFolder, txt_OverrideSource.Text, RegistryValueKind.String);
+
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutput, BoolBin(chk_OverrideOutput.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder, txt_OverrideOutput.Text, RegistryValueKind.String);
+
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceFilter, BoolBin(chk_ForceFilter.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_FilterList, txt_FilterList.Text, RegistryValueKind.String);
+
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput, BoolBin(chk_ForceOpenOutput.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_PBOForce, BoolBin(chk_ForcePBO.Checked), RegistryValueKind.DWord);
 		}
 
 		private void Btn_Apply_Click(object sender, EventArgs e) {
@@ -119,7 +127,10 @@ namespace Antistasi_Dev_Deploy_Configurator {
 		private void btn_RunLastPath_Click(object sender, EventArgs e) {
 			SaveSettings();
 			if (File.Exists(LastPath)) {
-				AntistasiDevDeploy(LastPath);
+				Process ADD = new Process();
+				ADD.StartInfo.FileName = LastPath;
+				ADD.Start();
+				ADD.WaitForExit();
 			} else {
 				MessageBox.Show("You need to run Antistasi Dev Deploy at-least once for it to save its path.");
 			};

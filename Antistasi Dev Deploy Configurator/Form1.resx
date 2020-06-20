@@ -129,7 +129,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chk_OverrideOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 34</value>
+    <value>12, 36</value>
   </data>
   <data name="chk_OverrideOutput.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -156,7 +156,7 @@
     <value>16</value>
   </data>
   <data name="txt_OverrideOutput.HelpString" xml:space="preserve">
-    <value>Insert Fixed or Local Address with forward slashed.</value>
+    <value>Static Address with Postfix Forward Slash.</value>
   </data>
   <data name="txt_OverrideOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 34</value>
@@ -285,7 +285,7 @@
     <value>Open the folder when the operation is complete.</value>
   </data>
   <data name="chk_ForceOpenOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 57</value>
+    <value>12, 82</value>
   </data>
   <data name="chk_ForceOpenOutput.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -375,62 +375,32 @@
   <data name="&gt;&gt;lbl_JustConfig2.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="lbl_PBOList.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbl_PBOList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 81</value>
-  </data>
-  <data name="lbl_PBOList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 13</value>
-  </data>
-  <data name="lbl_PBOList.TabIndex" type="System.Int32, mscorlib">
-    <value>1002</value>
-  </data>
-  <data name="lbl_PBOList.Text" xml:space="preserve">
-    <value>Map-Template PBO List</value>
-  </data>
-  <data name="&gt;&gt;lbl_PBOList.Name" xml:space="preserve">
-    <value>lbl_PBOList</value>
-  </data>
-  <data name="&gt;&gt;lbl_PBOList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbl_PBOList.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lbl_PBOList.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="txt_PBOList.HelpString" xml:space="preserve">
+  <data name="txt_FilterList.HelpString" xml:space="preserve">
     <value>Input CSV of Map-Template Names that you want PBOed.</value>
   </data>
-  <data name="txt_PBOList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 74</value>
+  <data name="txt_FilterList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>169, 57</value>
   </data>
-  <data name="txt_PBOList.ShowHelp" type="System.Boolean, mscorlib">
+  <data name="txt_FilterList.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="txt_PBOList.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txt_FilterList.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 20</value>
   </data>
-  <data name="txt_PBOList.TabIndex" type="System.Int32, mscorlib">
+  <data name="txt_FilterList.TabIndex" type="System.Int32, mscorlib">
     <value>1003</value>
   </data>
-  <data name="txt_PBOList.Text" xml:space="preserve">
-    <value>*</value>
+  <data name="&gt;&gt;txt_FilterList.Name" xml:space="preserve">
+    <value>txt_FilterList</value>
   </data>
-  <data name="&gt;&gt;txt_PBOList.Name" xml:space="preserve">
-    <value>txt_PBOList</value>
-  </data>
-  <data name="&gt;&gt;txt_PBOList.Type" xml:space="preserve">
+  <data name="&gt;&gt;txt_FilterList.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txt_PBOList.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txt_FilterList.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txt_PBOList.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;txt_FilterList.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="btn_PBOList_SelectPath.HelpString" xml:space="preserve">
     <value>Use an intuitive folder explorer.</value>
@@ -439,7 +409,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_PBOList_SelectPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>364, 73</value>
+    <value>364, 57</value>
   </data>
   <data name="btn_PBOList_SelectPath.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -463,7 +433,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_PBOList_SelectPath.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="btn_PBOList_Help.HelpString" xml:space="preserve">
     <value>Use an intuitive folder explorer.</value>
@@ -472,7 +442,7 @@
     <value>NoControl</value>
   </data>
   <data name="btn_PBOList_Help.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 74</value>
+    <value>394, 57</value>
   </data>
   <data name="btn_PBOList_Help.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -496,43 +466,43 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_PBOList_Help.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
-  <data name="chk_PBOList_Override.AutoSize" type="System.Boolean, mscorlib">
+  <data name="chk_ForcePBO.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chk_PBOList_Override.HelpString" xml:space="preserve">
+  <data name="chk_ForcePBO.HelpString" xml:space="preserve">
     <value>Open the folder when the operation is complete.</value>
   </data>
-  <data name="chk_PBOList_Override.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="chk_ForcePBO.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="chk_PBOList_Override.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 97</value>
+  <data name="chk_ForcePBO.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 105</value>
   </data>
-  <data name="chk_PBOList_Override.ShowHelp" type="System.Boolean, mscorlib">
+  <data name="chk_ForcePBO.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="chk_PBOList_Override.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 17</value>
+  <data name="chk_ForcePBO.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 17</value>
   </data>
-  <data name="chk_PBOList_Override.TabIndex" type="System.Int32, mscorlib">
+  <data name="chk_ForcePBO.TabIndex" type="System.Int32, mscorlib">
     <value>1006</value>
   </data>
-  <data name="chk_PBOList_Override.Text" xml:space="preserve">
-    <value>Force PBO List.</value>
+  <data name="chk_ForcePBO.Text" xml:space="preserve">
+    <value>Force PBO.</value>
   </data>
-  <data name="&gt;&gt;chk_PBOList_Override.Name" xml:space="preserve">
-    <value>chk_PBOList_Override</value>
+  <data name="&gt;&gt;chk_ForcePBO.Name" xml:space="preserve">
+    <value>chk_ForcePBO</value>
   </data>
-  <data name="&gt;&gt;chk_PBOList_Override.Type" xml:space="preserve">
+  <data name="&gt;&gt;chk_ForcePBO.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;chk_PBOList_Override.Parent" xml:space="preserve">
+  <data name="&gt;&gt;chk_ForcePBO.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;chk_PBOList_Override.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;chk_ForcePBO.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="btn_RunLastPath.HelpString" xml:space="preserve">
     <value>Save Values and runs ADD.</value>
@@ -565,7 +535,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_RunLastPath.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="chk_OverrideSource.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -577,7 +547,7 @@
     <value>NoControl</value>
   </data>
   <data name="chk_OverrideSource.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 11</value>
+    <value>12, 14</value>
   </data>
   <data name="chk_OverrideSource.ShowHelp" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -601,10 +571,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chk_OverrideSource.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="txt_OverrideSource.HelpString" xml:space="preserve">
-    <value>Insert Fixed or Local Address with forward slashed.</value>
+    <value>Static Address with Postfix Forward Slash. Target the root of the Repository.</value>
   </data>
   <data name="txt_OverrideSource.Location" type="System.Drawing.Point, System.Drawing">
     <value>169, 11</value>
@@ -631,7 +601,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txt_OverrideSource.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btn_OverrideSource_SelectPath.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -667,6 +637,42 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btn_OverrideSource_SelectPath.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chk_ForceFilter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chk_ForceFilter.HelpString" xml:space="preserve">
+    <value>Open the folder when the operation is complete.</value>
+  </data>
+  <data name="chk_ForceFilter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chk_ForceFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 59</value>
+  </data>
+  <data name="chk_ForceFilter.ShowHelp" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chk_ForceFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 17</value>
+  </data>
+  <data name="chk_ForceFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>1011</value>
+  </data>
+  <data name="chk_ForceFilter.Text" xml:space="preserve">
+    <value>Force Map-Template Filter</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceFilter.Name" xml:space="preserve">
+    <value>chk_ForceFilter</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceFilter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceFilter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chk_ForceFilter.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

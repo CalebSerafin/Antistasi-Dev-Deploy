@@ -38,15 +38,15 @@
 			this.lbl_JustConfig1 = new System.Windows.Forms.Label();
 			this.lbl_JustConfig2 = new System.Windows.Forms.Label();
 			this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-			this.lbl_PBOList = new System.Windows.Forms.Label();
-			this.txt_PBOList = new System.Windows.Forms.TextBox();
+			this.txt_FilterList = new System.Windows.Forms.TextBox();
 			this.btn_PBOList_SelectPath = new System.Windows.Forms.Button();
 			this.btn_PBOList_Help = new System.Windows.Forms.Button();
-			this.chk_PBOList_Override = new System.Windows.Forms.CheckBox();
+			this.chk_ForcePBO = new System.Windows.Forms.CheckBox();
 			this.btn_RunLastPath = new System.Windows.Forms.Button();
 			this.chk_OverrideSource = new System.Windows.Forms.CheckBox();
 			this.txt_OverrideSource = new System.Windows.Forms.TextBox();
 			this.btn_OverrideSource_SelectPath = new System.Windows.Forms.Button();
+			this.chk_ForceFilter = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// chk_OverrideOutput
@@ -117,18 +117,13 @@
 			this.lbl_JustConfig2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.lbl_JustConfig2.Name = "lbl_JustConfig2";
 			// 
-			// lbl_PBOList
+			// txt_FilterList
 			// 
-			resources.ApplyResources(this.lbl_PBOList, "lbl_PBOList");
-			this.lbl_PBOList.Name = "lbl_PBOList";
-			// 
-			// txt_PBOList
-			// 
-			this.txt_PBOList.BackColor = System.Drawing.SystemColors.Window;
-			this.helpProvider1.SetHelpString(this.txt_PBOList, resources.GetString("txt_PBOList.HelpString"));
-			resources.ApplyResources(this.txt_PBOList, "txt_PBOList");
-			this.txt_PBOList.Name = "txt_PBOList";
-			this.helpProvider1.SetShowHelp(this.txt_PBOList, ((bool)(resources.GetObject("txt_PBOList.ShowHelp"))));
+			this.txt_FilterList.BackColor = System.Drawing.SystemColors.Window;
+			this.helpProvider1.SetHelpString(this.txt_FilterList, resources.GetString("txt_FilterList.HelpString"));
+			resources.ApplyResources(this.txt_FilterList, "txt_FilterList");
+			this.txt_FilterList.Name = "txt_FilterList";
+			this.helpProvider1.SetShowHelp(this.txt_FilterList, ((bool)(resources.GetObject("txt_FilterList.ShowHelp"))));
 			// 
 			// btn_PBOList_SelectPath
 			// 
@@ -148,13 +143,13 @@
 			this.btn_PBOList_Help.UseVisualStyleBackColor = true;
 			this.btn_PBOList_Help.Click += new System.EventHandler(this.btn_PBOList_Help_Click);
 			// 
-			// chk_PBOList_Override
+			// chk_ForcePBO
 			// 
-			resources.ApplyResources(this.chk_PBOList_Override, "chk_PBOList_Override");
-			this.helpProvider1.SetHelpString(this.chk_PBOList_Override, resources.GetString("chk_PBOList_Override.HelpString"));
-			this.chk_PBOList_Override.Name = "chk_PBOList_Override";
-			this.helpProvider1.SetShowHelp(this.chk_PBOList_Override, ((bool)(resources.GetObject("chk_PBOList_Override.ShowHelp"))));
-			this.chk_PBOList_Override.UseVisualStyleBackColor = true;
+			resources.ApplyResources(this.chk_ForcePBO, "chk_ForcePBO");
+			this.helpProvider1.SetHelpString(this.chk_ForcePBO, resources.GetString("chk_ForcePBO.HelpString"));
+			this.chk_ForcePBO.Name = "chk_ForcePBO";
+			this.helpProvider1.SetShowHelp(this.chk_ForcePBO, ((bool)(resources.GetObject("chk_ForcePBO.ShowHelp"))));
+			this.chk_ForcePBO.UseVisualStyleBackColor = true;
 			// 
 			// btn_RunLastPath
 			// 
@@ -191,19 +186,27 @@
 			this.btn_OverrideSource_SelectPath.UseVisualStyleBackColor = true;
 			this.btn_OverrideSource_SelectPath.Click += new System.EventHandler(this.btn_OverrideSource_SelectPath_Click);
 			// 
+			// chk_ForceFilter
+			// 
+			resources.ApplyResources(this.chk_ForceFilter, "chk_ForceFilter");
+			this.helpProvider1.SetHelpString(this.chk_ForceFilter, resources.GetString("chk_ForceFilter.HelpString"));
+			this.chk_ForceFilter.Name = "chk_ForceFilter";
+			this.helpProvider1.SetShowHelp(this.chk_ForceFilter, ((bool)(resources.GetObject("chk_ForceFilter.ShowHelp"))));
+			this.chk_ForceFilter.UseVisualStyleBackColor = true;
+			// 
 			// Menu
 			// 
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.chk_ForceFilter);
 			this.Controls.Add(this.btn_OverrideSource_SelectPath);
 			this.Controls.Add(this.txt_OverrideSource);
 			this.Controls.Add(this.chk_OverrideSource);
 			this.Controls.Add(this.btn_RunLastPath);
-			this.Controls.Add(this.chk_PBOList_Override);
+			this.Controls.Add(this.chk_ForcePBO);
 			this.Controls.Add(this.btn_PBOList_Help);
 			this.Controls.Add(this.btn_PBOList_SelectPath);
-			this.Controls.Add(this.txt_PBOList);
-			this.Controls.Add(this.lbl_PBOList);
+			this.Controls.Add(this.txt_FilterList);
 			this.Controls.Add(this.lbl_JustConfig2);
 			this.Controls.Add(this.lbl_JustConfig1);
 			this.Controls.Add(this.chk_ForceOpenOutput);
@@ -234,15 +237,15 @@
 		private System.Windows.Forms.Label lbl_JustConfig1;
 		private System.Windows.Forms.Label lbl_JustConfig2;
 		private System.Windows.Forms.HelpProvider helpProvider1;
-		private System.Windows.Forms.Label lbl_PBOList;
-		private System.Windows.Forms.TextBox txt_PBOList;
+		private System.Windows.Forms.TextBox txt_FilterList;
 		private System.Windows.Forms.Button btn_PBOList_SelectPath;
 		private System.Windows.Forms.Button btn_PBOList_Help;
-		private System.Windows.Forms.CheckBox chk_PBOList_Override;
+		private System.Windows.Forms.CheckBox chk_ForcePBO;
 		private System.Windows.Forms.Button btn_RunLastPath;
 		private System.Windows.Forms.CheckBox chk_OverrideSource;
 		private System.Windows.Forms.TextBox txt_OverrideSource;
 		private System.Windows.Forms.Button btn_OverrideSource_SelectPath;
+		private System.Windows.Forms.CheckBox chk_ForceFilter;
 	}
 }
 
