@@ -97,29 +97,27 @@ namespace Antistasi_Dev_Deploy {
 			bool OpenOutput = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput, 0));
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_LastPath, System.Reflection.Assembly.GetEntryAssembly().Location, RegistryValueKind.String);
 
-			string OverrideSourceFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSourceFolder, "C:\\");
-			if (OverrideSourceFolder == null) OverrideSourceFolder = "C:\\";
+			string OverrideSourceFolder = (string)FetchA3DD(Reg.Value_ADD_OverrideSourceFolder, "C:\\");
 			if (!OverrideSourceFolder.EndsWith("\\")) OverrideSourceFolder += "\\";
 
-			string OverrideOutputFolder = (string)Registry.GetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder, "C:\\");
-			if (OverrideOutputFolder == null) OverrideOutputFolder = "C:\\";
+			string OverrideOutputFolder = (string)FetchA3DD(Reg.Value_ADD_OverrideOutputFolder, "C:\\");
 			if (!OverrideOutputFolder.EndsWith("\\")) OverrideOutputFolder += "\\";
 
 			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+			string SourceDirectory = CurrentDirectory;
 			if (OverrideSource) {
 				CurrentDirectory = OverrideSourceFolder;
 			}
+			//The following handles whether the executable is placed inside a sub folder in the root git directory.
+			if (!Directory.Exists(CurrentDirectory + @"\A3-Antistasi")) {
+				SourceDirectory += @"\..";
+			}
 			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi";
 			string Dir_AntistasiTemplates = CurrentDirectory + @"\Map-Templates";
-			string Dir_mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
+			if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\A3-Antistasi' not found."); return; };
+			if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\Map-Templates' not found."); return; };
 
-			//The following handles whether the executable is placed inside a sub folder in the root git directory.
-			if (!Directory.Exists(Dir_AntistasiRoot)) {
-				Dir_AntistasiRoot = CurrentDirectory + @"\..\A3-Antistasi";
-				Dir_AntistasiTemplates = CurrentDirectory + @"\..\Map-Templates";
-				if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\A3-Antistasi' not found."); return; };
-				if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\Map-Templates' not found."); return; };
-			}
+			string Dir_mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
 			/*if there is an issue fetching Arma 3 profile name or if developing on a computer that 
 			does not have Arma 3 Installed this allows it to still be able to package missions. 
 			The name matches the out folder of a python tool in the Official Repository that does this as well.*/
@@ -150,6 +148,7 @@ namespace Antistasi_Dev_Deploy {
 			}
 			Console.WriteLine(string.Join(Environment.NewLine, TemplateNamesDebug.ToArray()));
 			Console.WriteLine(string.Join(Environment.NewLine,
+				SourceDirectory,
 				CurrentDirectory,
 				GetFolder(CurrentDirectory),
 				Dir_AntistasiTemplates,
