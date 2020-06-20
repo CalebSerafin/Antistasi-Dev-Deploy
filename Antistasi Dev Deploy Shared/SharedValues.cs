@@ -1,7 +1,9 @@
-﻿namespace Antistasi_Dev_Deploy_Shared {
+﻿using System.Reflection;
+
+namespace Antistasi_Dev_Deploy_Shared {
 	public class ProgramValues {
 		public class CompileTimeValue {
-			public const string AppVersion = "4.0.0.0";
+			public static string AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 #if ADD
 #if DEBUG
 			public const bool Debug_Log = true;

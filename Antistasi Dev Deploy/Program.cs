@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using static Antistasi_Dev_Deploy_Shared.GetFolderLib;
 using static Antistasi_Dev_Deploy.MapHandling;
 using static Antistasi_Dev_Deploy.ProgramValues;
@@ -21,7 +22,6 @@ using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
 using static Antistasi_Dev_Deploy.XCopyLib;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
-using System.Linq;
 
 namespace Antistasi_Dev_Deploy {
 	class Program {
@@ -159,10 +159,7 @@ namespace Antistasi_Dev_Deploy {
 				string TemplateFolder = Dir_AntistasiTemplates + @"\" + Item.Dir;
 				string XCopyArgs = "/Q";
 #if DEBUG
-				//The following log option is broken, thanks XCOPY ♥.
-				//XCopy(Source, mpMissions + Item.Map, "/c /s /d /i /y /exclude:" + Config.Dir + Config.TIgnoreFiles + " > " + Config.Dir + "Antistasi.xcopy.log");
 				Console.WriteLine("Copying " + Item.Dir + " Base&Template assets...");
-				//XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y /Exclude:" + CompileTimeValue.TIgnoreFiles, XCopyArgs);
 #endif
 				XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y", XCopyArgs);
 				XCopy(TemplateFolder, Destination, "/C /S /I /Y", XCopyArgs);
