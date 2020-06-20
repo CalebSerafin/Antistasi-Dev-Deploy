@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antistasi Dev Deploy Config
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Antistasi Dev Deploy Shared", "..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.shproj", "{F5E57B9D-1491-4339-9CB3-F09648824639}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{5B938D75-FCB6-4A03-BF28-756139C5B0E0}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\ADD-Changelog.md = ..\ADD-Changelog.md
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{718df2c1-74be-469d-9c46-d3e3cd1ac342}*SharedItemsImports = 4

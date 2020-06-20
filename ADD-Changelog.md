@@ -1,4 +1,6 @@
 **Changelog:**
+* v4b2:<br/>
+Valid Map-Templates end in a .map and have a mission.sqm.<br/>
 * v4b1:<br/>
 Arma 3 Tools: FileBank intergration.<br/>
 The Configurator can now run ADD from it's last execution.<br/>

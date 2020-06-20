@@ -132,10 +132,10 @@ namespace Antistasi_Dev_Deploy {
 			if (Directory.Exists(Dir_AntistasiTemplates)) {
 				string[] Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
 				foreach (string item in Templates_Directories) {
+					if (!File.Exists(item + @"\mission.sqm")) continue; // If no mission.sqm it is probably not a map template.
 					string LastFolder = GetFolder(item);
 					string[] TemplateData = LastFolder.Split('.');
-					//If spliting by '.' does not produce two string it is probably not a map template.
-					if (TemplateData.Length != 2) continue;
+					if (TemplateData.Length < 2) continue; // If split return at least two strings, it is probably a map template.
 					AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
 				}
 			}
