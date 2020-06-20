@@ -161,8 +161,8 @@ namespace Antistasi_Dev_Deploy {
 #if DEBUG
 				Console.WriteLine("Copying " + Item.Dir + " Base&Template assets...");
 #endif
-				XCopy(Dir_AntistasiRoot, Destination, "/C /S /I /Y");
-				XCopy(TemplateFolder, Destination, "/C /S /I /Y");
+				XCopy(Dir_AntistasiRoot, Destination);
+				XCopy(TemplateFolder, Destination);
 				if (PBOAllFiles || PBOList.Any(MapT => MapT.Equals(Item.Dir, StringComparison.OrdinalIgnoreCase))) {
 					FileBank( Destination );
 				};
