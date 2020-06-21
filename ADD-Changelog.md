@@ -1,7 +1,7 @@
 **Change-log:**
 * v4b3 (4.3.8.0):<br/>
-File operations now use Multi-Threading, which fully utilizes the CPU.
-Navigates down 1 or up 5 directories looking for Repository.
+File operations now use Multi-Threading, which fully utilizes the CPU.<br/>
+Navigates down 1 or up 5 directories looking for Repository.<br/>
 * v4b2:<br/>
 Valid Map-Templates end in a .map and have a mission.sqm.<br/>
 Periods in Map-Templates are preserved.<br/>
