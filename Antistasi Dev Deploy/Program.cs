@@ -132,14 +132,14 @@ namespace Antistasi_Dev_Deploy {
 				AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
 			}
 			Directory.CreateDirectory(OutputFolder);
-			foreach (MapTemplate Item in AntistasiMapTemplates) {
-				string Destination = OutputFolder + Item.Name + MissionVersion + "." + Item.Map;
-				string TemplateFolder = Dir_AntistasiTemplates + @"\" + Item.Dir;
+			System.Threading.Tasks.Parallel.ForEach(AntistasiMapTemplates, (Template) => {
+				string Destination = OutputFolder + Template.Name + MissionVersion + "." + Template.Map;
+				string TemplateFolder = Dir_AntistasiTemplates + @"\" + Template.Dir;
 #if DEBUG
-				Console.WriteLine("Copying " + Item.Dir + " Base&Template assets...");
+				Console.WriteLine("Copying " + Template.Dir + " Base&Template assets...");
 #endif
 				FolderOps.PackTemplate(Dir_AntistasiCode, TemplateFolder, Destination, PBOFiles);
-			}
+			});
 #if DEBUG
 			ShowMessage("Press any key to open " + GetFolder(OutputFolder) + ".");
 			Process.Start(OutputFolder + "\\");
