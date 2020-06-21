@@ -4,8 +4,6 @@
  * Author:			Caleb S. Serafin
  * Version:			3.1
  * Date Created:	13-10-2019
- * Date Modified:	20-06-2020
- * Memory Usage:	20 MB
  * Dynamically deploys any map template into mpmissions for testing,
  * 
  */
