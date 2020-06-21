@@ -4,7 +4,7 @@ using System.Reflection;
 namespace Antistasi_Dev_Deploy_Shared {
 	public class ProgramValues {
 		public class RunTimeValue {
-			public static string AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " (Pre-release v4b3)";
+			public static string AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			public static string AppPath = Assembly.GetEntryAssembly().Location;
 			public static string AppFolder = Path.GetDirectoryName(AppPath);
 		}
@@ -32,7 +32,7 @@ namespace Antistasi_Dev_Deploy_Shared {
 			public const string ADD_ForceOpenOutput = @"Force Open Output";
 			public const string ADD_PBOForce = @"Force PBO Files";
 #if ADDC
-			public static string RemoveCurrentUser(string Input) {
+			public static string RemoveHKeyCurrentUser(string Input) {
 				return Input.Remove(0, 18);
 			}
 #endif

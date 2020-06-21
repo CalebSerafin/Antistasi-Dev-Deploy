@@ -6,7 +6,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 	class Registary {
 		public static void EraseAll() {
 			try {
-				Registry.CurrentUser.DeleteSubKeyTree(Reg.RemoveCurrentUser(Reg.Key_A3DD_ADD));
+				Registry.CurrentUser.DeleteSubKeyTree(Reg.RemoveHKeyCurrentUser(Reg.Key_A3DD_ADD));
 			} catch (Exception exception) {
 				switch (exception.GetType().Name) {
 					case "ArgumentException": break;
@@ -14,7 +14,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 				}
 			}
 			try {
-				Registry.CurrentUser.DeleteSubKey(Reg.RemoveCurrentUser(Reg.Key_A3DD)); ;
+				Registry.CurrentUser.DeleteSubKey(Reg.RemoveHKeyCurrentUser(Reg.Key_A3DD)); ;
 			} catch (Exception exception) {
 				switch (exception.GetType().Name) {
 					case "ArgumentException": break;
@@ -22,7 +22,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 				}
 			}
 			try {
-				Registry.CurrentUser.DeleteSubKey(Reg.RemoveCurrentUser(Reg.Key_CalebSerafin));
+				Registry.CurrentUser.DeleteSubKey(Reg.RemoveHKeyCurrentUser(Reg.Key_CalebSerafin));
 			} catch (Exception exception) {
 				switch (exception.GetType().Name) {
 					case "ArgumentException": break;
