@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Antistasi_Dev_Deploy_Shared;
+using System;
 using System.IO;
 using System.Xml;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
@@ -6,17 +7,12 @@ using static Antistasi_Dev_Deploy.WindowPowerLib;
 namespace Antistasi_Dev_Deploy {
 	class Mission {
 		public static string GetVersion() {
-			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi\";
-			if (!Directory.Exists(CurrentDirectory + @"\A3-Antistasi")) {
-				Dir_AntistasiRoot = CurrentDirectory + @"\..\A3-Antistasi\";
-			}
-			string Dir_StringTable = Dir_AntistasiRoot + "Stringtable.xml";
-
+			string SourceDirectory = FolderOps.FindRepository(ProgramValues.RunTimeValue.AppFolder);
+			string Path_StringTable = SourceDirectory + @"\A3-Antistasi\Stringtable.xml";
 			string MissionVersion = "-2-X";
 
-			if (File.Exists(Dir_AntistasiRoot + "Stringtable.xml")) {
-				string StringTableRaw = File.ReadAllText(Dir_StringTable);
+			if (File.Exists(Path_StringTable)) {
+				string StringTableRaw = File.ReadAllText(Path_StringTable);
 				XmlDocument StringTable = new XmlDocument();
 				try {
 					StringTable.LoadXml(StringTableRaw);
