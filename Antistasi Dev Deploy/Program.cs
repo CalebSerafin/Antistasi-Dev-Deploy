@@ -148,13 +148,13 @@ namespace Antistasi_Dev_Deploy {
 			}
 			Console.WriteLine(string.Join(Environment.NewLine, TemplateNamesDebug.ToArray()));
 			Console.WriteLine(string.Join(Environment.NewLine,
-				SourceDirectory,
-				CurrentDirectory,
-				GetFolder(CurrentDirectory),
-				Dir_AntistasiTemplates,
-				PlayerName,
-				Dir_mpMissions,
-				RuntimeTimeValue.MissionVersion
+				"SourceDirectory", SourceDirectory,
+				"CurrentDirectory", CurrentDirectory,
+				"GetFolder(CurrentDirectory)", GetFolder(CurrentDirectory),
+				"Dir_AntistasiTemplates", Dir_AntistasiTemplates,
+				"PlayerName", PlayerName,
+				"Dir_mpMissions", Dir_mpMissions,
+				"RuntimeTimeValue.MissionVersion", RuntimeTimeValue.MissionVersion
 			));
 #endif
 			Directory.CreateDirectory(Dir_mpMissions);
