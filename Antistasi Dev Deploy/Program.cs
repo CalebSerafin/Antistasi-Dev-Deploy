@@ -15,18 +15,20 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using static Antistasi_Dev_Deploy_Shared.GetFolderLib;
 using static Antistasi_Dev_Deploy.MapHandling;
-using static Antistasi_Dev_Deploy.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
 using static Antistasi_Dev_Deploy.ExternalExe;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
+using System.Runtime.Remoting.Messaging;
 
 namespace Antistasi_Dev_Deploy {
 	class Program {
 		//Needs to be Nullable as Registry calls may return null if key does not exist.
-		private static bool BoolBin(int? Input) => !Input.HasValue ? false : Input > 0;
+		private static bool BoolBin(int? Input) => Input.HasValue && Input > 0;
+		private static string MissionVersion { get; } = Mission.GetVersion();
 
 		private static bool PBOFiles = false;
 		private static List<string> FilterList = new List<string>();
@@ -40,7 +42,7 @@ namespace Antistasi_Dev_Deploy {
 			foreach (string arg in args) {
 				switch (arg.Substring(0, 2).ToLower()) {
 					case "/v":
-						ShowMessage("Version: " + CompileTimeValue.AppVersion);
+						ShowMessage("Version: " + RunTimeValue.AppVersion);
 						return;
 					case "/h":
 						ShowMessage(
@@ -50,6 +52,7 @@ namespace Antistasi_Dev_Deploy {
 							"/p                 PBO files. Requires A3Tools:FileBank.",
 							"/f                 Filter templates from ADD-Configurator.",
 							"/f=\"Name,Name...\"  Pack these templates. Overrides Config.",
+							"NOTE: the Configurator can override some of these settings.",
 							"See https://github.com/CalebSerafin/Arma-3-Dev-Deploy for details."
 						);
 						return;
@@ -62,14 +65,14 @@ namespace Antistasi_Dev_Deploy {
 						break;
 				}
 			}
-			if (PBOFiles || BoolBin((int)FetchA3DD(Reg.Value_ADD_PBOForce, 0))) {
+			if (PBOFiles || BoolBin((int)FetchA3DD(Reg.ADD_PBOForce, 0))) {
 				if (!HasFileBank) {
 					ShowMessage("Arma 3 Tools: FileBank not installed on system.", "FileBank's Path was not found in system registry.");
 					return;
 				};
 				PBOFiles = true;
 			}
-			if (BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceFilter, 0))) {
+			if (BoolBin((int)FetchA3DD(Reg.ADD_ForceFilter, 0))) {
 				FilterInvoked = true;
 			}
 			if (FilterInvoked) {
@@ -78,7 +81,7 @@ namespace Antistasi_Dev_Deploy {
 					if (FilterArgs.Length > 3) {
 						FilterListString = FilterArgs.ToLower();
 					} else {
-						FilterListString = FetchA3DD(Reg.Value_ADD_FilterList, string.Empty);
+						FilterListString = FetchA3DD(Reg.ADD_FilterList, string.Empty);
 					}
 					FilterList = FilterListString.Split(',').ToList();
 					if (FilterList.Count() == 1 && string.IsNullOrEmpty(FilterList[0])) {
@@ -91,19 +94,19 @@ namespace Antistasi_Dev_Deploy {
 					throw;
 				};
 			}
-			string PlayerName = FetchArma(Reg.Value_Arma_PlayerName_Name, @"empty");
-			bool OverrideSource = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideSource, 0));
-			bool OverrideOutput = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput, 0));
-			bool OpenOutput = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput, 0));
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_LastPath, System.Reflection.Assembly.GetEntryAssembly().Location, RegistryValueKind.String);
+			string PlayerName = FetchArma(Reg.Arma_PlayerName_Name, @"empty");
+			bool OverrideSource = BoolBin((int)FetchA3DD(Reg.ADD_OverrideSource, 0));
+			bool OverrideOutput = BoolBin((int)FetchA3DD(Reg.ADD_OverrideOutput, 0));
+			bool OpenOutput = BoolBin((int)FetchA3DD(Reg.ADD_ForceOpenOutput, 0));
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_LastPath, Assembly.GetEntryAssembly().Location, RegistryValueKind.String);
 
-			string OverrideSourceFolder = (string)FetchA3DD(Reg.Value_ADD_OverrideSourceFolder, "C:\\");
+			string OverrideSourceFolder = (string)FetchA3DD(Reg.ADD_OverrideSourceFolder, "C:\\");
 			if (!OverrideSourceFolder.EndsWith("\\")) OverrideSourceFolder += "\\";
 
-			string OverrideOutputFolder = (string)FetchA3DD(Reg.Value_ADD_OverrideOutputFolder, "C:\\");
+			string OverrideOutputFolder = (string)FetchA3DD(Reg.ADD_OverrideOutputFolder, "C:\\");
 			if (!OverrideOutputFolder.EndsWith("\\")) OverrideOutputFolder += "\\";
 
-			string CurrentDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+			string CurrentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 			string SourceDirectory = CurrentDirectory;
 			if (OverrideSource) {
 				CurrentDirectory = OverrideSourceFolder;
@@ -130,8 +133,7 @@ namespace Antistasi_Dev_Deploy {
 				string[] Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
 				foreach (string item in Templates_Directories) {
 					if (!File.Exists(item + @"\mission.sqm")) continue; // If no mission.sqm it is probably not a map template.
-					string LastFolder = GetFolder(item);
-					string[] TemplateData = LastFolder.Split('.');
+					string[] TemplateData = GetFolder(item).Split('.');
 					if (TemplateData.Length < 2) continue; // If split return at least two strings, it is probably a map template.
 					AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
 				}
@@ -159,7 +161,7 @@ namespace Antistasi_Dev_Deploy {
 #endif
 			Directory.CreateDirectory(Dir_mpMissions);
 			foreach (MapTemplate Item in AntistasiMapTemplates) {
-				string Destination = Dir_mpMissions + Item.Name + RuntimeTimeValue.MissionVersion + "." + Item.Map;
+				string Destination = Dir_mpMissions + Item.Name + MissionVersion + "." + Item.Map;
 				string TemplateFolder = Dir_AntistasiTemplates + @"\" + Item.Dir;
 #if DEBUG
 				Console.WriteLine("Copying " + Item.Dir + " Base&Template assets...");

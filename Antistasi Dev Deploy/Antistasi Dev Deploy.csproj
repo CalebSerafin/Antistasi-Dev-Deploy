@@ -90,7 +90,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RuntimeTimeValue.cs" />
     <Compile Include="MapTemplate.cs" />
     <Compile Include="Mission.cs" />
     <Compile Include="Program.cs" />
@@ -99,6 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SourceDirectory.cs" />
     <Compile Include="WindowPowerLib.cs" />
     <Compile Include="ExternalExe.cs" />
   </ItemGroup>

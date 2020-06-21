@@ -21,27 +21,27 @@ namespace Antistasi_Dev_Deploy_Configurator {
 			if (!Input.HasValue) return 0;
 			return (bool)Input ? 1 : 0;
 		}
-		private static string LastPath = FetchA3DD(Reg.Value_ADD_LastPath, "");
+		private static string LastPath = FetchA3DD(Reg.ADD_LastPath, "");
 		public Menu() {
 			InitializeComponent();
 
-			chk_OverrideSource.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideSource, (int)0));
-			txt_OverrideSource.Text = FetchA3DD(Reg.Value_ADD_OverrideSourceFolder, "C:\\");
+			chk_OverrideSource.Checked = BoolBin((int)FetchA3DD(Reg.ADD_OverrideSource, (int)0));
+			txt_OverrideSource.Text = FetchA3DD(Reg.ADD_OverrideSourceFolder, "C:\\");
 
-			chk_OverrideOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_OverrideOutput, (int)0));
-			txt_OverrideOutput.Text = FetchA3DD(Reg.Value_ADD_OverrideOutputFolder, "C:\\");
+			chk_OverrideOutput.Checked = BoolBin((int)FetchA3DD(Reg.ADD_OverrideOutput, (int)0));
+			txt_OverrideOutput.Text = FetchA3DD(Reg.ADD_OverrideOutputFolder, "C:\\");
 
-			chk_ForceFilter.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceFilter, (int)0));
-			txt_FilterList.Text = FetchA3DD(Reg.Value_ADD_FilterList, "");
+			chk_ForceFilter.Checked = BoolBin((int)FetchA3DD(Reg.ADD_ForceFilter, (int)0));
+			txt_FilterList.Text = FetchA3DD(Reg.ADD_FilterList, "");
 
-			chk_ForceOpenOutput.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_ForceOpenOutput, (int)0));
-			chk_ForcePBO.Checked = BoolBin((int)FetchA3DD(Reg.Value_ADD_PBOForce, (int)0));
+			chk_ForceOpenOutput.Checked = BoolBin((int)FetchA3DD(Reg.ADD_ForceOpenOutput, (int)0));
+			chk_ForcePBO.Checked = BoolBin((int)FetchA3DD(Reg.ADD_PBOForce, (int)0));
 
 			txt_OverrideOutput.ReadOnly = !chk_OverrideOutput.Checked;
 			btn_OverrideOutput_SelectPath.Enabled = chk_OverrideOutput.Checked;
 
 			this.helpProvider1.SetShowHelp(this, true);
-			this.helpProvider1.SetHelpString(this, "Antistasi Dev Deploy Configurator Version: " + CompileTimeValue.AppVersion);
+			this.helpProvider1.SetHelpString(this, "Antistasi Dev Deploy Configurator Version: " + RunTimeValue.AppVersion);
 		}
 
 		private void btn_OverrideSource_SelectPath_Click(object sender, EventArgs e) {
@@ -97,17 +97,17 @@ namespace Antistasi_Dev_Deploy_Configurator {
 		}
 
 		private void SaveSettings() {
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSource, BoolBin(chk_OverrideSource.Checked), RegistryValueKind.DWord);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideSourceFolder, txt_OverrideSource.Text, RegistryValueKind.String);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_OverrideSource, BoolBin(chk_OverrideSource.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_OverrideSourceFolder, txt_OverrideSource.Text, RegistryValueKind.String);
 
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutput, BoolBin(chk_OverrideOutput.Checked), RegistryValueKind.DWord);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_OverrideOutputFolder, txt_OverrideOutput.Text, RegistryValueKind.String);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_OverrideOutput, BoolBin(chk_OverrideOutput.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_OverrideOutputFolder, txt_OverrideOutput.Text, RegistryValueKind.String);
 
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceFilter, BoolBin(chk_ForceFilter.Checked), RegistryValueKind.DWord);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_FilterList, txt_FilterList.Text, RegistryValueKind.String);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_ForceFilter, BoolBin(chk_ForceFilter.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_FilterList, txt_FilterList.Text, RegistryValueKind.String);
 
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_ForceOpenOutput, BoolBin(chk_ForceOpenOutput.Checked), RegistryValueKind.DWord);
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.Value_ADD_PBOForce, BoolBin(chk_ForcePBO.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_ForceOpenOutput, BoolBin(chk_ForceOpenOutput.Checked), RegistryValueKind.DWord);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_PBOForce, BoolBin(chk_ForcePBO.Checked), RegistryValueKind.DWord);
 		}
 
 		private void Btn_Apply_Click(object sender, EventArgs e) {

@@ -7,16 +7,16 @@ namespace Antistasi_Dev_Deploy_Shared {
 		public static dynamic Fetch(string Key, string Name, dynamic Defualt) {
 			//When a registry tree doesn't exist, registary.GetValue instead throws an error rather than returning null.
 			try {
-				dynamic RetrievedValue = Registry.GetValue(Key, Name, Defualt);
-				return RetrievedValue is null ? Defualt : RetrievedValue;
+				return Registry.GetValue(Key, Name, Defualt) ?? Defualt;
 			} catch (Exception e) {
 				switch (e.GetType().Name) {
 					case "NullReferenceException": return Defualt;
 					default: throw;
-						//If there is an error other than the registary tree not existing it should be thrown.
+						//If there is an error other than the registry tree not existing it should be thrown.
 				}
 			}
 		}
+
 		public static dynamic FetchA3DD(string Name, dynamic Defualt) {
 			return Fetch(Reg.Key_A3DD_ADD, Name, Defualt);
 		}
@@ -24,12 +24,12 @@ namespace Antistasi_Dev_Deploy_Shared {
 			return Fetch(Reg.Key_Arma, Name, Defualt);
 		}
 		public static string FileBankPath () {
-			string Path = Fetch(Reg.Key_FileBank, Reg.Value_FileBank_Path, "");
-			string ExeName = Fetch(Reg.Key_FileBank, Reg.Value_FileBank_EXE, "");
-			if (!string.IsNullOrEmpty(Path)) {
-				return Path + @"\" + ExeName;
+			string Path = Fetch(Reg.Key_FileBank, Reg.FileBank_Path, string.Empty);
+			string ExeName = Fetch(Reg.Key_FileBank, Reg.FileBank_EXE, string.Empty);
+			if (string.IsNullOrEmpty(Path) || string.IsNullOrEmpty(ExeName)) {
+				return "";
 			};
-			return "";
+			return Path + @"\" + ExeName;
 		}
 		public static bool HasFileBank = !string.IsNullOrEmpty(FileBankPath());
 	}

@@ -1,4 +1,4 @@
-**Changelog:**
+**Change-log:**
 * v4b2:<br/>
 Valid Map-Templates end in a .map and have a mission.sqm.<br/>
 Periods in Map-Templates are preserved.<br/>
@@ -29,4 +29,4 @@ If your Arma 3 Profile Name doesn't exist or is missing (ie. A3 not installed), 
 * b1.1:<br/>
 Added Antistasi Dev Deploy Configurator<br/>
 * v1.0:<br/>
-Antistasi Dev Deploy debug build for no forms, no configs, and no-nonsense version.<br/>
+Antistasi Dev Deploy debug build for no forms, no config, and no-nonsense version.<br/>
