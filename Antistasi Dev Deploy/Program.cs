@@ -22,7 +22,6 @@ using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 using static Antistasi_Dev_Deploy_Shared.Registary;
 using static Antistasi_Dev_Deploy.ExternalExe;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
-using System.Runtime.Remoting.Messaging;
 
 namespace Antistasi_Dev_Deploy {
 	class Program {
@@ -106,78 +105,47 @@ namespace Antistasi_Dev_Deploy {
 			string OverrideOutputFolder = (string)FetchA3DD(Reg.ADD_OverrideOutputFolder, "C:\\");
 			if (!OverrideOutputFolder.EndsWith("\\")) OverrideOutputFolder += "\\";
 
-			string CurrentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-			string SourceDirectory = CurrentDirectory;
-			if (OverrideSource) {
-				CurrentDirectory = OverrideSourceFolder;
+			string SourceDirectory = OverrideSource ? OverrideSourceFolder : RunTimeValue.AppFolder;
+			SourceDirectory = FolderOps.FindRepository(SourceDirectory);
+			if (string.IsNullOrEmpty(SourceDirectory)) {
+				ShowMessage(
+					"ERROR: Repository not found.",
+					@"Ensure that '\A3-Antistasi' and '\Map-Templates' are present."
+					);
+				return;
 			}
-			//The following handles whether the executable is placed inside a sub folder in the root git directory.
-			if (!Directory.Exists(CurrentDirectory + @"\A3-Antistasi")) {
-				SourceDirectory += @"\..";
-			}
-			string Dir_AntistasiRoot = CurrentDirectory + @"\A3-Antistasi";
-			string Dir_AntistasiTemplates = CurrentDirectory + @"\Map-Templates";
-			if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\A3-Antistasi' not found."); return; };
-			if (!Directory.Exists(Dir_AntistasiRoot)) { ShowMessage(@"ERROR: '\Map-Templates' not found."); return; };
-
-			string Dir_mpMissions = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
+			string Dir_AntistasiCode = SourceDirectory + @"\A3-Antistasi";
+			string Dir_AntistasiTemplates = SourceDirectory + @"\Map-Templates";
 			/*if there is an issue fetching Arma 3 profile name or if developing on a computer that 
 			does not have Arma 3 Installed this allows it to still be able to package missions. 
 			The name matches the out folder of a python tool in the Official Repository that does this as well.*/
-			if (PlayerName == string.Empty || !Directory.Exists(Dir_mpMissions)) {
-				Dir_mpMissions = CurrentDirectory + @"\PackagedMissions\";
-			}
-			if (OverrideOutput) Dir_mpMissions = OverrideOutputFolder;
-			List<MapTemplate> AntistasiMapTemplates = new List<MapTemplate>();
-			if (Directory.Exists(Dir_AntistasiTemplates)) {
-				string[] Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
-				foreach (string item in Templates_Directories) {
-					if (!File.Exists(item + @"\mission.sqm")) continue; // If no mission.sqm it is probably not a map template.
-					string[] TemplateData = GetFolder(item).Split('.');
-					if (TemplateData.Length < 2) continue; // If split return at least two strings, it is probably a map template.
-					AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
-				}
-			}
+			string OutputFolder = string.IsNullOrEmpty(PlayerName) ? SourceDirectory + @"\PackagedMissions" : Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
+			if (OverrideOutput) OutputFolder = OverrideOutputFolder;
 
-			if (FilterInvoked) {
-				AntistasiMapTemplates = AntistasiMapTemplates.Where(Item =>
-					FilterList.Any(MapT => MapT.Equals(Item.Dir, StringComparison.OrdinalIgnoreCase))).ToList();
-			};
-#if DEBUG
-			List<string> TemplateNamesDebug = new List<string>();
-			foreach (MapTemplate item in AntistasiMapTemplates) {
-				TemplateNamesDebug.Add(item.Name + " on map " + item.Map);
+			List<MapTemplate> AntistasiMapTemplates = new List<MapTemplate>();
+			string[] Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
+			foreach (string Item in Templates_Directories) {
+				if (FilterInvoked && !FilterList.Any(MapT => MapT.Equals(Item, StringComparison.OrdinalIgnoreCase))) continue;
+				if (!File.Exists(Item + @"\mission.sqm")) continue; // If no mission.sqm it is probably not a map template.
+				string[] TemplateData = GetFolder(Item).Split('.');
+				if (TemplateData.Length < 2) continue; // If split return at least two strings, it is probably a map template.
+				AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
 			}
-			Console.WriteLine(string.Join(Environment.NewLine, TemplateNamesDebug.ToArray()));
-			Console.WriteLine(string.Join(Environment.NewLine,
-				"SourceDirectory", SourceDirectory,
-				"CurrentDirectory", CurrentDirectory,
-				"GetFolder(CurrentDirectory)", GetFolder(CurrentDirectory),
-				"Dir_AntistasiTemplates", Dir_AntistasiTemplates,
-				"PlayerName", PlayerName,
-				"Dir_mpMissions", Dir_mpMissions,
-				"RuntimeTimeValue.MissionVersion", RuntimeTimeValue.MissionVersion
-			));
-#endif
-			Directory.CreateDirectory(Dir_mpMissions);
+			Directory.CreateDirectory(OutputFolder);
 			foreach (MapTemplate Item in AntistasiMapTemplates) {
-				string Destination = Dir_mpMissions + Item.Name + MissionVersion + "." + Item.Map;
+				string Destination = OutputFolder + Item.Name + MissionVersion + "." + Item.Map;
 				string TemplateFolder = Dir_AntistasiTemplates + @"\" + Item.Dir;
 #if DEBUG
 				Console.WriteLine("Copying " + Item.Dir + " Base&Template assets...");
 #endif
-				XCopy(Dir_AntistasiRoot, Destination);
-				XCopy(TemplateFolder, Destination);
-				if (PBOFiles) {
-					FileBank(Destination);
-				};
+				FolderOps.PackTemplate(Dir_AntistasiCode, TemplateFolder, Destination, PBOFiles);
 			}
 #if DEBUG
-			ShowMessage("Press any key to open " + GetFolder(Dir_mpMissions) + ".");
-			Process.Start(Dir_mpMissions + "\\");
+			ShowMessage("Press any key to open " + GetFolder(OutputFolder) + ".");
+			Process.Start(OutputFolder + "\\");
 #else
 			if (OpenOutput) {
-				Process.Start(Dir_mpMissions + "\\");
+				Process.Start(OutputFolder + "\\");
 			}
 #endif
 		}

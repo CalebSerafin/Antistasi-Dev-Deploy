@@ -1,10 +1,12 @@
-﻿using System.Reflection;
+﻿using System.IO;
+using System.Reflection;
 
 namespace Antistasi_Dev_Deploy_Shared {
 	public class ProgramValues {
 		public class RunTimeValue {
 			public static string AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			public static string AppPath = Assembly.GetEntryAssembly().Location;
+			public static string AppFolder = Path.GetDirectoryName(AppPath);
 		}
 		public class CompileTimeValue {
 		}

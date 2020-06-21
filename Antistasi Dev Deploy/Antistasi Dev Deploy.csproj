@@ -98,7 +98,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SourceDirectory.cs" />
+    <Compile Include="FolderOps.cs" />
     <Compile Include="WindowPowerLib.cs" />
     <Compile Include="ExternalExe.cs" />
   </ItemGroup>
