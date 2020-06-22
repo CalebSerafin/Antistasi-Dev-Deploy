@@ -1,5 +1,7 @@
 **Change-log:**
 * v4b4 (4.4.9.0):<br/>
+Fixed bug where ADD filtered using full path of template.<br/>
+* v4b4 (4.4.9.0):<br/>
 Fixed bug where ADD was unable to navigate to the StringTable correctly.<br/>
 * v4b3 (4.3.8.0):<br/>
 File operations now use Multi-Threading, which fully utilizes the CPU.<br/>
