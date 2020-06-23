@@ -39,9 +39,6 @@ namespace Antistasi_Dev_Deploy_Configurator {
 
 			txt_OverrideOutput.ReadOnly = !chk_OverrideOutput.Checked;
 			btn_OverrideOutput_SelectPath.Enabled = chk_OverrideOutput.Checked;
-
-			this.helpProvider1.SetShowHelp(this, true);
-			this.helpProvider1.SetHelpString(this, "Antistasi Dev Deploy Configurator Version: " + RunTimeValue.AppVersion);
 		}
 
 		private void btn_OverrideSource_SelectPath_Click(object sender, EventArgs e) {

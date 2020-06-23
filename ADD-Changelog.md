@@ -3,6 +3,7 @@
 Template finding is now multi-threaded.<br/>
 User is notified if filter caused empty list.<br/>
 Window is only hidden from argument.<br/>
+HelpProvider replaced by ToolTip and Minimize.<br/>
 Incorrect switch will cause help page to appear.<br/>
 Fixed bug where ADD filtered using full path of template.<br/>
 Fixed bug where ADD use local folder for stringtable search.<br/>
