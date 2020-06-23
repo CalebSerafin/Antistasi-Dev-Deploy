@@ -122,12 +122,22 @@ namespace Antistasi_Dev_Deploy {
 
 			List<MapTemplate> AntistasiMapTemplates = new List<MapTemplate>();
 			string[] Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
-			foreach (string Item in Templates_Directories) {
+			foreach (string Item in Directory.GetDirectories(Dir_AntistasiTemplates)) {
 				if (FilterInvoked && !FilterList.Any(MapT => MapT.Equals(GetFolder(Item), StringComparison.OrdinalIgnoreCase))) continue;
 				if (!File.Exists(Item + @"\mission.sqm")) continue; // If no mission.sqm it is probably not a map template.
 				string[] TemplateData = GetFolder(Item).Split('.');
 				if (TemplateData.Length < 2) continue; // If split return at least two strings, it is probably a map template.
 				AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
+			}
+			if (AntistasiMapTemplates.Count == 0) {
+				ShowMessage(
+					"Filter matches no templates.",
+					"Filter: ",
+					string.Join(", ", FilterList),
+					"Map Templates: ",
+					string.Join(Environment.NewLine, Templates_Directories.Aggregate((Item,Index) => GetFolder(Item)))
+					);
+				return;
 			}
 			Directory.CreateDirectory(OutputFolder);
 			System.Threading.Tasks.Parallel.ForEach(AntistasiMapTemplates, (Template) => {
