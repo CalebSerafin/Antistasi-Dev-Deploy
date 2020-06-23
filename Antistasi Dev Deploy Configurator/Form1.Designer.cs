@@ -37,8 +37,8 @@
 			this.chk_ForceOpenOutput = new System.Windows.Forms.CheckBox();
 			this.helpProvider1 = new System.Windows.Forms.HelpProvider();
 			this.txt_FilterList = new System.Windows.Forms.TextBox();
-			this.btn_PBOList_SelectPath = new System.Windows.Forms.Button();
-			this.btn_PBOList_Help = new System.Windows.Forms.Button();
+			this.btn_FilterList_SelectPath = new System.Windows.Forms.Button();
+			this.btn_FilterList_Help = new System.Windows.Forms.Button();
 			this.chk_ForcePBO = new System.Windows.Forms.CheckBox();
 			this.btn_RunLastPath = new System.Windows.Forms.Button();
 			this.chk_OverrideSource = new System.Windows.Forms.CheckBox();
@@ -133,31 +133,31 @@
 			this.txt_FilterList.Size = new System.Drawing.Size(189, 20);
 			this.txt_FilterList.TabIndex = 7;
 			// 
-			// btn_PBOList_SelectPath
+			// btn_FilterList_SelectPath
 			// 
-			this.helpProvider1.SetHelpString(this.btn_PBOList_SelectPath, "Select Map-Template folder(s).");
-			this.btn_PBOList_SelectPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.btn_PBOList_SelectPath.Location = new System.Drawing.Point(364, 57);
-			this.btn_PBOList_SelectPath.Name = "btn_PBOList_SelectPath";
-			this.helpProvider1.SetShowHelp(this.btn_PBOList_SelectPath, true);
-			this.btn_PBOList_SelectPath.Size = new System.Drawing.Size(24, 20);
-			this.btn_PBOList_SelectPath.TabIndex = 8;
-			this.btn_PBOList_SelectPath.Text = "...";
-			this.btn_PBOList_SelectPath.UseVisualStyleBackColor = true;
-			this.btn_PBOList_SelectPath.Click += new System.EventHandler(this.btn_PBOList_SelectPath_Click);
+			this.helpProvider1.SetHelpString(this.btn_FilterList_SelectPath, "Select Map-Template folder(s).");
+			this.btn_FilterList_SelectPath.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.btn_FilterList_SelectPath.Location = new System.Drawing.Point(364, 57);
+			this.btn_FilterList_SelectPath.Name = "btn_FilterList_SelectPath";
+			this.helpProvider1.SetShowHelp(this.btn_FilterList_SelectPath, true);
+			this.btn_FilterList_SelectPath.Size = new System.Drawing.Size(24, 20);
+			this.btn_FilterList_SelectPath.TabIndex = 8;
+			this.btn_FilterList_SelectPath.Text = "...";
+			this.btn_FilterList_SelectPath.UseVisualStyleBackColor = true;
+			this.btn_FilterList_SelectPath.Click += new System.EventHandler(this.btn_FilterList_SelectPath_Click);
 			// 
-			// btn_PBOList_Help
+			// btn_FilterList_Help
 			// 
-			this.helpProvider1.SetHelpString(this.btn_PBOList_Help, "Map-Template Filter Help Button.");
-			this.btn_PBOList_Help.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-			this.btn_PBOList_Help.Location = new System.Drawing.Point(394, 57);
-			this.btn_PBOList_Help.Name = "btn_PBOList_Help";
-			this.helpProvider1.SetShowHelp(this.btn_PBOList_Help, true);
-			this.btn_PBOList_Help.Size = new System.Drawing.Size(24, 20);
-			this.btn_PBOList_Help.TabIndex = 9;
-			this.btn_PBOList_Help.Text = "?";
-			this.btn_PBOList_Help.UseVisualStyleBackColor = true;
-			this.btn_PBOList_Help.Click += new System.EventHandler(this.btn_PBOList_Help_Click);
+			this.helpProvider1.SetHelpString(this.btn_FilterList_Help, "Map-Template Filter Help Button.");
+			this.btn_FilterList_Help.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+			this.btn_FilterList_Help.Location = new System.Drawing.Point(394, 57);
+			this.btn_FilterList_Help.Name = "btn_FilterList_Help";
+			this.helpProvider1.SetShowHelp(this.btn_FilterList_Help, true);
+			this.btn_FilterList_Help.Size = new System.Drawing.Size(24, 20);
+			this.btn_FilterList_Help.TabIndex = 9;
+			this.btn_FilterList_Help.Text = "?";
+			this.btn_FilterList_Help.UseVisualStyleBackColor = true;
+			this.btn_FilterList_Help.Click += new System.EventHandler(this.btn_FilterList_Help_Click);
 			// 
 			// chk_ForcePBO
 			// 
@@ -248,8 +248,8 @@
 			this.Controls.Add(this.chk_OverrideSource);
 			this.Controls.Add(this.btn_RunLastPath);
 			this.Controls.Add(this.chk_ForcePBO);
-			this.Controls.Add(this.btn_PBOList_Help);
-			this.Controls.Add(this.btn_PBOList_SelectPath);
+			this.Controls.Add(this.btn_FilterList_Help);
+			this.Controls.Add(this.btn_FilterList_SelectPath);
 			this.Controls.Add(this.txt_FilterList);
 			this.Controls.Add(this.chk_ForceOpenOutput);
 			this.Controls.Add(this.btn_EraseRegistry);
@@ -281,8 +281,8 @@
 		private System.Windows.Forms.CheckBox chk_ForceOpenOutput;
 		private System.Windows.Forms.HelpProvider helpProvider1;
 		private System.Windows.Forms.TextBox txt_FilterList;
-		private System.Windows.Forms.Button btn_PBOList_SelectPath;
-		private System.Windows.Forms.Button btn_PBOList_Help;
+		private System.Windows.Forms.Button btn_FilterList_SelectPath;
+		private System.Windows.Forms.Button btn_FilterList_Help;
 		private System.Windows.Forms.CheckBox chk_ForcePBO;
 		private System.Windows.Forms.Button btn_RunLastPath;
 		private System.Windows.Forms.CheckBox chk_OverrideSource;

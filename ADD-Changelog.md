@@ -1,6 +1,11 @@
 **Change-log:**
-* v4b4 (4.4.9.0):<br/>
+* v4b5 ():<br/>
+Template finding is now multi-threaded.<br/>
+User is notified if filter caused empty list.<br/>
+Window is only hidden from argument.<br/>
+Incorrect switch will cause help page to appear.<br/>
 Fixed bug where ADD filtered using full path of template.<br/>
+Fixed bug where ADD use local folder for stringtable search.<br/>
 * v4b4 (4.4.9.0):<br/>
 Fixed bug where ADD was unable to navigate to the StringTable correctly.<br/>
 * v4b3 (4.3.8.0):<br/>

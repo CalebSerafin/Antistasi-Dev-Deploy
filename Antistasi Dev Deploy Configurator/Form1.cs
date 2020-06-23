@@ -66,23 +66,23 @@ namespace Antistasi_Dev_Deploy_Configurator {
 			SelectOutputDialog.Dispose();
 		}
 
-		private void btn_PBOList_SelectPath_Click(object sender, EventArgs e) {
-			CommonOpenFileDialog SelectPBOListDialog = new CommonOpenFileDialog {
-				InitialDirectory = Path.GetDirectoryName(LastPath),
+		private void btn_FilterList_SelectPath_Click(object sender, EventArgs e) {
+			CommonOpenFileDialog SelectFilterListDialog = new CommonOpenFileDialog {
+				InitialDirectory = txt_OverrideSource.Text == "C:\\" ? Path.GetDirectoryName(LastPath) : txt_OverrideSource.Text,
 				IsFolderPicker = true,
 				Multiselect = true
 			};
-			if (SelectPBOListDialog.ShowDialog() == CommonFileDialogResult.Ok) {
-				List<string> FileNames = SelectPBOListDialog.FileNames.ToList();
+			if (SelectFilterListDialog.ShowDialog() == CommonFileDialogResult.Ok) {
+				List<string> FileNames = SelectFilterListDialog.FileNames.ToList();
 				for (int i = 0; i < FileNames.Count; i++) {
 					FileNames[i] = GetFolder(FileNames[i]);
 				};
-				txt_FilterList.Text = string.Join(",",FileNames);
+				txt_FilterList.Text = string.Join(",", FileNames);
 			}
-			SelectPBOListDialog.Dispose();
+			SelectFilterListDialog.Dispose();
 		}
 
-		private void btn_PBOList_Help_Click(object sender, EventArgs e) {
+		private void btn_FilterList_Help_Click(object sender, EventArgs e) {
 			MessageBox.Show("Input Map-Templates (comma separated) to filter output files. Alternatively you can use the file picker to select Map-Template folder(s) (Not connected to source path)");
 		}
 
