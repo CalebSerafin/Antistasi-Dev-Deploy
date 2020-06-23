@@ -32,9 +32,6 @@ namespace Antistasi_Dev_Deploy {
 		private static string FilterArgs = string.Empty;
 
 		static void Main(string[] args) {
-#if !DEBUG
-			WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
-#endif
 			foreach (string arg in args) {
 				switch (arg.Substring(0, 2).ToLower()) {
 					case "/v":
@@ -47,14 +44,18 @@ namespace Antistasi_Dev_Deploy {
 						FilterInvoked = true;
 						FilterArgs = arg;
 						break;
+					case "/w":
+						WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
+						break;
 					default:
 						ShowMessage(
 							Environment.NewLine,
-							"/v                 Prints assembly version.",
 							"/h                 Prints help list.",
-							"/p                 PBO files. Requires A3Tools:FileBank.",
 							"/f                 Filter templates from ADD-Configurator.",
 							"/f=\"Name,Name...\"  Pack these templates. Overrides Config.",
+							"/p                 PBO files. Requires A3Tools:FileBank.",
+							"/v                 Prints assembly version.",
+							"/w                 Hide console Window.",
 							"NOTE: the Configurator can override some of these settings.",
 							"See https://github.com/CalebSerafin/Arma-3-Dev-Deploy for details."
 						);
@@ -134,9 +135,7 @@ namespace Antistasi_Dev_Deploy {
 				string Name = string.Join(".", TemplateSplit.Take(TemplateSplit.Length - 1));
 				string Map = TemplateSplit.Last();
 				string Destination = OutputFolder + Name + MissionVersion + "." + Map;
-#if DEBUG
-				Console.WriteLine("Copying " + Template.Dir + " Base&Template assets...");
-#endif
+
 				FolderOps.PackTemplate(AntistasiCodePath, TemplatePath, Destination, PBOFiles);
 				TemplatePacked = true;
 			});
@@ -150,14 +149,9 @@ namespace Antistasi_Dev_Deploy {
 					);
 				return;
 			}
-#if DEBUG
-			ShowMessage("Press any key to open " + GetFolder(OutputFolder) + ".");
-			Process.Start(OutputFolder + "\\");
-#else
 			if (OpenOutput) {
 				Process.Start(OutputFolder + "\\");
 			}
-#endif
 		}
 	}
 }

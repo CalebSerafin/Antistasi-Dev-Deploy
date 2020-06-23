@@ -129,6 +129,7 @@ namespace Antistasi_Dev_Deploy_Configurator {
 			if (File.Exists(LastPath)) {
 				Process ADD = new Process();
 				ADD.StartInfo.FileName = LastPath;
+				ADD.StartInfo.Arguments = "/w";
 				ADD.Start();
 				ADD.WaitForExit();
 			} else {
