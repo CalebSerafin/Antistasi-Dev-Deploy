@@ -25,7 +25,6 @@ namespace Antistasi_Dev_Deploy {
 	class Program {
 		//Needs to be Nullable as Registry calls may return null if key does not exist.
 		private static bool BoolBin(int? Input) => Input.HasValue && Input > 0;
-		private static string MissionVersion { get; } = Mission.GetVersion();
 
 		private static bool PBOFiles = false;
 		private static List<string> FilterList = new List<string>();
@@ -114,6 +113,7 @@ namespace Antistasi_Dev_Deploy {
 			}
 			string Dir_AntistasiCode = SourceDirectory + @"\A3-Antistasi";
 			string Dir_AntistasiTemplates = SourceDirectory + @"\Map-Templates";
+			string MissionVersion = Mission.GetVersion(SourceDirectory);
 			/*if there is an issue fetching Arma 3 profile name or if developing on a computer that 
 			does not have Arma 3 Installed this allows it to still be able to package missions. 
 			The name matches the out folder of a python tool in the Official Repository that does this as well.*/
