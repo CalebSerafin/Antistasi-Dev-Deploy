@@ -111,43 +111,45 @@ namespace Antistasi_Dev_Deploy {
 					);
 				return;
 			}
-			string Dir_AntistasiCode = SourceDirectory + @"\A3-Antistasi";
-			string Dir_AntistasiTemplates = SourceDirectory + @"\Map-Templates";
+			string AntistasiCodePath = SourceDirectory + @"\A3-Antistasi";
+			string AntistasiTemplatesPath = SourceDirectory + @"\Map-Templates";
 			string MissionVersion = Mission.GetVersion(SourceDirectory);
 			/*if there is an issue fetching Arma 3 profile name or if developing on a computer that 
 			does not have Arma 3 Installed this allows it to still be able to package missions. 
 			The name matches the out folder of a python tool in the Official Repository that does this as well.*/
 			string OutputFolder = string.IsNullOrEmpty(PlayerName) ? SourceDirectory + @"\PackagedMissions" : Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
 			if (OverrideOutput) OutputFolder = OverrideOutputFolder;
+			Directory.CreateDirectory(OutputFolder);
 
-			List<MapTemplate> AntistasiMapTemplates = new List<MapTemplate>();
-			string[] Templates_Directories = Directory.GetDirectories(Dir_AntistasiTemplates);
-			foreach (string Item in Directory.GetDirectories(Dir_AntistasiTemplates)) {
-				if (FilterInvoked && !FilterList.Any(MapT => MapT.Equals(GetFolder(Item), StringComparison.OrdinalIgnoreCase))) continue;
-				if (!File.Exists(Item + @"\mission.sqm")) continue; // If no mission.sqm it is probably not a map template.
-				string[] TemplateData = GetFolder(Item).Split('.');
-				if (TemplateData.Length < 2) continue; // If split return at least two strings, it is probably a map template.
-				AntistasiMapTemplates.Add(new MapTemplate(TemplateData));
-			}
-			if (AntistasiMapTemplates.Count == 0) {
+			bool TemplatePacked = false;
+			string[] Templates_Directories = Directory.GetDirectories(AntistasiTemplatesPath);
+			System.Threading.Tasks.Parallel.ForEach(Templates_Directories, TemplatePath => {
+				string TemplateFolder = GetFolder(TemplatePath);
+
+				if (FilterInvoked && !FilterList.Any(MapT => MapT.Equals(TemplateFolder, StringComparison.OrdinalIgnoreCase))) return;
+				if (!File.Exists(TemplatePath + @"\mission.sqm")) return; // If no mission.sqm it is probably not a map template.
+				string[] TemplateSplit = TemplateFolder.Split('.');
+				if (TemplateSplit.Length < 2) return; // If split return at least two strings, it is probably a map template.
+
+				string Name = string.Join(".", TemplateSplit.Take(TemplateSplit.Length - 1));
+				string Map = TemplateSplit.Last();
+				string Destination = OutputFolder + Name + MissionVersion + "." + Map;
+#if DEBUG
+				Console.WriteLine("Copying " + Template.Dir + " Base&Template assets...");
+#endif
+				FolderOps.PackTemplate(AntistasiCodePath, TemplatePath, Destination, PBOFiles);
+				TemplatePacked = true;
+			});
+			if (!TemplatePacked) {
 				ShowMessage(
 					"Filter matches no templates.",
 					"Filter: ",
 					string.Join(", ", FilterList),
 					"Map Templates: ",
-					string.Join(Environment.NewLine, Templates_Directories.Aggregate((Item,Index) => GetFolder(Item)))
+					string.Join(Environment.NewLine, Templates_Directories.Aggregate((Item, Index) => GetFolder(Item)))
 					);
 				return;
 			}
-			Directory.CreateDirectory(OutputFolder);
-			System.Threading.Tasks.Parallel.ForEach(AntistasiMapTemplates, (Template) => {
-				string Destination = OutputFolder + Template.Name + MissionVersion + "." + Template.Map;
-				string TemplateFolder = Dir_AntistasiTemplates + @"\" + Template.Dir;
-#if DEBUG
-				Console.WriteLine("Copying " + Template.Dir + " Base&Template assets...");
-#endif
-				FolderOps.PackTemplate(Dir_AntistasiCode, TemplateFolder, Destination, PBOFiles);
-			});
 #if DEBUG
 			ShowMessage("Press any key to open " + GetFolder(OutputFolder) + ".");
 			Process.Start(OutputFolder + "\\");
