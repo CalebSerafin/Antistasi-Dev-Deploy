@@ -40,7 +40,14 @@ namespace Antistasi_Dev_Deploy {
 					case "/v":
 						ShowMessage("Version: " + RunTimeValue.AppVersion);
 						return;
-					case "/h":
+					case "/p":
+						PBOFiles = true;
+						break;
+					case "/f":
+						FilterInvoked = true;
+						FilterArgs = arg;
+						break;
+					default:
 						ShowMessage(
 							Environment.NewLine,
 							"/v                 Prints assembly version.",
@@ -52,13 +59,6 @@ namespace Antistasi_Dev_Deploy {
 							"See https://github.com/CalebSerafin/Arma-3-Dev-Deploy for details."
 						);
 						return;
-					case "/p":
-						PBOFiles = true;
-						break;
-					case "/f":
-						FilterInvoked = true;
-						FilterArgs = arg;
-						break;
 				}
 			}
 			if (PBOFiles || BoolBin((int)FetchA3DD(Reg.ADD_PBOForce, 0))) {
@@ -94,7 +94,7 @@ namespace Antistasi_Dev_Deploy {
 			bool OverrideSource = BoolBin((int)FetchA3DD(Reg.ADD_OverrideSource, 0));
 			bool OverrideOutput = BoolBin((int)FetchA3DD(Reg.ADD_OverrideOutput, 0));
 			bool OpenOutput = BoolBin((int)FetchA3DD(Reg.ADD_ForceOpenOutput, 0));
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_LastPath, Assembly.GetEntryAssembly().Location, RegistryValueKind.String);
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_LastPath, RunTimeValue.AppPath, RegistryValueKind.String);
 
 			string OverrideSourceFolder = (string)FetchA3DD(Reg.ADD_OverrideSourceFolder, "C:\\");
 			if (!OverrideSourceFolder.EndsWith("\\")) OverrideSourceFolder += "\\";
