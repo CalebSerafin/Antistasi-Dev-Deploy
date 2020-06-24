@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{5B938D75-F
 		..\.gitignore = ..\.gitignore
 		..\ADD-Changelog.md = ..\ADD-Changelog.md
 		..\LICENSE = ..\LICENSE
+		Performance Benchmark.md = Performance Benchmark.md
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
