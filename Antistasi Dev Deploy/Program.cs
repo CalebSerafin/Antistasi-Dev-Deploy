@@ -123,7 +123,7 @@ namespace Antistasi_Dev_Deploy {
 					"Filter: ",
 					string.Join(", ", FilterList),
 					"Map Templates: ",
-					string.Join(Environment.NewLine, Templates_Directories.Aggregate((Item, Index) => GetFolder(Item)))
+					Templates_Directories.Aggregate("", (string Templates, string Item) => Templates += GetFolder(Item) + Environment.NewLine)
 				);
 				return;
 			}
