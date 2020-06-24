@@ -2,7 +2,6 @@
  *  ======= Antistasi Dev Deploy =======
  * 
  * Author:			Caleb S. Serafin
- * Version:			3.1
  * Date Created:	13-10-2019
  * Dynamically deploys any map template into mpmissions for testing,
  * 
