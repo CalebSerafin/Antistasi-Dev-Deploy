@@ -1,6 +1,4 @@
-﻿using Antistasi_Dev_Deploy_Shared;
-using System;
-using System.IO;
+﻿using System.IO;
 using System.Xml;
 using static Antistasi_Dev_Deploy.WindowPowerLib;
 
