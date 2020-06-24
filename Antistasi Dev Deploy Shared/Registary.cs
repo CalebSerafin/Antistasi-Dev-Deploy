@@ -4,6 +4,7 @@ using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 
 namespace Antistasi_Dev_Deploy_Shared {
 	class Registary {
+		public static bool BoolBin(int? Input) => Input.HasValue && Input > 0;
 		public static dynamic Fetch(string Key, string Name, dynamic Defualt) {
 			//When a registry tree doesn't exist, registary.GetValue instead throws an error rather than returning null.
 			try {
@@ -16,7 +17,6 @@ namespace Antistasi_Dev_Deploy_Shared {
 				}
 			}
 		}
-
 		public static dynamic FetchA3DD(string Name, dynamic Defualt) {
 			return Fetch(Reg.Key_A3DD_ADD, Name, Defualt);
 		}

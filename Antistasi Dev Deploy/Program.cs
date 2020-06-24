@@ -19,15 +19,13 @@ using static Antistasi_Dev_Deploy.WindowPowerLib;
 
 namespace Antistasi_Dev_Deploy {
 	class Program {
-		//Needs to be Nullable as Registry calls may return null if key does not exist.
-		private static bool BoolBin(int? Input) => Input.HasValue && Input > 0;
-
-		private static bool PBOFiles = false;
+		private static bool PBOFiles = BoolBin((int)FetchA3DD(Reg.ADD_PBOForce, 0));
 		private static List<string> FilterList = new List<string>();
-		private static bool FilterInvoked = false;
+		private static bool FilterInvoked = BoolBin((int)FetchA3DD(Reg.ADD_ForceFilter, 0));
 		private static string FilterArgs = string.Empty;
 
 		static void Main(string[] args) {
+			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_LastPath, RunTimeValue.AppPath, RegistryValueKind.String);
 			foreach (string arg in args) {
 				switch (arg.Substring(0, 2).ToLower()) {
 					case "/v":
@@ -58,15 +56,9 @@ namespace Antistasi_Dev_Deploy {
 						return;
 				}
 			}
-			if (PBOFiles || BoolBin((int)FetchA3DD(Reg.ADD_PBOForce, 0))) {
-				if (!HasFileBank) {
-					ShowMessage("Arma 3 Tools: FileBank not installed on system.", "FileBank's Path was not found in system registry.");
-					return;
-				};
-				PBOFiles = true;
-			}
-			if (BoolBin((int)FetchA3DD(Reg.ADD_ForceFilter, 0))) {
-				FilterInvoked = true;
+			if (PBOFiles && !HasFileBank) {
+				ShowMessage("Arma 3 Tools: FileBank not installed on system.", "FileBank's Path was not found in system registry.");
+				return;
 			}
 			if (FilterInvoked) {
 				try {
@@ -81,11 +73,6 @@ namespace Antistasi_Dev_Deploy {
 					throw;
 				};
 			}
-			string PlayerName = FetchArma(Reg.Arma_PlayerName_Name, @"empty");
-			bool OverrideSource = BoolBin((int)FetchA3DD(Reg.ADD_OverrideSource, 0));
-			bool OverrideOutput = BoolBin((int)FetchA3DD(Reg.ADD_OverrideOutput, 0));
-			bool OpenOutput = BoolBin((int)FetchA3DD(Reg.ADD_ForceOpenOutput, 0));
-			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_LastPath, RunTimeValue.AppPath, RegistryValueKind.String);
 
 			string OverrideSourceFolder = (string)FetchA3DD(Reg.ADD_OverrideSourceFolder, "C:\\");
 			if (!OverrideSourceFolder.EndsWith("\\")) OverrideSourceFolder += "\\";
@@ -93,7 +80,7 @@ namespace Antistasi_Dev_Deploy {
 			string OverrideOutputFolder = (string)FetchA3DD(Reg.ADD_OverrideOutputFolder, "C:\\");
 			if (!OverrideOutputFolder.EndsWith("\\")) OverrideOutputFolder += "\\";
 
-			string SourceDirectory = OverrideSource ? OverrideSourceFolder : RunTimeValue.AppFolder;
+			string SourceDirectory = BoolBin((int)FetchA3DD(Reg.ADD_OverrideSource, 0)) ? OverrideSourceFolder : RunTimeValue.AppFolder;
 			SourceDirectory = FolderOps.FindRepository(SourceDirectory);
 			if (string.IsNullOrEmpty(SourceDirectory)) {
 				ShowMessage(
@@ -103,17 +90,18 @@ namespace Antistasi_Dev_Deploy {
 				return;
 			}
 			string AntistasiCodePath = SourceDirectory + @"\A3-Antistasi";
-			string AntistasiTemplatesPath = SourceDirectory + @"\Map-Templates";
 			string MissionVersion = Mission.GetVersion(SourceDirectory);
 			/*if there is an issue fetching Arma 3 profile name or if developing on a computer that 
 			does not have Arma 3 Installed this allows it to still be able to package missions. 
 			The name matches the out folder of a python tool in the Official Repository that does this as well.*/
+			string PlayerName = FetchArma(Reg.Arma_PlayerName_Name, @"empty");
 			string OutputFolder = string.IsNullOrEmpty(PlayerName) ? SourceDirectory + @"\PackagedMissions" : Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
-			if (OverrideOutput) OutputFolder = OverrideOutputFolder;
-			Directory.CreateDirectory(OutputFolder);
+			if (BoolBin((int)FetchA3DD(Reg.ADD_OverrideOutput, 0))) OutputFolder = OverrideOutputFolder;
 
 			bool TemplatePacked = false;
-			string[] Templates_Directories = Directory.GetDirectories(AntistasiTemplatesPath);
+			string[] Templates_Directories = Directory.GetDirectories(SourceDirectory + @"\Map-Templates");
+
+			Directory.CreateDirectory(OutputFolder);
 			System.Threading.Tasks.Parallel.ForEach(Templates_Directories, TemplatePath => {
 				string TemplateFolder = GetFolder(TemplatePath);
 
@@ -136,10 +124,10 @@ namespace Antistasi_Dev_Deploy {
 					string.Join(", ", FilterList),
 					"Map Templates: ",
 					string.Join(Environment.NewLine, Templates_Directories.Aggregate((Item, Index) => GetFolder(Item)))
-					);
+				);
 				return;
 			}
-			if (OpenOutput) {
+			if (BoolBin((int)FetchA3DD(Reg.ADD_ForceOpenOutput, 0))) {
 				Process.Start(OutputFolder + "\\");
 			}
 		}

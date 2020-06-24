@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using static Antistasi_Dev_Deploy_Shared.ProgramValues;
-using static Antistasi_Dev_Deploy.WindowPowerLib;
-using System.Drawing;
+using static Antistasi_Dev_Deploy_Shared.GetFolderLib;
 
 namespace Antistasi_Dev_Deploy {
 	static class FolderOps {
