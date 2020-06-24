@@ -71,15 +71,9 @@ namespace Antistasi_Dev_Deploy {
 			}
 			if (FilterInvoked) {
 				try {
-					string FilterListString;
-					if (FilterArgs.Length > 3) {
-						FilterListString = FilterArgs.ToLower();
-					} else {
-						FilterListString = FetchA3DD(Reg.ADD_FilterList, string.Empty);
-					}
+					string FilterListString = (FilterArgs.Length > 3) ? FilterArgs.Substring(3).ToLower() : FetchA3DD(Reg.ADD_FilterList, string.Empty);
 					FilterList = FilterListString.Split(',').ToList();
-					if (FilterList.Count() == 1 && string.IsNullOrEmpty(FilterList[0])) {
-						FilterInvoked = false;
+					if (string.IsNullOrEmpty(FilterList[0])) {
 						ShowMessage("ADD-Config Filter is empty, please remove /f command.");
 						return;
 					}
