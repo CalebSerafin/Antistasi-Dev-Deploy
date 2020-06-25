@@ -94,7 +94,7 @@ namespace Antistasi_Dev_Deploy {
 			/*if there is an issue fetching Arma 3 profile name or if developing on a computer that 
 			does not have Arma 3 Installed this allows it to still be able to package missions. 
 			The name matches the out folder of a python tool in the Official Repository that does this as well.*/
-			string PlayerName = FetchArma(Reg.Arma_PlayerName_Name, @"empty");
+			string PlayerName = FetchArma(Reg.Arma_PlayerName_Name, string.Empty);
 			string OutputFolder = string.IsNullOrEmpty(PlayerName) ? SourceDirectory + @"\PackagedMissions" : Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Documents\Arma 3 - Other Profiles\" + PlayerName + @"\mpmissions\");
 			if (BoolBin((int)FetchA3DD(Reg.ADD_OverrideOutput, 0))) OutputFolder = OverrideOutputFolder;
 
