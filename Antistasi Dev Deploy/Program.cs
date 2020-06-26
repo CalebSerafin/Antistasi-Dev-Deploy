@@ -27,6 +27,7 @@ namespace Antistasi_Dev_Deploy {
 		static void Main(string[] args) {
 			Registry.SetValue(Reg.Key_A3DD_ADD, Reg.ADD_LastPath, RunTimeValue.AppPath, RegistryValueKind.String);
 			foreach (string arg in args) {
+				if (arg.Length < 2) continue;
 				switch (arg.Substring(0, 2).ToLower()) {
 					case "/v":
 						ShowMessage("Version: " + RunTimeValue.AppVersion);
@@ -54,6 +55,7 @@ namespace Antistasi_Dev_Deploy {
 							"/p                 PBO files. Requires A3Tools:FileBank.",
 							"/v                 Prints assembly version.",
 							"/w                 Hide console Window.",
+							"/y                 Auto Yes to all prompts.",
 							"NOTE: the Configurator can override some of these settings.",
 							"See https://github.com/CalebSerafin/Arma-3-Dev-Deploy for details."
 						);
