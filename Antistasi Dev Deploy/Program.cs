@@ -40,6 +40,10 @@ namespace Antistasi_Dev_Deploy {
 						break;
 					case "/w":
 						WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
+						WindowHidden = true;
+						break;
+					case "/y":  // Recommended when output stream is redirected.
+						YesToAll = true;
 						break;
 					default:
 						ShowMessage(

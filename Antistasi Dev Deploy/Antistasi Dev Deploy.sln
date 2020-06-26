@@ -18,9 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{5B938D75-F
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antistasi Dev Deploy Benchmark", "..\Antistasi Dev Deploy Benchmark\Antistasi Dev Deploy Benchmark.csproj", "{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{718df2c1-74be-469d-9c46-d3e3cd1ac342}*SharedItemsImports = 4
+		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{98ab43d0-e71e-46b5-98c8-bf523ac7bba9}*SharedItemsImports = 4
 		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{9936a835-0899-4319-9a74-a575a66d8d82}*SharedItemsImports = 4
 		..\Antistasi Dev Deploy Shared\Antistasi Dev Deploy Shared.projitems*{f5e57b9d-1491-4339-9cb3-f09648824639}*SharedItemsImports = 13
 	EndGlobalSection
@@ -47,6 +50,14 @@ Global
 		{718DF2C1-74BE-469D-9C46-D3E3CD1AC342}.Release|Any CPU.Build.0 = Release|Any CPU
 		{718DF2C1-74BE-469D-9C46-D3E3CD1AC342}.Release|x86.ActiveCfg = Release|Any CPU
 		{718DF2C1-74BE-469D-9C46-D3E3CD1AC342}.Release|x86.Build.0 = Release|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Debug|x86.Build.0 = Debug|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Release|x86.ActiveCfg = Release|Any CPU
+		{98AB43D0-E71E-46B5-98C8-BF523AC7BBA9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

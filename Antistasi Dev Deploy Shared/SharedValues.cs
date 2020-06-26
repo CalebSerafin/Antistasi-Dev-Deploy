@@ -7,6 +7,7 @@ namespace Antistasi_Dev_Deploy_Shared {
 			public static string AppVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " (Pre-release v4b5)";
 			public static string AppPath = Assembly.GetEntryAssembly().Location;
 			public static string AppFolder = Path.GetDirectoryName(AppPath);
+
 		}
 		public class CompileTimeValue {
 		}

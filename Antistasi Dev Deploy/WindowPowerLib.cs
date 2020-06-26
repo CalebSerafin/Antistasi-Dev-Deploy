@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using static Antistasi_Dev_Deploy_Shared.ProgramValues;
 
 namespace Antistasi_Dev_Deploy {
 	class WindowPowerLib {
@@ -16,11 +17,16 @@ namespace Antistasi_Dev_Deploy {
 			// WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
 			// WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
 		}
-		public static void ShowMessage(params string[] Message) { // ShowMessage();
-			WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
+		public static bool YesToAll { get; set; } = false;
+		public static bool WindowHidden { get; set; } = false;
+		public static void ShowMessage(params string[] Message) {
+			if (WindowHidden) WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_SHOW);
 			Console.WriteLine(string.Join(Environment.NewLine,Message));
-			Console.ReadKey();
-			WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
+			if (!YesToAll) {
+				Console.ReadKey();
+				Console.WriteLine("");
+			};
+			if (WindowHidden) WindowPower.ShowWindow(WindowPower.GetConsoleWindow(), WindowPower.SW_HIDE);
 		}
 	}
 }
