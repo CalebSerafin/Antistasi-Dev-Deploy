@@ -14,9 +14,14 @@ namespace Antistasi_Dev_Deploy_Benchmark {
 
 			string LastPath = GetPath();
 			string HelpText = PingADDHelpText(LastPath);
+			//List<string> Results = new List<string>();
+			//string ResultsCSV = "";
+			//string ResultsMDTable = "";
+			string Args;
+
 		StartAgain:
 			Console.Clear();
-			string Args = GetArgs(HelpText);
+			Args = GetArgs(HelpText);
 
 			Process ADD = new Process();
 			ADD.StartInfo.FileName = LastPath;
@@ -31,6 +36,11 @@ namespace Antistasi_Dev_Deploy_Benchmark {
 			Console.WriteLine(string.Join(Environment.NewLine,
 				"Operation Done!",
 				"Total time (D:H:S:MS) " + ADDTimer.Elapsed.ToString(),
+				//"",
+				//ResultsCSV,
+				//"",
+				//ResultsMDTable,
+				"",
 				"Press \"Q\" to quit."
 			));
 			if (Console.ReadKey().KeyChar.ToString().ToLower() == "q") return;

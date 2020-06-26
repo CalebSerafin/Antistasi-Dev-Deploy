@@ -4,7 +4,9 @@ Template finding is now multi-threaded.<br/>
 User is notified if filter caused empty list.<br/>
 Fixed command-line filter prefix<br/>
 Window is only hidden from argument.<br/>
+Auto-Yes can be enabled from argument.<br/>
 HelpProvider replaced by ToolTip and Minimize.<br/>
+`Antistasi Dev Deploy Benchmark.exe` added.<br/>
 Incorrect switch will cause help page to appear.<br/>
 Fixed bug where ADD filtered using full path of template.<br/>
 Fixed bug where ADD use local folder for stringtable search.<br/>
