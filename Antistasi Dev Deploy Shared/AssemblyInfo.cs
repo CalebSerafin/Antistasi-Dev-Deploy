@@ -9,9 +9,13 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Antistasi Dev Deploy")]
 [assembly: AssemblyDescription("Dynamically deploys any map template into mpmissions for testing.")]
 #endif
+#if ADDB
+[assembly: AssemblyTitle("Antistasi Dev Deploy Benchmark")]
+[assembly: AssemblyDescription("Tests speed of ADD.")]
+#endif
 #if ADDC
 [assembly: AssemblyTitle("Antistasi Dev Deploy Configurator")]
-[assembly: AssemblyDescription("GUI which allows you to edit settings for Antistasi Dev Deploy")]
+[assembly: AssemblyDescription("GUI which allows you to edit settings for Antistasi Dev Deploy.")]
 #endif
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Caleb S. Serafin")]
@@ -38,5 +42,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.4.12.6")]
+[assembly: AssemblyVersion("4.4.13.7")]
 [assembly: NeutralResourcesLanguage("en-ZA")]
