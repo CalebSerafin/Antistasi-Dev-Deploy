@@ -1,4 +1,4 @@
-**Please find binaries inside the `Releases` tab. Double clicking a .cs won't run it.**
+**Please find binaries inside the [`Releases`](https://github.com/CalebSerafin/Arma-3-Dev-Deploy/releases/latest) tab. Double clicking a .cs won't run it.**
 ***
 # [See Wiki for details](https://github.com/CalebSerafin/Arma-3-Dev-Deploy/wiki)
 
